@@ -206,4 +206,3 @@ INSERT INTO user_actions(user_id, movie_id, rating, review) VALUES
 (8, 8, 10, 'I absolutely love sylvestor salone, and his role in this movie was outstanding!'),
 (9, 9, 10, 'This movie has to be the greatest marvel movie of all time! A must see!'),
 (10, 10, 7, 'It was good but not that good');
-
