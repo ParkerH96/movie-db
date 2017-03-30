@@ -7,7 +7,7 @@ body {
   margin: 0;
 }
 
-.container {
+.login-container {
   width: 500px;
   height: 400px;
   text-align: center;
@@ -17,7 +17,7 @@ body {
   margin-top: 150px;
 }
 
-.container img {
+.login-container img {
   width: 120px;
   height: 120px;
   margin-top: -60px;

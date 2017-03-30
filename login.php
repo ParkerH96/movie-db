@@ -22,13 +22,7 @@
     <?php
       if(!empty($_POST)){
 
-        //Connect to the database
-        $mysqli = new mysqli('localhost', 'root', '', 'Databased_movie');
-
-        //Check if there is an error when connecting to the database
-        if($mysqli->connect_error){
-          die($mysqli->connect_errno . ' : ' . $mysqli->connect_error);
-        }
+        include 'connection.php';
 
         //escape the strings for SQL attack injection
         $username = $mysqli->escape_string($_POST['username']);
@@ -59,12 +53,12 @@
     ?>
   </head>
   <body>
-    <div class="container">
+    <div class="login-container">
       <img src="https://www.hit4hit.org/img/login/user-icon-6.png"></img>
       <form method="post" action="">
         <div class="form-input">
-          <input type="text" name="username"><br>
-          <input type="password" name="password">
+          <input type="text" name="username" required><br>
+          <input type="password" name="password" required>
         </div>
         <input type="submit" name="submit" value="LOGIN" class="login-btn">
       </form>
