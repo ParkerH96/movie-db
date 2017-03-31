@@ -24,7 +24,7 @@
 
         include 'connection.php';
 
-        //escape the strings for SQL attack injection
+        //escape the strings
         $username = $mysqli->escape_string($_POST['username']);
         $password = $mysqli->escape_string($_POST['password']);
 

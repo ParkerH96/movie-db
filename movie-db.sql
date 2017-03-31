@@ -25,6 +25,8 @@ CREATE TABLE USER
   last_name varchar(64) NOT NULL,
   dob date NOT NULL,
   gender varchar(64),
+  username varchar(16) NOT NULL,
+  password varchar(16) NOT NULL,
   PRIMARY KEY (user_id)
 );
 
@@ -70,16 +72,6 @@ CREATE TABLE ROLE
   role_id int NOT NULL AUTO_INCREMENT,
   role varchar(64) NOT NULL,
   PRIMARY KEY (role_id)
-);
-
-DROP TABLE IF EXISTS LOGIN;
-CREATE TABLE LOGIN
-(
-  username varchar(16) NOT NULL,
-  password varchar(16) NOT NULL,
-  user_id int NOT NULL,
-  PRIMARY KEY (username),
-  FOREIGN KEY (user_id) REFERENCES USER(user_id)
 );
 
 DROP TABLE IF EXISTS has_members;
@@ -145,17 +137,17 @@ INSERT INTO MOVIE(title, release_date, summary, language, duration) VALUES
 
 INSERT INTO GENRE(genre) VALUES('Comedy'),('Romance'),('Fantasy'),('Science Fiction film'),('Drama film'),('Thriller'),('Mystery'),('Horror'),('Slasher'),('Action');
 
-INSERT INTO USER(admin_tag, first_name, middle_name, last_name, dob, gender) VALUES
-(1, 'Parker', 'Alexander', 'Householder', '1996-05-01', 'Male'),
-(1, 'Evan', 'Phillip', 'Heaton', '1995-02-02', 'Male'),
-(1, 'David', 'Clark', 'Cottrell', '1995-04-03', 'Male'),
-(1, 'John', 'Mathew', 'Dingess', '1997-01-24', 'Male'),
-(0, 'Morgan', 'Shay', 'Lewis', '1995-10-10', 'Female'),
-(0, 'Sarah', 'Elizabeth', 'Foster', '1993-04-08', 'Female'),
-(0, 'Ashley', 'Anna', 'Householder', '1992-09-17', 'Female'),
-(0, 'James', 'Bryan', 'Householder', '1963-09-17', 'Male'),
-(0, 'Monica', 'Ott', 'Householder', '1967-03-14', 'Female'),
-(0, 'Donald', 'John', 'Trump', '1946-05-14', 'Male');
+INSERT INTO USER(admin_tag, first_name, middle_name, last_name, dob, gender, username, password) VALUES
+(1, 'Parker', 'Alexander', 'Householder', '1996-05-01', 'Male', 'paho224', 'householder123'),
+(1, 'Evan', 'Phillip', 'Heaton', '1995-02-02', 'Male', 'ephe225', 'heaton123'),
+(1, 'David', 'Clark', 'Cottrell', '1995-04-03', 'Male', 'dcco226', 'cottrell123'),
+(1, 'John', 'Mathew', 'Dingess', '1997-01-24', 'Male', 'jmdi227', 'dingess123'),
+(0, 'Morgan', 'Shay', 'Lewis', '1995-10-10', 'Female', 'msle228', 'lewis123'),
+(0, 'Sarah', 'Elizabeth', 'Foster', '1993-04-08', 'Female', 'sefo229', 'foster123'),
+(0, 'Ashley', 'Anna', 'Householder', '1992-09-17', 'Female', 'aaho230', 'householder123'),
+(0, 'James', 'Bryan', 'Householder', '1963-09-17', 'Male', 'jbho231', 'householder123'),
+(0, 'Monica', 'Ott', 'Householder', '1967-03-14', 'Female', 'moho232', 'householder123'),
+(0, 'Donald', 'John', 'Trump', '1946-05-14', 'Male', 'djtr233', 'trump123');
 
 INSERT INTO TAGS(tag) VALUES('funny'), ('scary'), ('suspenseful'), ('silly'), ('romantic'), ('hardcore'), ('superhero'), ('marvel'), ('gory'), ('adult');
 
@@ -174,18 +166,6 @@ INSERT INTO MEMBER(first_name, middle_name, last_name, dob, gender) VALUES
 ('Christian', 'Charles', 'Bale', '1974-01-30', 'Male');
 
 INSERT INTO ROLE(role) VALUES ('Director'), ('Producer'), ('Screenwriter'), ('Actor'), ('Editor'), ('Production Designer'), ('Art Director'), ('Extra'), ('Cinematographer'), ('Tech');
-
-INSERT INTO LOGIN VALUES
-('paho224', 'householder123', 1),
-('ephe225', 'heaton123', 2),
-('dcco226', 'cottrell123', 3),
-('jmdi227', 'dingess123', 4),
-('msle228', 'lewis123', 5),
-('sefo229', 'foster123', 6),
-('aaho230', 'householder123', 7),
-('jbho231', 'householder123', 8),
-('moho232', 'householder123', 9),
-('djtr233', 'trump123', 10);
 
 INSERT INTO has_members(crew_id, mem_id, role_id) VALUES (1, 1, 4), (2, 2, 4), (3, 3, 1), (4, 4, 5), (5, 5, 4), (6, 6, 3), (7, 7, 4), (8, 8, 9), (8, 9, 4), (9, 10, 4);
 

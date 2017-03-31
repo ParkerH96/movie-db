@@ -24,13 +24,25 @@ body {
   margin-bottom: 30px;
 }
 
-input[type="text"], input[type="password"] {
+.register-container {
+  width: 500px;
+  height: 500px;
+  text-align: center;
+  background-color: rgba(52, 73, 94, 0.7);
+  border-radius: 4px;
+  margin: 0 auto;
+  margin-top: 150px;
+  overflow-y: scroll;
+}
+
+input[type="text"], input[type="password"], input[type="date"] {
   height: 45px;
   width: 300px;
   font-size: 18px;
   margin-bottom: 20px;
   background-color: #fff;
   padding-left: 20px;
+  border-radius: 4px;
 }
 
 .login-btn {
