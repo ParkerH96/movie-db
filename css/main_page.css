@@ -1,0 +1,45 @@
+.main_page_title {
+  text-align: center;
+  background-color: rgba(52, 73, 94, 0.7);
+  border-radius: 4px;
+
+}
+
+.main_page_title h1 {
+  color: #fff;
+
+  font-size: 75px;
+}
+
+.col-sm-5{
+  background-color: rgba(52, 73, 94, 0.7);
+  border-radius: 4px;
+
+}
+.page-content h1 {
+  text-align: left;
+  font-size: 40px;
+}
+.search-window input[type="Search"] {
+  width: 80%;
+  margin: 0 auto;
+  font-size: 18px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+.search-btn {
+  padding: 15px 10px;
+  color: black;
+  max-width: 150px;
+  background-color: #fff;
+  border-color: black;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.search-options select{
+  border-color: black;
+  border-radius: 4px;
+}
