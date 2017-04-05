@@ -1,7 +1,17 @@
 <html>
   <head>
     <title>Registration Form</title>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <meta charset="UTF-8">
+
+    <!-- fix for viewport scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- include bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- include stylesheets -->
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+    <link rel="stylesheet" href="css/register_style.css" type="text/css">
 
     <script type="text/javascript">
       function Success(){
@@ -44,18 +54,28 @@
     ?>
   </head>
   <body>
-    <div class="register-container">
-      <h1><span style="color: coral; font-weight: bold;">Sign Up!</span></h1>
-      <form method="post" action="">
-        <input type="text" name="first-name" placeholder="First Name" required><br>
-        <input type="text" name="middle-name" placeholder="Middle Name"><br>
-        <input type="text" name="last-name" placeholder="Last Name" required><br>
-        <input type="date" name="dob"><br>
-        <input type="text" name="gender" placeholder="Gender" required><br>
-        <input type="text" name="username" placeholder="Username" required><br>
-        <input type="password" name="password" placeholder="Password" required><br>
-        <input type="submit" name="submit" value="Register" class="login-btn">
-      </form>
+    <div class="full-bg-img background-img">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3 register-container">
+            <img src="https://www.hit4hit.org/img/login/user-icon-6.png"></img>
+            <h2>Movie-DB Register:</h2>
+            <form method="post" action="">
+              <div class="form-input">
+                <input type="text" name="first-name" placeholder="First Name" required><br>
+                <input type="text" name="middle-name" placeholder="Middle Name"><br>
+                <input type="text" name="last-name" placeholder="Last Name" required><br>
+                <input type="date" name="dob"><br>
+                <input type="text" name="gender" placeholder="Gender" required><br>
+                <input type="text" name="username" placeholder="Username" required><br>
+                <input type="password" name="password" placeholder="Password" required><br>
+              </div>
+              <input type="submit" name="submit" value="Register" class="register-btn">
+            </form>
+            <a href="login.php">Already a User? Login here.</a>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

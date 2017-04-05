@@ -8,36 +8,13 @@ body {
   width: 100%;
 }
 
-.register-container {
-  width: 500px;
-  height: 500px;
-  text-align: center;
-  background-color: rgba(52, 73, 94, 0.7);
-  border-radius: 4px;
-  margin: 0 auto;
-  margin-top: 150px;
-  overflow-y: scroll;
-}
-<<<<<<< HEAD
-=======
-
-input[type="text"], input[type="password"], input[type="date"] {
-  height: 45px;
-  width: 300px;
-  font-size: 18px;
-  margin-bottom: 20px;
-  background-color: #fff;
-  padding-left: 20px;
-  border-radius: 4px;
+form {
+  margin: 0 0 0 0;
 }
 
-.login-btn {
-  padding: 15px 25px;
-  color: #fff;
-  background-color: #2ECC71;
-  border: none;
-  border-radius: 4px;
-  border-bottom: 4px solid #27AE60;
-  cursor: pointer;
+.background-img {
+  background: url('../images/willy.jpg');
+  background-size: cover;
+  height: 100%;
+  width: 100%;
 }
->>>>>>> 9887784956c002d75e0cb3332f4e8670d6f6a7b4

@@ -4,6 +4,9 @@
     <title>Login Form</title>
     <meta charset="UTF-8">
 
+    <!-- fix for viewport scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- include bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -65,6 +68,11 @@
         <div class="row">
           <div class="col-sm-6 col-sm-offset-3 login-container">
             <img src="https://www.hit4hit.org/img/login/user-icon-6.png"></img>
+
+            <div class="login-title">
+              <h2>Movie-DB Login:</h2>
+            </div>
+
             <form method="post" action="">
               <div class="form-input">
                 <input placeholder="Username" type="text" name="username" required><br>
@@ -72,7 +80,7 @@
               </div>
               <input type="submit" name="submit" value="LOGIN" class="login-btn">
             </form>
-            <div class="login-btn"><a href="register.php">REGISTER</a></div>
+            <a href="register.php">New User? Register here.</a>
             <br><br>
           </div>
         </div>
