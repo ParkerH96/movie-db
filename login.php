@@ -63,7 +63,7 @@
         <input type="submit" name="submit" value="LOGIN" class="login-btn">
       </form>
       <br><br>
-      <a href="#">forgot password?</a>
+      <div class="login-btn"><a href="register.php">REGISTER</a></div>
     </div>
   </body>
 </html>

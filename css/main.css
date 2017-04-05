@@ -54,14 +54,3 @@ input[type="text"], input[type="password"], input[type="date"] {
   border-bottom: 4px solid #27AE60;
   cursor: pointer;
 }
-
-a {
-  text-decoration: none;
-  color: white;
-  font-family: sans-serif;
-}
-
-a:hover {
-  color: coral;
-  font-weight: bold;
-}
