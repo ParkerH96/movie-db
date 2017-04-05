@@ -51,7 +51,7 @@
            <div class="col-sm-8 search-window">
              <form method="post" action="">
                <div class="form-input">
-                 <input placeholder="Search" name="Search" type="Search" value="Search">
+                 <input placeholder="Search" name="Search" type="Search">
                </div>
                 <div class="col-sm-2 search-button">
                  <input type="Search" name="Search" value="Search" class="search-btn">
