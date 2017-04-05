@@ -4,6 +4,15 @@
     <title>Login Form</title>
     <meta charset="UTF-8">
 
+    <!-- include bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- include stylesheets -->
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+    <link rel="stylesheet" href="css/login_style.css" type="text/css">
+
+
+
     <!-- Javascipt -->
     <script type="text/javascript">
       function Success(){
@@ -16,8 +25,6 @@
         alert("Login unseccesfull. The username could not be found.");
       }
     </script>
-
-    <link rel="stylesheet" href="css/main.css" type="text/css">
 
     <?php
       if(!empty($_POST)){
@@ -53,17 +60,22 @@
     ?>
   </head>
   <body>
-    <div class="login-container">
-      <img src="https://www.hit4hit.org/img/login/user-icon-6.png"></img>
-      <form method="post" action="">
-        <div class="form-input">
-          <input type="text" name="username" required><br>
-          <input type="password" name="password" required>
+    <div class="full-bg-img background-img">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3 login-container">
+            <img src="https://www.hit4hit.org/img/login/user-icon-6.png"></img>
+            <form method="post" action="">
+              <div class="form-input">
+                <input placeholder="Username" type="text" name="username" required><br>
+                <input placeholder="Password" type="password" name="password" required>
+              </div>
+              <input type="submit" name="submit" value="LOGIN" class="login-btn">
+            </form>
+            <br><br>
+          </div>
         </div>
-        <input type="submit" name="submit" value="LOGIN" class="login-btn">
-      </form>
-      <br><br>
-      <a href="#">forgot password?</a>
+      </div>
     </div>
   </body>
 </html>

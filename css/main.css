@@ -1,27 +1,11 @@
 html {
-  background: url(http://cdn.appstorm.net/mac.appstorm.net/files/2012/06/02961_nightfallinparis_1920x1080.jpg) no-repeat center center fixed;
-  background-size: cover;
+  height: 100%;
+  width: 100%;
 }
 
 body {
-  margin: 0;
-}
-
-.login-container {
-  width: 500px;
-  height: 400px;
-  text-align: center;
-  background-color: rgba(52, 73, 94, 0.7);
-  border-radius: 4px;
-  margin: 0 auto;
-  margin-top: 150px;
-}
-
-.login-container img {
-  width: 120px;
-  height: 120px;
-  margin-top: -60px;
-  margin-bottom: 30px;
+  height: 100%;
+  width: 100%;
 }
 
 .register-container {
@@ -33,35 +17,4 @@ body {
   margin: 0 auto;
   margin-top: 150px;
   overflow-y: scroll;
-}
-
-input[type="text"], input[type="password"], input[type="date"] {
-  height: 45px;
-  width: 300px;
-  font-size: 18px;
-  margin-bottom: 20px;
-  background-color: #fff;
-  padding-left: 20px;
-  border-radius: 4px;
-}
-
-.login-btn {
-  padding: 15px 25px;
-  color: #fff;
-  background-color: #2ECC71;
-  border: none;
-  border-radius: 4px;
-  border-bottom: 4px solid #27AE60;
-  cursor: pointer;
-}
-
-a {
-  text-decoration: none;
-  color: white;
-  font-family: sans-serif;
-}
-
-a:hover {
-  color: coral;
-  font-weight: bold;
 }
