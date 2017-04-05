@@ -35,10 +35,9 @@
            <h1>Movie-DB</h1>
          </div>
        </div>
-       <div class="row">
-         <div class= "row page-content">
-           <div class = "col-sm-4">
-             <h1> Genres </h1>
+       <div class= "row page-content">
+         <div class = "col-sm-4">
+           <h1> Genres </h1>
              <ul>
                <li> Animated </li>
                <li> Romance </li>
