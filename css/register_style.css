@@ -19,6 +19,10 @@
   margin-bottom: 20px;
   border-radius: 4px;
 }
+.register-container h2 {
+  color: #fff;
+  margin-bottom: 20px;
+}
 .register-container a {
   color: #fff;
   text-decoration: none;
