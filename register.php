@@ -32,7 +32,7 @@
         $result = $mysqli->query($sql);
 
         if($result){
-          echo "<script type='text/javascript'> Success(); </script>";
+          header("location: login.php");
         }
         else {
           echo "<script type='text/javascript'> Failure(); </script>";
