@@ -11,7 +11,7 @@ CREATE TABLE MOVIE
   release_date date NOT NULL,
   summary varchar(1024),
   language varchar(64) NOT NULL,
-  duration int NOT NULL,
+  duration time NOT NULL,
   PRIMARY KEY (movie_id)
 );
 
