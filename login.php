@@ -29,7 +29,7 @@
         $password = $mysqli->escape_string($_POST['password']);
 
         //Gather the query for finding the particular username
-        $sql = "SELECT password FROM LOGIN WHERE username='$username'";
+        $sql = "SELECT password FROM USER WHERE username='$username'";
         $result = $mysqli->query($sql);
 
         if($result->num_rows == 0){
