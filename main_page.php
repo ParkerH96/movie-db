@@ -49,19 +49,19 @@
              </ul>
            </div>
            <div class="col-sm-8 search-window">
-             <form method="post" action="">
+             <form method="get" action="">
                <div class="form-input">
-                 <input placeholder="Search" name="Search" type="Search">
+                 <input placeholder="Search" name="search" type="text">
                </div>
                 <div class="col-sm-2 search-button">
-                 <input type="Search" name="Search" value="Search" class="search-btn">
+                 <input type="submit" name="submit" value="Search" class="search-btn">
                 </div>
                 <div class="col-sm-10 search-options">
                   <row>
                     <h5>Search Options</h5>
                   </row>
                   <row>
-                    <select>
+                    <select name="option">
                       <option>Any</option>
                       <option>Title</option>
                       <option>Genre</option>
@@ -79,14 +79,48 @@
 
 
        </div>
+     </div>
+     <?php
+       if(!empty($_GET['search'])){
+
+         include 'connection.php';
+
+         //escape the strings
+         $search_key = $mysqli->escape_string($_GET['search']);
+
+         if($_GET['option'] === 'Any'){
+
+         }
+         else {
+           if($_GET['option'] === 'Title'){
+
+             $search_query = $mysqli->query("SELECT * FROM MOVIE WHERE title LIKE '%" . "$search_key" . "%'");
+
+           }
+           else if($_GET['option'] === 'Genre'){
 
 
 
+           }
 
+           if($search_query){
 
+             echo $search_query->num_rows . ' results found.<br><br>';
+             while($current_row = $search_query->fetch_assoc()){
+               $title = $current_row['title'];
+               $release_date = substr($current_row['release_date'], 0, 4);
+               $summary = $current_row['summary'];
+               $language = $current_row['language'];
+               $duration = $current_row['duration'];
 
-
-
-
-
-       </div>
+               echo $title . '<br>' . $release_date . ' ‧ ' . $duration . '<br>' . $summary . '<br><br>';
+             }
+           }
+           else{
+             die('Error');
+           }
+         }
+       }
+     ?>
+   </body>
+</html>
