@@ -23,6 +23,9 @@
       if($_SESSION['logged_in'] != true){
         header("location: login.php");
       }
+      else {
+        $first_name = $_SESSION['first_name'];
+      }
     ?>
 
     </script>
@@ -35,6 +38,8 @@
       </div>
       <div id="tool-bar">
         <strong>Movie-DB</strong>
+        <strong><?php echo 'Hi ' . $first_name; ?></strong>
+        <a href="login.php">logout</a>
       </div>
     </div>
     <div class= "row page-content">

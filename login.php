@@ -30,6 +30,9 @@
     </script>
 
     <?php
+      session_start();
+      session_unset();
+      session_destroy();
 
       if(!empty($_POST)){
 
@@ -54,9 +57,9 @@
 
           if($password === $row['password']){
 
-            //$_SESSION['first_name'] = $row['first_name'];
-            //$_SESSION['middle_name'] = $row['middle_name'];
-            //$_SESSION['last_name'] = $row['last_name'];
+            $_SESSION['first_name'] = $row['first_name'];
+            $_SESSION['middle_name'] = $row['middle_name'];
+            $_SESSION['last_name'] = $row['last_name'];
 
             $_SESSION['logged_in'] = true;
 
