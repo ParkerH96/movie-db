@@ -1,3 +1,14 @@
+/*
+  Team Databased 2017: Movie-DB
+  Author(s): Parker Householder, Jonathen Dingess
+
+  Name: movie-db.sql
+
+  Description: **DUMP FILE** This file contains the main MySQL code used to create
+  the Database used by the site.
+
+*/
+
 DROP DATABASE IF EXISTS Databased_movie;
 CREATE DATABASE Databased_movie;
 

@@ -1,3 +1,14 @@
+/*
+  Team Databased 2017: Movie-DB
+  Author(s): Parker Householder, Evan Heaton
+
+  Name: search.php
+
+  Description: This is the PHP code used for implementing the search functionality on the search page.
+  This code also allows for a User to perform a faceted search (by title, tag, genre, crew, etc).
+
+*/
+
 <?php
       if(!empty($_GET['search'])){
 

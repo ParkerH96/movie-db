@@ -1,3 +1,14 @@
+/*
+  Team Databased 2017: Movie-DB
+  Author(s): Parker Householder, Jonathen Dingess, Evan Heaton
+
+  Name: login.php
+
+  Description: This file contains the main PHP code used for logging out from a
+  previous session, and logging into a new session. It also contains the main HTML
+  used for laying out the login page.
+
+*/
 <!DOCTYPE html>
 <html>
   <head>

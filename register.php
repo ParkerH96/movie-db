@@ -1,3 +1,14 @@
+/*
+  Team Databased 2017: Movie-DB
+  Author(s): Parker Householder, Evan Heaton
+
+  Name: register.php
+
+  Description: This file contains PHP code used for adding a new USER to the
+  database upon registration. It also contains the HTML/JS code used for creating
+  the registration page.
+
+*/
 <html>
   <head>
     <title>Registration Form</title>
