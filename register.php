@@ -35,7 +35,7 @@
         $gender = $mysqli->escape_string($_POST['gender']);
         $username = $mysqli->escape_string($_POST['username']);
         $password = $mysqli->escape_string($_POST['password']);
-		$password = hash( "sha256", $password . $username );
+		    $password = hash( "sha256", $password . $username );
 
         //Create the sql query
         $sql = "INSERT INTO USER(admin_tag, first_name, middle_name, last_name, dob, gender, username, password)

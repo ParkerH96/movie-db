@@ -30,18 +30,20 @@
     </script>
 
     <?php
+
       if(!empty($_POST)){
 
         include 'connection.php';
+        session_start();
 
         //escape the strings
         $username = $mysqli->escape_string($_POST['username']);
         $password = $mysqli->escape_string($_POST['password']);
 
-		$password = hash ( "sha256", $password . $username );
-		
+		    $password = hash ( "sha256", $password . $username );
+
         //Gather the query for finding the particular username
-        $sql = "SELECT password FROM USER WHERE username='$username'";
+        $sql = "SELECT * FROM USER WHERE username='$username'";
         $result = $mysqli->query($sql);
 
         if($result->num_rows == 0){
@@ -51,7 +53,15 @@
           $row = $result->fetch_assoc();
 
           if($password === $row['password']){
-            echo "<script type='text/javascript'> Success(); </script>";
+
+            //$_SESSION['first_name'] = $row['first_name'];
+            //$_SESSION['middle_name'] = $row['middle_name'];
+            //$_SESSION['last_name'] = $row['last_name'];
+
+            $_SESSION['logged_in'] = true;
+
+            header("location: main_page.php");
+
           }
           else{
             echo "<script type='text/javascript'> PassFailure(); </script>";

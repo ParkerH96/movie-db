@@ -16,6 +16,15 @@
 
     <script type="text/javascript">
 
+    <?php
+      //creates a session for storing data across pages
+      session_start();
+
+      if($_SESSION['logged_in'] != true){
+        header("location: login.php");
+      }
+    ?>
+
     </script>
   </head>
 <body>
