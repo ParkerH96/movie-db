@@ -17,7 +17,6 @@
     <script type="text/javascript">
 
     </script>
-<<<<<<< HEAD
    </head>
    <body>
      <div class="container-fluid">
