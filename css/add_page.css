@@ -4,8 +4,13 @@
   margin-top: 20px;
   margin-bottom: 20px;
   border-radius: 4px;
-  height: 55px;
+  height: 40px;
   border-bottom: 4px solid #ccc;
+}
+
+.page-content input[name="summary"] {
+  width: 60%;
+  height: 90px;
 }
 
 .page-content span {
@@ -16,6 +21,8 @@
 .container h1{
   font-size: 40px;
 }
+
+
 
 .container {
   background: linear-gradient(to bottom right, #545f78, #7885a1);
