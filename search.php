@@ -1,21 +1,4 @@
-<html>
-  <head>
-
-  </head>
-  <body>
-    <form method="get" action="">
-      <input type="text" name="search"><br>
-      <select name="option">
-        <option>Any</option>
-        <option>Title</option>
-        <option>Genre</option>
-        <option>Tag</option>
-        <option>Crew</option>
-      </select>
-      <input type="submit" name="submit" value="Search">
-
-    </form>
-    <?php
+<?php
       if(!empty($_GET['search'])){
 
         include 'connection.php';
@@ -34,7 +17,7 @@
           }
           else if($_GET['option'] === 'Genre'){
 
-            
+
 
           }
 
@@ -56,6 +39,4 @@
           }
         }
       }
-    ?>
-  </body>
-</html>
+?>
