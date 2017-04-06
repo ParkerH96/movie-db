@@ -53,11 +53,11 @@
                   <option>Crew</option>
                 </select>
               </div>
-              <div class="col-xs-6 form-input">
-                <input placeholder="Search" name="search" type="text">
-              </div>
-              <div class="col-xs-3 search-button">
-                <input type="submit" name="submit" value="Search" class="databased-btn search-btn">
+              <div class="col-xs-9 form-input">
+                <div class="text-and-button">
+                  <input placeholder="Search" name="search" type="text">
+                  <input type="submit" name="submit" value="Search" class="databased-btn search-btn">
+                </div>
               </div>
             </form>
           </div>
