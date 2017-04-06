@@ -26,7 +26,7 @@ CREATE TABLE USER
   dob date NOT NULL,
   gender varchar(64),
   username varchar(16) NOT NULL,
-  password varchar(16) NOT NULL,
+  password varchar(64) NOT NULL,
   PRIMARY KEY (user_id)
 );
 
@@ -138,16 +138,16 @@ INSERT INTO MOVIE(title, release_date, summary, language, duration) VALUES
 INSERT INTO GENRE(genre) VALUES('Comedy'),('Romance'),('Fantasy'),('Science Fiction film'),('Drama film'),('Thriller'),('Mystery'),('Horror'),('Slasher'),('Action');
 
 INSERT INTO USER(admin_tag, first_name, middle_name, last_name, dob, gender, username, password) VALUES
-(1, 'Parker', 'Alexander', 'Householder', '1996-05-01', 'Male', 'paho224', 'householder123'),
-(1, 'Evan', 'Phillip', 'Heaton', '1995-02-02', 'Male', 'ephe225', 'heaton123'),
-(1, 'David', 'Clark', 'Cottrell', '1995-04-03', 'Male', 'dcco226', 'cottrell123'),
-(1, 'John', 'Mathew', 'Dingess', '1997-01-24', 'Male', 'jmdi227', 'dingess123'),
-(0, 'Morgan', 'Shay', 'Lewis', '1995-10-10', 'Female', 'msle228', 'lewis123'),
-(0, 'Sarah', 'Elizabeth', 'Foster', '1993-04-08', 'Female', 'sefo229', 'foster123'),
-(0, 'Ashley', 'Anna', 'Householder', '1992-09-17', 'Female', 'aaho230', 'householder123'),
-(0, 'James', 'Bryan', 'Householder', '1963-09-17', 'Male', 'jbho231', 'householder123'),
-(0, 'Monica', 'Ott', 'Householder', '1967-03-14', 'Female', 'moho232', 'householder123'),
-(0, 'Donald', 'John', 'Trump', '1946-05-14', 'Male', 'djtr233', 'trump123');
+(1, 'Parker', 'Alexander', 'Householder', '1996-05-01', 'Male', 'paho224', 'd96dafb2beaab65e1abb358c6f2ba54d28afb293f97166cfad806fdd71a1258e'),
+(1, 'Evan', 'Phillip', 'Heaton', '1995-02-02', 'Male', 'ephe225', '8016110fdcdea61ba0f3a072700e7e2a5458d3e073d2091cb7c733a7678cafc1'),
+(1, 'David', 'Clark', 'Cottrell', '1995-04-03', 'Male', 'dcco226', '0df8b790dcca0b6fbdb3cff266c917061ff4c0e56ef4de988c2384eab0ef8436'),
+(1, 'Jonathan', 'Mark', 'Dingess', '1997-01-24', 'Male', 'jmdi234', '4ad85f2050e0c1edac2c51540778c762f03df8f4603923907ffc85615fbbc431'),
+(0, 'Morgan', 'Shay', 'Lewis', '1995-10-10', 'Female', 'msle228', 'e71320b00399d4e6e125d5fff397966dd40901a5ca9ad42529601808e888af08'),
+(0, 'Sarah', 'Elizabeth', 'Foster', '1993-04-08', 'Female', 'sefo229', '83e5df9e4c786be5b1b32da1dda5ae79348b99e281497f6d81152a777ba1bdcc'),
+(0, 'Ashley', 'Anna', 'Householder', '1992-09-17', 'Female', 'aaho230', 'f600076ea2edeb7487c6f4d622c5f018bac4bd7b6caa6781b8f1d9db8da296d2'),
+(0, 'James', 'Bryan', 'Householder', '1963-09-17', 'Male', 'jbho231', '2f88f54f1ba682f86c86a81a1430cc0f0bedea61cec04af71ec2cd32eea941e2'),
+(0, 'Monica', 'Ott', 'Householder', '1967-03-14', 'Female', 'moho232', '4dfdad8afbcf7135eba27c9145aa62d0d0890dacdac1f459c19f9169f11745b6'),
+(0, 'Donald', 'John', 'Trump', '1946-05-14', 'Male', 'djtr233', '0cbf32966ac2ad6e21e5da39cf80e7203a04218b44edcca347afe435dd05bf3b');
 
 INSERT INTO TAGS(tag) VALUES('funny'), ('scary'), ('suspenseful'), ('silly'), ('romantic'), ('hardcore'), ('superhero'), ('marvel'), ('gory'), ('adult');
 
