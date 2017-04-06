@@ -2,7 +2,7 @@
   text-align: center;
   background-color: rgba(52, 73, 94, 0.7);
   border-radius: 4px;
-
+  box-shadow: 0px 3px 3px #888888;
 }
 
 .main_page_title h1 {
@@ -20,9 +20,19 @@
   text-align: left;
   font-size: 40px;
 }
+.small-title {
+
+}
+
+.search-bar {
+  border-radius: 4px;
+  background-color: rgba(52, 73, 94, 0.7);
+  box-shadow: 0px 3px 3px #888888;
+
+}
+
 .search-window input[type="text"] {
-  width: 40%;
-  margin: 0 auto;
+  width: 90%;
   font-size: 18px;
   margin-bottom: 20px;
   border-top-left-radius: 4px;
@@ -44,10 +54,36 @@ h5, select {
   border-radius: 4px;
   border-bottom: 4px solid #27AE60;
   cursor: pointer;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  border-radius: 4px;
+}
+
+.search-btn {
+  min-width: 40px;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
-.search-options select{
+.search-options {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.search-options select {
+  width: 100%;
   border-color: black;
   border-radius: 4px;
+}
+.search-options span {
+  color: white;
+  margin: 0 auto;
+  font-size: 12px;
+}
+
+.search-result {
+  background-color: #fffcfc;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  box-shadow: 0px 3px 3px #888888;
 }
