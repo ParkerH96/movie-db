@@ -62,51 +62,9 @@
           <div class="row results-row">
             <h1> Results: </h1>
             <?php
-              if(!empty($_GET['search'])){
 
-                 include 'connection.php';
+              include 'search.php';
 
-                 //escape the strings
-                 $search_key = $mysqli->escape_string($_GET['search']);
-
-                 if($_GET['option'] === 'Any'){
-
-                 }
-                 else {
-                   if($_GET['option'] === 'Title'){
-
-                     $search_query = $mysqli->query("SELECT * FROM MOVIE WHERE title LIKE '%" . "$search_key" . "%'");
-
-                   }
-                   else if($_GET['option'] === 'Genre'){
-
-
-
-                   }
-
-                   if($search_query){
-
-                     while($current_row = $search_query->fetch_assoc()){
-                       $title = $current_row['title'];
-                       $release_date = substr($current_row['release_date'], 0, 4);
-                       $summary = $current_row['summary'];
-                       $language = $current_row['language'];
-                       $duration = $current_row['duration'];
-
-                       echo '<div class="search-result"><h4>' . $title . '</h4>' . $release_date . ' ‧ ' . $duration . '<br>' . $summary . '<br><br></div>';
-                     }
-                     // bottom of the results
-                     if ($search_query->num_rows == 1) {
-                       echo $search_query->num_rows . ' result found.<br><br>';
-                     } else {
-                       echo $search_query->num_rows . ' results found.<br><br>';
-                     }
-                   }
-                   else{
-                     die('Error');
-                   }
-                 }
-               }
              ?>
           </div>
         </div>
