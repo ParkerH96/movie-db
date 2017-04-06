@@ -8,6 +8,11 @@
 
         if($_GET['option'] === 'Any'){
 
+          /*
+          $search_query = $mysqli->query("SELECT * FROM MOVIE, GENRE, is_genres, has_tags
+            WHERE MOVIE.movie_id = is_genres.movie_id AND is_genres.genre_id = GENRE.genre_id AND MOVIE.movie_id = has_tags.movie_id AND has_tags.tag_id = TAGS.tag_id
+            AND (title LIKE '%" . "$search_key" . "%' OR genre LIKE '%" . "$search_key" . "%')");
+          */
         }
         else {
           if($_GET['option'] === 'Title'){
