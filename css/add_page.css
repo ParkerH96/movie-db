@@ -1,35 +1,24 @@
-.page-content input[type="text"] {
-  width: 50%
+.add-form {
+  background-color: #7885a1;
+  margin-bottom: 60px;
+  text-align: center;
+  border-radius: 4px;
+  margin-top: 60px;
+}
+
+.add-form input, textarea {
+  height: 45px;
+  width: 80%;
+  max-width: 250px;
+  margin: 0 auto;
   font-size: 18px;
-  margin-top: 20px;
   margin-bottom: 20px;
   border-radius: 4px;
-  height: 40px;
-  border-bottom: 4px solid #ccc;
 }
 
-.page-content input[name="summary"] {
-  width: 60%;
-  height: 90px;
-}
-
-.page-content span {
-  font-size: 24px;
-}
-
-
-.container h1{
-  font-size: 40px;
-}
-
-
-
-.container {
-  background: linear-gradient(to bottom right, #545f78, #7885a1);
-  text-align: center;
-}
-
-.small-title {
-  font-weight: bold;
-  color: coral;
+.add-form img {
+  width: 120px;
+  height: 120px;
+  margin-top: -60px;
+  margin-bottom: 10px;
 }

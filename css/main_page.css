@@ -101,11 +101,20 @@ h5, select {
   box-shadow: 0px 3px 3px #888888;
 }
 
-#tool-bar a {
+button a:hover {
+  text-decoration: none;
   color: white;
-  font-weight: bold;
 }
 
-#tool-bar a:hover {
-  color: coral;
+button a {
+  color: white;
+}
+
+div.dropdown  {
+  display: inline;
+}
+
+.dropdown-menu {
+  position: absolute;
+  margin-top: 10px;
 }

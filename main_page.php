@@ -7,6 +7,13 @@
     <!-- fix for viewport scaling -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
     <!-- include bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -14,25 +21,9 @@
     <link rel="stylesheet" href="css/main.css" type="text/css">
     <link rel="stylesheet" href="css/main_page.css" type="text/css">
 
-    <script type="text/javascript">
-
     <?php
-      //creates a session for storing data across pages
-      session_start();
-
-      if($_SESSION['logged_in'] != true){
-        header("location: login.php");
-      }
-      else {
-        $first_name = $_SESSION['first_name'];
-        $middle_name = $_SESSION['middle_name'];
-        $last_name = $_SESSION['last_name'];
-        $admin_tag = $_SESSION['admin_tag'];
-
-      }
+      include 'session.php';
     ?>
-
-    </script>
   </head>
 <body>
   <div class="container">
@@ -41,13 +32,36 @@
         <h1>Movie-DB</h1>
       </div>
       <div id="tool-bar">
-        <strong><?php echo 'Hi ' . $first_name; ?></strong>
+        <strong><?php echo $first_name . ' ' . $last_name; ?></strong>
         <?php
           if($admin_tag == 1){
-            echo '<a href="add_page.php">Add a Movie</a>';
+            echo
+             '<div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+              Manager
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><a href="add_page.php">Add a Movie</a></li>
+                <li><a href="#">Delete a Movie</a></li>
+                <li><a href="#">Edit a Movie</a></li>
+                <li><a href="#">Add a Crew</a></li>
+                <li><a href="#">Delete a Crew</a></li>
+                <li><a href="#">Edit a Crew</a></li>
+              </ul>
+              </div>';
           }
         ?>
-        <a style="float: right;" href="login.php">Logout</a>
+        <div class="dropdown">
+          <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">
+          User
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+             <li><a href="main_page.php">Search Movies</a></li>
+             <li><a href="#">Tag a Movie</a></li>
+             <li><a href="#">Rate and comment</a></li>
+          </ul>
+        </div>
+        <button type="button" class="btn btn-danger"><a href="login.php">Logout</a></button>
       </div>
     </div>
     <div class= "row page-content">
