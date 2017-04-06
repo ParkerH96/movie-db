@@ -33,11 +33,9 @@
   font-size: 18px;
   margin-top: 20px;
   margin-bottom: 20px;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
+  border-radius: 4px;
   height: 55px;
   border-bottom: 4px solid #ccc;
-  border-right: none;
 }
 
 h5, select {
