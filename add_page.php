@@ -24,7 +24,36 @@
 
 
     <?php
+      //start the session to keep track of global data
+      session_start();
 
+      //makes sure no one can access this page if they are not a manager
+      if($_SESSION['admin_tag'] != 1){
+        header("location: main_page.php");
+      }
+
+      if(!empty($_POST)){
+
+        //connect to the database
+        include 'connection.php';
+
+        //translate the form inputs into php variables
+        $title = $mysqli->escape_string($_POST['title']);
+        $release_date = $mysqli->escape_string($_POST['release_date']);
+        $summary = $mysqli->escape_string($_POST['summary']);
+        $language = $mysqli->escape_string($_POST['language']);
+        $duration = $mysqli->escape_string($_POST['duration']);
+
+        //create the insertion query using the form data
+        $insertion_query = $mysqli->query("INSERT INTO MOVIE(title, release_date, summary, language, duration) VALUES ('$title', '$release_date', '$summary', '$language', '$duration')");
+
+        if($insertion_query){
+          header("location: main_page.php");
+        }
+        else{
+          die("Error...");
+        }
+      }
 
 
     ?>
@@ -38,14 +67,14 @@
         </div>
       </div>
       <div class="row page-content">
-        <form method="get" action="">
+        <form method="post" action="">
           <div class="row">
             <span class="small-title">Title:</span><br></br>
             <input placeholder="" name="title" type="text">
           </row>
           <div class="row">
             <span class="small-title">Release Date:</span><br></br>
-            <input placeholder="mm/dd/yyyy" name="release_date" type="text">
+            <input name="release_date" type="date">
           </div>
           <div class="row">
             <span class="small-title">Summary:</span><br></br>
@@ -60,6 +89,6 @@
             <input placeholder="hh:mm:ss" name="duration" type="text">
           </div>
           <div>
-            <input type="submit" name="submit" value="Search" class="databased-btn search-btn">
+            <input type="submit" name="submit" value="Add Movie" class="databased-btn search-btn">
           </div>
         </form>

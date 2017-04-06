@@ -57,12 +57,15 @@
 
           if($password === $row['password']){
 
+            //create session global variables
             $_SESSION['first_name'] = $row['first_name'];
             $_SESSION['middle_name'] = $row['middle_name'];
             $_SESSION['last_name'] = $row['last_name'];
+            $_SESSION['admin_tag'] = $row['admin_tag'];
 
             $_SESSION['logged_in'] = true;
 
+            //redirect to the main page
             header("location: main_page.php");
 
           }

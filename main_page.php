@@ -25,6 +25,10 @@
       }
       else {
         $first_name = $_SESSION['first_name'];
+        $middle_name = $_SESSION['middle_name'];
+        $last_name = $_SESSION['last_name'];
+        $admin_tag = $_SESSION['admin_tag'];
+
       }
     ?>
 
@@ -37,9 +41,13 @@
         <h1>Movie-DB</h1>
       </div>
       <div id="tool-bar">
-        <strong>Movie-DB</strong>
         <strong><?php echo 'Hi ' . $first_name; ?></strong>
-        <a href="login.php">logout</a>
+        <?php
+          if($admin_tag == 1){
+            echo '<a href="add_page.php">Add a Movie</a>';
+          }
+        ?>
+        <a style="float: right;" href="login.php">Logout</a>
       </div>
     </div>
     <div class= "row page-content">

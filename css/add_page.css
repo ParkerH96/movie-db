@@ -28,3 +28,8 @@
   background: linear-gradient(to bottom right, #545f78, #7885a1);
   text-align: center;
 }
+
+.small-title {
+  font-weight: bold;
+  color: coral;
+}
