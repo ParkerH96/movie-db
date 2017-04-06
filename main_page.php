@@ -20,9 +20,12 @@
   </head>
 <body>
   <div class="container">
-    <div class="row">
-      <div class="main_page_title">
+    <div class="row shadow">
+      <div class="main-page-title">
         <h1>Movie-DB</h1>
+      </div>
+      <div id="tool-bar">
+        <strong>Movie-DB</strong>
       </div>
     </div>
     <div class= "row page-content">
