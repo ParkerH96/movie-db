@@ -17,49 +17,57 @@
     <script type="text/javascript">
 
     </script>
-   </head>
-   <body>
-     <div class="container-fluid">
-       <div class="row">
-         <div class="main_page_title">
-           <h1>Movie-DB</h1>
-         </div>
-       </div>
-       <div class= "row page-content">
-         <div class = "col-sm-4">
-           <h1> Genres </h1>
-             <ul>
-               <li> Animated </li>
-               <li> Romance </li>
-               <li> Comedy </li>
-               <li> Action </li>
-               <li> Drama </li>
-               <li> Horror </li>
-             </ul>
-           </div>
-           <div class="col-sm-8 search-window">
-             <form method="get" action="">
-                <div class="col-sm-10 search-options">
+  </head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="main_page_title">
+        <h1>Movie-DB</h1>
+      </div>
+    </div>
+    <div class= "row page-content">
+      <div class = "col-sm-4">
+        <h1> Genres </h1>
+        <ul>
+          <li> Animated </li>
+          <li> Romance </li>
+          <li> Comedy </li>
+          <li> Action </li>
+          <li> Drama </li>
+          <li> Horror </li>
+        </ul>
+      </div>
+        <div class="col-sm-8 search-window">
+          <div class="row search-bar">
+            <form method="get" action="">
+              <div class="col-xs-3 search-options">
+                <span class="small-title">Search By:</span>
+                <select name="option">
+                  <option>Any</option>
+                  <option>Title</option>
+                  <option>Genre</option>
+                  <option>Tag</option>
+                  <option>Crew</option>
+                </select>
+              </div>
+              <div class="col-xs-6 form-input">
+                <input placeholder="Search" name="search" type="text">
+              </div>
+              <div class="col-xs-3 search-button">
+                <input type="submit" name="submit" value="Search" class="databased-btn search-btn">
+              </div>
+            </form>
+          </div>
+          <div class="row results-row">
+            <h1> Results: </h1>
+            <?php
 
-                    <h5>Search Options</h5>
-                    <select name="option">
-                      <option>Any</option>
-                      <option>Title</option>
-                      <option>Genre</option>
-                      <option>Tag</option>
-                      <option>Crew</option>
-                    </select><br><br>
+              include 'search.php';
 
-                  <input placeholder="Search" name="search" type="text"><input type="submit" name="submit" value="Search" class="search-btn">
-             </form>
-           </div>
-           <h1> Results </h1>
-           <?php
-             include 'search.php';
-           ?>
-         </div>
-       </div>
-     </div>
-   </body>
-
+             ?>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

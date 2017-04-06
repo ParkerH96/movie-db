@@ -20,9 +20,6 @@
   text-align: left;
   font-size: 40px;
 }
-.small-title {
-
-}
 
 .search-bar {
   border-radius: 4px;
@@ -32,8 +29,9 @@
 }
 
 .search-window input[type="text"] {
-  width: 60%;
+  width: 90%;
   font-size: 18px;
+  margin-top: 20px;
   margin-bottom: 20px;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -47,6 +45,7 @@ h5, select {
 }
 
 .search-btn {
+  margin-top: 20px;
   padding: 15px 25px;
   color: #fff;
   background-color: #2ECC71;
@@ -63,6 +62,8 @@ h5, select {
 }
 
 .search-options select {
+  width: 90%;
+  margin: aut0;
   border-color: black;
   border-radius: 4px;
 }

@@ -28,7 +28,7 @@
 
           if($search_query){
 
-            echo $search_query->num_rows . ' results found.<br><br>';
+
             while($current_row = $search_query->fetch_assoc()){
               $title = $current_row['title'];
               $release_date = substr($current_row['release_date'], 0, 4);
@@ -36,7 +36,12 @@
               $language = $current_row['language'];
               $duration = $current_row['duration'];
 
-              echo $title . '<br>' . $release_date . ' ‧ ' . $duration . '<br>' . $summary . '<br><br>';
+              echo '<div class="search-result"><h3>' . $title . '</h3>' . $release_date . ' ‧ ' . $duration . '<br>' . $summary . '</div>';
+            }
+            if ($search_query->num_rows == 1) {
+              echo $search_query->num_rows . ' result found.<br><br>';
+            } else {
+              echo $search_query->num_rows . ' results found.<br><br>';
             }
           }
           else{
