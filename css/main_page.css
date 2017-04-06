@@ -61,7 +61,7 @@ h5, select {
 
 .search-options select {
   width: 90%;
-  margin: aut0;
+  margin: auto;
   border-color: black;
   border-radius: 4px;
 }

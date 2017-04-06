@@ -1,0 +1,23 @@
+.page-content input[type="text"] {
+  width: 50%
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  height: 55px;
+  border-bottom: 4px solid #ccc;
+}
+
+.page-content span {
+  font-size: 24px;
+}
+
+
+.container h1{
+  font-size: 40px;
+}
+
+.container {
+  background: linear-gradient(to bottom right, grey, grey);
+  text-align: center;
+}
