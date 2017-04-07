@@ -59,8 +59,8 @@
 
               if ($admin_tag == 1) {
                 echo '<div class="search-result-admin-functions">
-                        <button type="button" class="btn btn-danger"><a href="#"><span class="glyphicon glyphicon-remove"></span></a></button>
-                        <button type="button" class="btn btn-warning"><a href="#"><span class="glyphicon glyphicon-edit"></span></a></button>
+                        <button type="button" class="btn btn-danger" onclick="confirmDelete()"><span class="glyphicon glyphicon-remove"></span> Delete</button>
+                        <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit</button>
                       </div>';
               }
 
