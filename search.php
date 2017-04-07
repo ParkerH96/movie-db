@@ -48,6 +48,7 @@
 
             // for each search result, print out a little block of info
             while($current_row = $search_query->fetch_assoc()){
+              $movie_id = $current_row['movie_id'];
               $title = $current_row['title'];
               $release_date = substr($current_row['release_date'], 0, 4);
               $summary = $current_row['summary'];
@@ -59,7 +60,7 @@
 
               if ($admin_tag == 1) {
                 echo '<div class="search-result-admin-functions">
-                        <button type="button" class="btn btn-danger"><a href="#"><span class="glyphicon glyphicon-remove"></span></a></button>
+                        <button type="button" class="btn btn-danger"><a href="delete.php?movie_id=' . $movie_id . '&search=' . $search_key . '"><span class="glyphicon glyphicon-remove"></span></a></button>
                         <button type="button" class="btn btn-warning"><a href="#"><span class="glyphicon glyphicon-edit"></span></a></button>
                       </div>';
               }
