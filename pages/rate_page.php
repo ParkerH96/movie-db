@@ -35,18 +35,9 @@
     <?php
       include '../functions/session.php';
 
-      //makes sure no one can access this page if they are not a manager
-      if($_SESSION['admin_tag'] != 1){
-        header("location: main_page.php");
-      }
-
-      if(isset($_GET['movie_id']) && !empty($_GET['movie_id']) && isset($_GET['title']) && !empty($_GET['title']) && isset($_GET['summary'])
-      && !empty($_GET['summary']) && isset($_GET['duration']) && !empty($_GET['duration']) && isset($_GET['language']) && !empty($_GET['language'])){
-        $c_title = $_GET['title'];
-        $c_release_date = $_GET['release_date'];
-        $c_summary = $_GET['summary'];
-        $c_language = $_GET['language'];
-        $c_duration = $_GET['duration'];
+      if(isset($_GET['movie_id']) && !empty($_GET['movie_id']) && isset($_GET['search']) && !empty($_GET['search'])){
+        $c_movie_id = $_GET['movie_id'];
+        $search = $_GET['search'];
       }
       else {
         header("location: main_page.php");
@@ -57,28 +48,21 @@
         //connect to the database
         include '../functions/connection.php';
 
-        //translate the form inputs into php variables
-        $title = $mysqli->escape_string($_POST['title']);
-        $release_date = $mysqli->escape_string($_POST['release_date']);
-        $summary = $mysqli->escape_string($_POST['summary']);
-        $language = $mysqli->escape_string($_POST['language']);
-        $duration = $mysqli->escape_string($_POST['duration']);
-        $movie_id = $mysqli->escape_string($_GET['movie_id']);
+        //escape the strings
+        $rating = $mysqli->escape_string($_POST['rating']);
+        $review = $mysqli->escape_string($_POST['review']);
 
-        //create the insertion query using the form data
-        $update_query = $mysqli->query("UPDATE MOVIE SET title='$title', release_date='$release_date', summary='$summary', language='$language', duration='$duration' WHERE movie_id=$movie_id");
+        $insertion_query = $mysqli->query("INSERT INTO user_actions VALUES ($user_id, $c_movie_id, $rating, '$review')");
 
-        if($update_query){
-          header("location: main_page.php");
+        if($insertion_query){
+          //success! redirect them back to the main page
+          header("location: ../pages/main_page.php?option=Title&search=$search&submit=Search");
         }
-        else{
-          die("Error...");
+        else {
+          die("Error.");
         }
 
-        //Close the connection to the database
-        $mysqli->close();
       }
-
     ?>
   </head>
 <body>
@@ -122,23 +106,15 @@
       </div>
     </div>
     <div class= "row page-content">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3"></div>
-          <div class="col-xs-12 col-md-6 add-form">
-            <img src="https://cdn4.iconfinder.com/data/icons/IMPRESSIONS/multimedia/png/400/video.png"></img>
-            <form method="post" action="">
-              <input type="text" name="title" value="<?php echo $c_title;?>"><br>
-              <input type="date" name="release_date" value="<?php echo $c_release_date;?>"><br>
-              <textarea name="summary" rows="4" cols="50"><?php echo $c_summary;?></textarea><br>
-              <input type="text" name="language" value="<?php echo $c_language;?>"><br>
-              <input type="text" name="duration" value="<?php echo $c_duration;?>"><br>
-              <input class="databased-btn" type="submit" name="submit" value="Update Movie">
-            </form>
-          </div>
-          <div class="col-md-3"></div>
-        </div>
+      <div class="col-md-3"></div>
+      <div class="col-xs-12 col-md-6">
+        <form method="post" action="">
+          <input type="number" min="0" max="10" name="rating" required><br>
+          <textarea name="review" rows="4" cols="50"></textarea><br>
+          <input type="submit" name="submit" value="Rate Now">
+        </form>
       </div>
+      <div class="col-md-3"></div>
     </div>
   </body>
 </html>

@@ -59,15 +59,18 @@
               // open search-result div
     				  echo '<div class="search-result"><h3>' . $title . '</h3>' . $release_date . ' ‧ ' . $duration . '<br>' . $summary ;
 
+              //open the search-result-admin-functions div
+              echo '<div class="search-result-admin-functions">';
+
               if ($admin_tag == 1) {
-                echo '<div class="search-result-admin-functions">
-                        <a href="../functions/delete.php?movie_id=' . $movie_id . '&search=' . $search_key . '"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a>
-                        <a href="../pages/edit_page.php?movie_id=' . $movie_id . '&title=' . $title . '&release_date=' . $full_release_date . '&summary=' . $summary . '&language=' . $language . '&duration=' . $duration . '"><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span></button></a>
-                      </div>';
+                echo '<a href="../functions/delete.php?movie_id=' . $movie_id . '&search=' . $search_key . '"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a>
+                      <a href="../pages/edit_page.php?movie_id=' . $movie_id . '&title=' . $title . '&release_date=' . $full_release_date . '&summary=' . $summary . '&language=' . $language . '&duration=' . $duration . '"><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span></button></a> ';
               }
 
+              echo '<a href="../pages/rate_page.php?movie_id=' . $movie_id . '&search=' . $search_key . '"><button type="button" class="btn btn-success">Rate and Comment</button></a>';
+
               // close the search-result div
-              echo '</div>';
+              echo '</div></div>';
             }
 
             if ($search_query->num_rows == 1) {
