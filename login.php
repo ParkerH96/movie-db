@@ -73,6 +73,7 @@
             $_SESSION['middle_name'] = $row['middle_name'];
             $_SESSION['last_name'] = $row['last_name'];
             $_SESSION['admin_tag'] = $row['admin_tag'];
+            $_SESSION['user_id'] = $row['user_id'];
 
             $_SESSION['logged_in'] = true;
 

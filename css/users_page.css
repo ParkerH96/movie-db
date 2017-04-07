@@ -16,3 +16,6 @@
 .user-result-content {
   padding: 10px;
 }
+.logged-in {
+  color: green;
+}
