@@ -83,6 +83,11 @@
       <?php
         include 'connection.php';
 
+        //makes sure no one can access this page if they are not a manager
+        if($_SESSION['admin_tag'] != 1){
+          header("location: main_page.php");
+        }
+
         $users = $mysqli->query("SELECT * FROM USER");
 
         if($users){
