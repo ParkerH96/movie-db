@@ -51,6 +51,7 @@
               $movie_id = $current_row['movie_id'];
               $title = $current_row['title'];
               $release_date = substr($current_row['release_date'], 0, 4);
+              $full_release_date = $current_row['release_date'];
               $summary = $current_row['summary'];
               $language = $current_row['language'];
               $duration = $current_row['duration'];
@@ -61,7 +62,7 @@
               if ($admin_tag == 1) {
                 echo '<div class="search-result-admin-functions">
                         <a href="../functions/delete.php?movie_id=' . $movie_id . '&search=' . $search_key . '"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a>
-                        <a href="#"><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span></button></a>
+                        <a href="../pages/edit_page.php?movie_id=' . $movie_id . '&title=' . $title . '&release_date=' . $full_release_date . '&summary=' . $summary . '&language=' . $language . '&duration=' . $duration . '"><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span></button></a>
                       </div>';
               }
 
