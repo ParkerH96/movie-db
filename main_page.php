@@ -46,24 +46,26 @@
           if($admin_tag == 1){
             echo
              '<div class="dropdown">
-              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-              Manager
-              <span class="caret"></span></button>
-              <ul class="dropdown-menu">
-                <li><a href="add_page.php">Add a Movie</a></li>
-                <li><a href="#">Delete a Movie</a></li>
-                <li><a href="#">Edit a Movie</a></li>
-                <li><a href="#">Add a Crew</a></li>
-                <li><a href="#">Delete a Crew</a></li>
-                <li><a href="#">Edit a Crew</a></li>
-              </ul>
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                  Manager
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a href="add_page.php">Add a Movie</a></li>
+                  <li><a href="#">Delete a Movie</a></li>
+                  <li><a href="#">Edit a Movie</a></li>
+                  <li><a href="#">Add a Crew</a></li>
+                  <li><a href="#">Delete a Crew</a></li>
+                  <li><a href="#">Edit a Crew</a></li>
+                </ul>
               </div>';
           }
         ?>
         <div class="dropdown">
           <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">
-          User
-          <span class="caret"></span></button>
+            User
+            <span class="caret"></span>
+          </button>
           <ul class="dropdown-menu">
              <li><a href="main_page.php">Search Movies</a></li>
              <li><a href="#">Tag a Movie</a></li>

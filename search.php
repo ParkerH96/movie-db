@@ -46,7 +46,7 @@
 
           if($search_query){
 
-
+            // for each search result, print out a little block of info
             while($current_row = $search_query->fetch_assoc()){
               $title = $current_row['title'];
               $release_date = substr($current_row['release_date'], 0, 4);
@@ -54,23 +54,26 @@
               $language = $current_row['language'];
               $duration = $current_row['duration'];
 
-      			  if ($admin_tag == 1) {
-      				  echo '<div class="search-result"><h3>' . $title . '</h3>' . $release_date . ' ‧ ' . $duration . '<br>' . $summary . '<br> <li><a href="#">Edit</a></li>
-                      <li><a href="#">Delete</a></li></div>';
-      			  }
-      			  else {
-      				echo '<div class="search-result"><h3>' . $title . '</h3>' . $release_date . ' ‧ ' . $duration . '<br>' . $summary . '</div>';
-      			  }
-                  }
-                  if ($search_query->num_rows == 1) {
-                    echo $search_query->num_rows . ' result found.<br><br>';
-                  } else {
-                    echo $search_query->num_rows . ' results found.<br><br>';
-                  }
-                }
-                else{
-                  die('Error');
-                }
+              // open search-result div
+    				  echo '<div class="search-result"><h3>' . $title . '</h3>' . $release_date . ' ‧ ' . $duration . '<br>' . $summary ;
+
+              if ($admin_tag == 1) {
+                echo '<li><a href="#">Edit</a></li><li><a href="#">Delete</a></li>';
               }
+
+              // close the search-result div
+              echo '</div>';
+            }
+
+            if ($search_query->num_rows == 1) {
+              echo $search_query->num_rows . ' result found.<br><br>';
+            } else {
+              echo $search_query->num_rows . ' results found.<br><br>';
+            }
+          }
+          else {
+            die('Error');
+          }
+        }
       }
 ?>
