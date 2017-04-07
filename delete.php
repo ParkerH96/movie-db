@@ -31,4 +31,7 @@
       die();
     }
   }
+
+  //Close the current connection
+  $mysqli->close();
 ?>
