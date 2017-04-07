@@ -107,6 +107,8 @@ h5, select {
 .search-result {
   background-color: #fffcfc;
   padding: 10px 10px;
+  margin-left: 10px;
+  margin-right: 10px;
   margin-bottom: 10px;
   box-shadow: 0px 3px 3px #888888;
 }

@@ -30,7 +30,7 @@
     <!-- include stylesheets -->
     <link rel="stylesheet" href="css/main.css" type="text/css">
     <link rel="stylesheet" href="css/main_page.css" type="text/css">
-    <link rel="stylesheet" href="css/add_page.css" type="text/css">
+    <link rel="stylesheet" href="css/users_page.css" type="text/css">
 
     <?php
 
@@ -45,36 +45,38 @@
         <h1>Movie-DB</h1>
       </div>
       <div id="tool-bar">
-        <strong><?php echo $first_name . ' ' . $last_name; ?></strong>
         <?php
           if($admin_tag == 1){
             echo
              '<div class="dropdown">
-              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-              Manager
-              <span class="caret"></span></button>
-              <ul class="dropdown-menu">
-                <li><a href="users.php">View Users</a></li>
-                <li><a href="add_page.php">Add a Movie</a></li>
-                <li><a href="#">Edit a Movie</a></li>
-                <li><a href="#">Add a Crew</a></li>
-                <li><a href="#">Delete a Crew</a></li>
-                <li><a href="#">Edit a Crew</a></li>
-              </ul>
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                  Manager
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a href="users_page.php">View Users</a></li>
+                  <li><a href="add_page.php">Add a Movie</a></li>
+                  <li><a href="#">Edit a Movie</a></li>
+                  <li><a href="#">Add a Crew</a></li>
+                  <li><a href="#">Delete a Crew</a></li>
+                  <li><a href="#">Edit a Crew</a></li>
+                </ul>
               </div>';
           }
         ?>
         <div class="dropdown">
           <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">
-          User
-          <span class="caret"></span></button>
+            User
+            <span class="caret"></span>
+          </button>
           <ul class="dropdown-menu">
              <li><a href="main_page.php">Search Movies</a></li>
              <li><a href="#">Tag a Movie</a></li>
              <li><a href="#">Rate and comment</a></li>
           </ul>
         </div>
-        <button type="button" class="btn btn-danger"><a href="login.php">Logout</a></button>
+        <span class="greeting"><?php echo 'Hello, ' . $first_name . ' ' . $last_name; ?></span>
+        <button type="button" class="btn btn-danger logout"><a href="login.php">Logout</a></button>
       </div>
     </div>
     <div class="row page-content">
@@ -86,15 +88,36 @@
         if($users){
 
           while($current_row = $users->fetch_assoc()){
-            $user_id = $current_row['user_id'];
-            $admin_tag = $current_row['admin_tag'];
-            $first_name = $current_row['first_name'];
-            $middle_name = $current_row['middle_name'];
-            $last_name = $current_row['last_name'];
-            $dob = $current_row['dob'];
-            $gender = $current_row['gender'];
+            $i_user_id = $current_row['user_id'];
+            $i_username = $current_row['username'];
+            $i_admin_tag = $current_row['admin_tag'];
+            $i_first_name = $current_row['first_name'];
+            $i_middle_name = $current_row['middle_name'];
+            $i_last_name = $current_row['last_name'];
+            $i_dob = $current_row['dob'];
+            $i_gender = $current_row['gender'];
 
-            echo '<div class="search-result"><h3>' . $first_name . ' ' . $middle_name . ' ' . $last_name . '</h3></div>';
+            echo '<div class="user-result">';
+
+            if ($i_admin_tag) {
+              echo '<div class="user-result-title btn-primary">Admin</div>';
+            } else {
+              echo '<div class="user-result-title btn-success">User</div>';
+            }
+
+            echo '  <div class="user-result-content">
+                      <h3>' . $i_first_name . ' ' . $i_middle_name . ' ' . $i_last_name . '</h3>
+                      <h4>Username: <em>' . $i_username . '</em></h4>
+                      <h4>Gender: <em>' . $i_gender . '</em></h4>
+                      <h4>Date of Birth: <em>' . $i_dob . '</em></h4>
+                  ';
+            if ($admin_tag) {
+              echo '<a href=" # "><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a> ';
+              if (!$i_admin_tag) {
+                echo '<a href=" # "><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-collapse-up"></span> Promote</button></a>';
+              }
+            }
+            echo '</div></div>';
           }
 
         }
