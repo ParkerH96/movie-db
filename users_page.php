@@ -88,7 +88,7 @@
           header("location: main_page.php");
         }
 
-        $users = $mysqli->query("SELECT * FROM USER");
+        $users = $mysqli->query("SELECT * FROM USER ORDER BY USER.admin_tag DESC");
 
         if($users){
 
