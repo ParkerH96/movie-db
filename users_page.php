@@ -119,7 +119,7 @@
             if ($i_user_id == $user_id) {
               echo '<strong class="logged-in">(Your Account)</strong>';
             } else {
-              echo '<a href=" # "><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a> ';
+              echo '<a href="delete_user.php?user_id=' . $i_user_id . '"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a> ';
               if (!$i_admin_tag) {
                 echo '<a href="promote.php?user_id=' . $i_user_id . '"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-collapse-up"></span> Promote</button></a>';
               } else {
