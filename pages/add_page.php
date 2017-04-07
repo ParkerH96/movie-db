@@ -28,12 +28,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- include stylesheets -->
-    <link rel="stylesheet" href="css/main.css" type="text/css">
-    <link rel="stylesheet" href="css/main_page.css" type="text/css">
-    <link rel="stylesheet" href="css/add_page.css" type="text/css">
+    <link rel="stylesheet" href="../css/main.css" type="text/css">
+    <link rel="stylesheet" href="../css/main_page.css" type="text/css">
+    <link rel="stylesheet" href="../css/add_page.css" type="text/css">
 
     <?php
-      include 'session.php';
+      include '../functions/session.php';
 
       //makes sure no one can access this page if they are not a manager
       if($_SESSION['admin_tag'] != 1){
@@ -43,7 +43,7 @@
       if(!empty($_POST)){
 
         //connect to the database
-        include 'connection.php';
+        include '../functions/connection.php';
 
         //translate the form inputs into php variables
         $title = $mysqli->escape_string($_POST['title']);
@@ -103,7 +103,7 @@
           </ul>
         </div>
         <span class="greeting"><?php echo 'Hello, ' . $first_name . ' ' . $last_name; ?></span>
-        <button type="button" class="btn btn-danger logout"><a href="login.php">Logout</a></button>
+        <button type="button" class="btn btn-danger logout"><a href="../login.php">Logout</a></button>
       </div>
     </div>
     <div class= "row page-content">

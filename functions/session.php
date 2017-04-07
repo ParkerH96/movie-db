@@ -13,7 +13,7 @@
   session_start();
 
   if($_SESSION['logged_in'] != true){
-    header("location: login.php");
+    header("location: ../login.php");
   }
   else {
     $first_name = $_SESSION['first_name'];

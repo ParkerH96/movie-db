@@ -25,7 +25,7 @@
       $search = $_GET['search'];
 
       //success! redirect them back to the main page
-      header("location: main_page.php?option=Title&search=$search&submit=Search");
+      header("location: ../pages/main_page.php?option=Title&search=$search&submit=Search");
     }
     else{
       die();

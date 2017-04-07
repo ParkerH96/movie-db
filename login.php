@@ -47,7 +47,7 @@
 
       if(!empty($_POST)){
 
-        include 'connection.php';
+        include 'functions/connection.php';
         session_start();
 
         //escape the strings
@@ -78,7 +78,7 @@
             $_SESSION['logged_in'] = true;
 
             //redirect to the main page
-            header("location: main_page.php");
+            header("location: pages/main_page.php");
 
           }
           else{

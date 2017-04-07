@@ -104,7 +104,7 @@
              <li><a href="#">Rate and comment</a></li>
           </ul>
         </div>
-        <button type="button" class="btn btn-danger"><a href="login.php">Logout</a></button>
+        <button type="button" class="btn btn-danger"><a href="../login.php">Logout</a></button>
       </div>
     </div>
     <div class= "row page-content">

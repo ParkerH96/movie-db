@@ -10,7 +10,7 @@
     $delete_user = $mysqli->query("DELETE FROM USER WHERE user_id = $c_user_id");
 
     if($delete_user && $delete_user_actions){
-      header("location: users_page.php");
+      header("location: ../pages/users_page.php");
     }
     else{
       die("Error.");
