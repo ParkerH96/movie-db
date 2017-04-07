@@ -33,35 +33,8 @@
     <link rel="stylesheet" href="css/add_page.css" type="text/css">
 
     <?php
-      include 'session.php';
 
-      //makes sure no one can access this page if they are not a manager
-      if($_SESSION['admin_tag'] != 1){
-        header("location: main_page.php");
-      }
-
-      if(!empty($_POST)){
-
-        //connect to the database
-        include 'connection.php';
-
-        //translate the form inputs into php variables
-        $title = $mysqli->escape_string($_POST['title']);
-        $release_date = $mysqli->escape_string($_POST['release_date']);
-        $summary = $mysqli->escape_string($_POST['summary']);
-        $language = $mysqli->escape_string($_POST['language']);
-        $duration = $mysqli->escape_string($_POST['duration']);
-
-        //create the insertion query using the form data
-        $insertion_query = $mysqli->query("INSERT INTO MOVIE(title, release_date, summary, language, duration) VALUES ('$title', '$release_date', '$summary', '$language', '$duration')");
-
-        if($insertion_query){
-          header("location: main_page.php");
-        }
-        else{
-          die("Error...");
-        }
-      }
+      include 'session.php'
 
     ?>
   </head>
@@ -104,24 +77,32 @@
         <button type="button" class="btn btn-danger"><a href="login.php">Logout</a></button>
       </div>
     </div>
-    <div class= "row page-content">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3"></div>
-          <div class="col-xs-12 col-md-6 add-form">
-            <img src="https://cdn4.iconfinder.com/data/icons/IMPRESSIONS/multimedia/png/400/video.png"></img>
-            <form method="post" action="">
-              <input type="text" name="title" placeholder="Movie Title"><br>
-              <input type="date" name="release_date"><br>
-              <textarea name="summary" rows="4" cols="50" placeholder="Enter text..."></textarea><br>
-              <input type="text" name="language" placeholder="Language"><br>
-              <input type="text" name="duration" placeholder="hh:mm:ss"><br>
-              <input class="databased-btn" type="submit" name="submit" value="Add Movie">
-            </form>
-          </div>
-          <div class="col-md-3"></div>
-        </div>
-      </div>
+    <div class="row page-content">
+      <?php
+        include 'connection.php';
+
+        $users = $mysqli->query("SELECT * FROM USER");
+
+        if($users){
+
+          while($current_row = $users->fetch_assoc()){
+            $user_id = $current_row['user_id'];
+            $admin_tag = $current_row['admin_tag'];
+            $first_name = $current_row['first_name'];
+            $middle_name = $current_row['middle_name'];
+            $last_name = $current_row['last_name'];
+            $dob = $current_row['dob'];
+            $gender = $current_row['gender'];
+
+            echo '<div class="search-result"><h3>' . $first_name . ' ' . $middle_name . ' ' . $last_name . '</h3></div>';
+          }
+
+        }
+        else{
+          die("Error.");
+        }
+      ?>
     </div>
+
   </body>
 </html>
