@@ -1,0 +1,85 @@
+.col-poster {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.photobanner-container {
+  overflow-x: hidden;
+}
+.photobanner {
+  width: 6000px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  height: 310px;
+}
+.poster {
+  z-index: 5;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  -webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+
+/*keyframe animations*/
+.first {
+	-webkit-animation: bannermove 25s linear infinite;
+	   -moz-animation: bannermove 25s linear infinite;
+	    -ms-animation: bannermove 25s linear infinite;
+	     -o-animation: bannermove 25s linear infinite;
+	        animation: bannermove 25s linear infinite;
+}
+@keyframes "bannermove" {
+ 0% { margin-left: 0px; }
+ 100% { margin-left: -2315px; }
+}
+@-moz-keyframes bannermove {
+ 0% { margin-left: 0px; }
+ 100% { margin-left: -2315px; }
+}
+@-webkit-keyframes "bannermove" {
+ 0% { margin-left: 0px; }
+ 100% { margin-left: -2315px; }
+}
+@-ms-keyframes "bannermove" {
+ 0% { margin-left: 0px; }
+ 100% { margin-left: -2315px; }
+}
+@-o-keyframes "bannermove" {
+ 0% { margin-left: 0px; }
+ 100% { margin-left: -2315px; }
+}
+
+.poster:hover {
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	transform: scale(1.1);
+	cursor: pointer;
+
+	-webkit-box-shadow: 0px 3px 3px #888888;
+	-moz-box-shadow: 0px 3px 3px #888888;
+	box-shadow: 0px 3px 3px #888888;
+}
+
+.info {
+
+}
+
+.info h1 {
+  text-align: center;
+}
+
+.search {
+  text-align: center;
+}
+.search-button {
+  margin: 0 auto;
+  width: 120px;
+  height: 60px;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
