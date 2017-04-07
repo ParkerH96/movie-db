@@ -100,7 +100,7 @@
             echo '<div class="user-result">';
 
             if ($i_admin_tag) {
-              echo '<div class="user-result-title btn-primary">Admin</div>';
+              echo '<div class="user-result-title btn-primary">Manager</div>';
             } else {
               echo '<div class="user-result-title btn-success">User</div>';
             }
