@@ -58,7 +58,10 @@
     				  echo '<div class="search-result"><h3>' . $title . '</h3>' . $release_date . ' ‧ ' . $duration . '<br>' . $summary ;
 
               if ($admin_tag == 1) {
-                echo '<li><a href="#">Edit</a></li><li><a href="#">Delete</a></li>';
+                echo '<div class="search-result-admin-functions">
+                        <button type="button" class="btn btn-danger"><a href="#"><span class="glyphicon glyphicon-remove"></span></a></button>
+                        <button type="button" class="btn btn-warning"><a href="#"><span class="glyphicon glyphicon-edit"></span></a></button>
+                      </div>';
               }
 
               // close the search-result div
