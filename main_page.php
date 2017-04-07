@@ -76,7 +76,7 @@
       </div>
     </div>
     <div class= "row page-content">
-      <div class = "col-sm-4">
+      <div class = "col-sm-3">
         <h1> Genres </h1>
         <!--<ul>
           <li> Animated </li>
@@ -93,7 +93,7 @@
         <input type="checkbox" name="genre5" value="Drama"> Drama<br>
         <input type="checkbox" name="genre6" value="Horror"> Horror<br>
       </div>
-        <div class="col-sm-8 search-window">
+        <div class="col-sm-9 search-window">
           <div class="row search-bar">
             <form method="get" action="">
               <div class="col-xs-3 search-options">
