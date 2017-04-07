@@ -1,4 +1,4 @@
-/*
+<!--
   Team Databased 2017: Movie-DB
   Author(s): Parker Householder
 
@@ -7,7 +7,7 @@
   Description: This is the PHP code used for establishing a connection to the
   MySQL Database with proper error checking.
 
-*/
+-->
 <?php
   //Establish a connection to the database
   $mysqli = new mysqli('localhost', 'root', '', 'Databased_movie');

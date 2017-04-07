@@ -1,4 +1,4 @@
-/*
+<!--
   Team Databased 2017: Movie-DB
   Author(s): Parker Householder, David Cottrell
 
@@ -7,7 +7,7 @@
   Description: This file contains the PHP code used for adding a MOVIE into the
   database. It also contains the main HTML code for laying out the Add a Movie page.
 
-*/
+-->
 <!DOCTYPE html>
 <html>
   <head>

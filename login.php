@@ -1,4 +1,4 @@
-/*
+<!--
   Team Databased 2017: Movie-DB
   Author(s): Parker Householder, Jonathen Dingess, Evan Heaton
 
@@ -8,7 +8,7 @@
   previous session, and logging into a new session. It also contains the main HTML
   used for laying out the login page.
 
-*/
+-->
 <!DOCTYPE html>
 <html>
   <head>

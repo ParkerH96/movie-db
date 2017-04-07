@@ -1,3 +1,5 @@
+
+<?php
 /*
   Team Databased 2017: Movie-DB
   Author(s): Parker Householder, Evan Heaton
@@ -9,7 +11,7 @@
 
 */
 
-<?php
+
       if(!empty($_GET['search'])){
 
         include 'connection.php';
@@ -51,8 +53,14 @@
               $summary = $current_row['summary'];
               $language = $current_row['language'];
               $duration = $current_row['duration'];
-
-              echo '<div class="search-result"><h3>' . $title . '</h3>' . $release_date . ' ‧ ' . $duration . '<br>' . $summary . '</div>';
+			  
+			  if ($admin_tag == 1) {
+				  echo '<div class="search-result"><h3>' . $title . '</h3>' . $release_date . ' ‧ ' . $duration . '<br>' . $summary . '<br> <li><a href="#">Edit</a></li>
+                <li><a href="#">Delete</a></li></div>';
+			  }
+			  else {
+				echo '<div class="search-result"><h3>' . $title . '</h3>' . $release_date . ' ‧ ' . $duration . '<br>' . $summary . '</div>';
+			  }
             }
             if ($search_query->num_rows == 1) {
               echo $search_query->num_rows . ' result found.<br><br>';

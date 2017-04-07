@@ -1,4 +1,4 @@
-/*
+<!--
   Team Databased 2017: Movie-DB
   Author(s): Parker Householder, Evan Heaton
 
@@ -8,7 +8,7 @@
   database upon registration. It also contains the HTML/JS code used for creating
   the registration page.
 
-*/
+-->
 <html>
   <head>
     <title>Registration Form</title>

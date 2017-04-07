@@ -1,12 +1,12 @@
-/*
+<!--
   Team Databased 2017: Movie-DB
-  Author(s): Parker Householder, Evan Heaton, Jonathen Dingess, David Cottrell
+  Author(s): Parker Householder, Evan Heaton, Jonathan Dingess, David Cottrell
 
   Name: main_page.php
 
   Description: This file contains the main HTML code used for laying out the main
   search page.
-*/
+-->
 <!DOCTYPE html>
 <html>
   <head>
