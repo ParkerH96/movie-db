@@ -9,8 +9,10 @@ Main repository for my project in CS405G (Intro To Database Systems)
 
 ## Downloading and installing
 * Download XAMPP
+
 Please download and install XAMPP. You can use the following link: https://www.apachefriends.org/index.html
 * Open XAMPP Manager
+
 Once you have completed installation, please open up the Manager Application and navigate to the "Manage Servers" tab.
 
 At the bottom of the "Manage Servers" tab, click the button that says "Start All". After a few short minutes you should see all servers have the status "Running".
