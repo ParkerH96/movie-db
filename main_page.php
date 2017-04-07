@@ -50,6 +50,7 @@
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
+                  <li><a href="users.php">View Users</a></li>
                   <li><a href="add_page.php">Add a Movie</a></li>
                   <li><a href="#">Edit a Movie</a></li>
                   <li><a href="#">Add a Crew</a></li>
