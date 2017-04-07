@@ -60,7 +60,7 @@
 
               if ($admin_tag == 1) {
                 echo '<div class="search-result-admin-functions">
-                        <button type="button" class="btn btn-danger"><a href="delete.php?movie_id=' . $movie_id . '&search=' . $search_key . '"><span class="glyphicon glyphicon-remove"></span></a></button>
+                        <a href="delete.php?movie_id=' . $movie_id . '&search=' . $search_key . '"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a>
                         <button type="button" class="btn btn-warning"><a href="#"><span class="glyphicon glyphicon-edit"></span></a></button>
                       </div>';
               }
