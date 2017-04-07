@@ -36,7 +36,7 @@
 
     <?php
       if(!empty($_POST)){
-        include 'connection.php';
+        include 'functions/connection.php';
 
         //escape the strings
         $firstname = $mysqli->escape_string($_POST['first-name']);
