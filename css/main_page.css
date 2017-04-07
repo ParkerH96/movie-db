@@ -22,6 +22,7 @@
 }
 
 #tool-bar {
+  position: relative;
   z-index: 5;
   padding: 10px;
   border-radius: 0px 0px 4px 4px;
@@ -29,6 +30,15 @@
   /*box-shadow: 0px 3px 3px #888888;*/
   color: white;
 
+}
+.greeting {
+  margin-top: 6px;
+  position: absolute;
+  right: 100px;
+}
+.logout {
+  position: absolute;
+  right: 10px;
 }
 
 .page-content h1 {

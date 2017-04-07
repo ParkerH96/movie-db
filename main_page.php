@@ -41,7 +41,6 @@
         <h1>Movie-DB</h1>
       </div>
       <div id="tool-bar">
-        <strong><?php echo $first_name . ' ' . $last_name; ?></strong>
         <?php
           if($admin_tag == 1){
             echo
@@ -72,7 +71,8 @@
              <li><a href="#">Rate and comment</a></li>
           </ul>
         </div>
-        <button type="button" class="btn btn-danger"><a href="login.php">Logout</a></button>
+        <span class="greeting"><?php echo 'Hello, ' . $first_name . ' ' . $last_name; ?></span>
+        <button type="button" class="btn btn-danger logout"><a href="login.php">Logout</a></button>
       </div>
     </div>
     <div class= "row page-content">

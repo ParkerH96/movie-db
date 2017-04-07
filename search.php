@@ -61,7 +61,7 @@
               if ($admin_tag == 1) {
                 echo '<div class="search-result-admin-functions">
                         <a href="delete.php?movie_id=' . $movie_id . '&search=' . $search_key . '"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a>
-                        <button type="button" class="btn btn-warning"><a href="#"><span class="glyphicon glyphicon-edit"></span></a></button>
+                        <a href="#"><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span></button></a>
                       </div>';
               }
 
