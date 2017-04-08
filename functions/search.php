@@ -91,7 +91,7 @@
               echo '<div class="search-result-admin-functions">';
 
               if ($admin_tag == 1) {
-                echo '<a href="../functions/delete.php?movie_id=' . $movie_id . '&search=' . $search_key . '"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a>
+                echo '<a href="../functions/delete.php?movie_id=' . $movie_id . '&search=' . $search_key . '" onclick="return confirm(\'Are you sure you want to delete ' . $title . '?\')"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a>
                       <a href="../pages/edit_page.php?movie_id=' . $movie_id . '&title=' . $title . '&release_date=' . $full_release_date . '&summary=' . $summary . '&language=' . $language . '&duration=' . $duration . '"><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span></button></a> ';
               }
 
