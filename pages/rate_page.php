@@ -128,12 +128,17 @@
           <span>release-date ‧ duration</span><br>
           <span>&emsp;Marvels The Avengers, or simply The Avengers, is a 2012 American superhero film based on the Marvel Comics superhero team of the same name, produced by Marvel Studios and distributed by Walt Disney Studios Motion Pictures.</span>
         </div>
-
-        <form method="post" action="">
-          <input type="number" min="0" max="10" name="rating" required><br>
-          <textarea name="review" rows="4" cols="50"></textarea><br>
-          <input type="submit" name="submit" value="Rate Now">
-        </form>
+        <div class="responsive-iframe">
+          <img class="ratio" src="http://placehold.it/16x9"/>
+          <iframe src="https://www.youtube.com/embed/hIR8Ar-Z4hw" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="movie-feedback">
+          <form method="post" action="">
+            <input type="number" min="0" max="10" name="rating" required><br>
+            <textarea name="review" rows="4" cols="50"></textarea><br>
+            <input type="submit" name="submit" value="Rate Now">
+          </form>
+        </div>
       </div>
     </div>
   </body>
