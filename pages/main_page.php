@@ -85,16 +85,16 @@
           <li> Drama </li>
           <li> Horror </li>
         </ul>-->
-        <input type="checkbox" name="genre1" value="Animated"> Animated<br>
-        <input type="checkbox" name="genre2" value="Romance"> Romance<br>
-        <input type="checkbox" name="genre3" value="Comedy"> Comedy<br>
-        <input type="checkbox" name="genre4" value="Action"> Action<br>
-        <input type="checkbox" name="genre5" value="Drama"> Drama<br>
-        <input type="checkbox" name="genre6" value="Horror"> Horror<br>
+        <form method="get" action="">
+          <input type="checkbox" name="genre[]" value="Animated"> Animated<br>
+          <input type="checkbox" name="genre[]" value="Romance"> Romance<br>
+          <input type="checkbox" name="genre[]" value="Comedy"> Comedy<br>
+          <input type="checkbox" name="genre[]" value="Action"> Action<br>
+          <input type="checkbox" name="genre[]" value="Drama"> Drama<br>
+          <input type="checkbox" name="genre[]" value="Horror"> Horror<br>
       </div>
         <div class="col-sm-9 search-window">
           <div class="row search-bar">
-            <form method="get" action="">
               <div class="col-xs-3 search-options">
                 <span class="small-title">Search By:</span>
                 <select name="option">
