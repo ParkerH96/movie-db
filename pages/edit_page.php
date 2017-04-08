@@ -40,7 +40,7 @@
 
         $_SESSION['message'] = 'Request Failed. You do not have permission to view that page!';
         $_SESSION['status'] = 'Failure';
-        
+
         header("location: main_page.php");
       }
 
@@ -96,6 +96,7 @@
         <h1>Movie-DB</h1>
       </div>
       <div id="tool-bar">
+        <a href="home_page.php"><button class="btn btn-info">Home</button></a>
         <?php
           if($admin_tag == 1){
             echo

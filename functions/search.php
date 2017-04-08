@@ -120,8 +120,6 @@
         if(!empty($_GET['genre'])){
           $genre = $_GET['genre'];
 
-          
-
         }
       }
 ?>
