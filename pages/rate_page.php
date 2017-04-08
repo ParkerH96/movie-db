@@ -117,37 +117,38 @@
       </div>
     </div>
     <div class= "row page-content">
+      <?php
+        include '../functions/connection.php';
+
+        $movie_query = $mysqli->query("SELECT * FROM MOVIE WHERE movie_id = $c_movie_id");
+
+        if($movie_query){
+
+          $result = $movie_query->fetch_assoc();
+
+          $c_title = $result['title'];
+          $c_release_date = $result['release_date'];
+          $c_summary = $result['summary'];
+          $c_language = $result['language'];
+          $c_duration = $result['duration'];
+          $c_trailer = $result['trailer'];
+          $c_poster = $result['poster'];
+
+        }
+      ?>
       <div class="col-sm-4 poster-container">
-        <img class="poster" src="../images/posters/avengers.jpg">
+        <img class="poster" src="../images/posters/<?php echo $c_poster?>">
       </div>
       <div class="col-sm-8 movie-info">
-        <?php
-          include '../functions/connection.php';
-
-          $movie_query = $mysqli->query("SELECT * FROM MOVIE WHERE movie_id = $c_movie_id");
-
-          if($movie_query){
-
-            $result = $movie_query->fetch_assoc();
-
-            $c_title = $result['title'];
-            $c_release_date = $result['release_date'];
-            $c_summary = $result['summary'];
-            $c_language = $result['language'];
-            $c_duration = $result['duration'];
-            $c_trailer = $result['trailer'];
-
-          }
-        ?>
 
         <h1><?php echo $c_title; ?></h1>
         <div class="movie-description">
           <span><?php echo $c_release_date . ' ‧ ' . $c_duration; ?></span><br>
-          <span>&emsp;Marvels The Avengers, or simply The Avengers, is a 2012 American superhero film based on the Marvel Comics superhero team of the same name, produced by Marvel Studios and distributed by Walt Disney Studios Motion Pictures.</span>
+          <span>&emsp;<?php echo $c_summary?></span>
         </div>
         <div class="responsive-iframe">
           <img class="ratio" src="http://placehold.it/16x9"/>
-          <iframe src="https://www.youtube.com/embed/hIR8Ar-Z4hw" frameborder="0" allowfullscreen></iframe>
+          <iframe src="<?php echo $c_trailer?>" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="movie-feedback">
           <form method="post" action="">

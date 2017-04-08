@@ -84,8 +84,7 @@
               }
 
               // open search-result div
-    				  echo '<div class="search-result"><div class="search-rating"><button type="button" class="btn btn-' . $btn_type . '">' . $rating_avg . '</button></div><h3>' . $title . '</h3>' . $release_date . ' ‧ ' . $duration . '<br>' . $summary .
-              '<br><html><body><iframe src="' . $trailer . '"width="560" height="315" frameborder="0" allowfullscreen></iframe></body></html>';
+    				  echo '<div class="search-result"><div class="search-rating"><button type="button" class="btn btn-' . $btn_type . '">' . $rating_avg . '</button></div><h3>' . $title . '</h3>' . $release_date . ' ‧ ' . $duration . '<br>' . $summary;
 
               //open the search-result-admin-functions div
               echo '<div class="search-result-admin-functions">';
