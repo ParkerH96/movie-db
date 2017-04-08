@@ -78,6 +78,25 @@ h5, select {
   font-weight: bold;
 }
 
+.search-result-info {
+  position: relative;
+  margin-bottom: 10px;
+}
+.search-result-poster-container {
+  padding-right: 10px;
+  display: inline-block;
+  vertical-align: top;
+  width: 100px;
+  height: 100%;
+}
+.search-result-poster {
+  width: 100%;
+
+}
+.search-result-text {
+  display: inline-block;
+  width: calc(100% - 100px);
+}
 
 
 .search-result-admin-functions span {

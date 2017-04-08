@@ -56,6 +56,7 @@
               $language = $current_row['language'];
               $duration = $current_row['duration'];
               $trailer = $current_row['trailer'];
+              $poster = $current_row['poster'];
 
               $rating_query = $mysqli->query("SELECT AVG(rating) FROM user_actions WHERE movie_id=$movie_id");
               $rating_result = $rating_query->fetch_assoc();
@@ -84,10 +85,14 @@
               }
 
               // open search-result div
-    				  echo '<div class="search-result"><div class="search-rating"><button type="button" class="btn btn-' . $btn_type . '">' . $rating_avg . '</button></div><h3>' . $title . '</h3>' . $release_date . ' ‧ ' . $duration . '<br>' . $summary;
+    				  echo '<div class="search-result"><div class="search-rating"><button type="button" class="btn btn-' . $btn_type . '">' . $rating_avg . '</button></div>' .
+                    '<div class="search-result-info"> <div class="search-result-poster-container">' .
+                      '<img class="search-result-poster" src="../images/posters/' . $poster . '"/>' .
+                    '</div><div class="search-result-text">' .
+                    '<h3>' . $title . '</h3>' . $release_date . ' ‧ ' . $duration . '<br>' . $summary;
 
               //open the search-result-admin-functions div
-              echo '<div class="search-result-admin-functions">';
+              echo '</div></div><div class="search-result-admin-functions">';
 
               if ($admin_tag == 1) {
                 echo '<a href="../functions/delete.php?movie_id=' . $movie_id . '&search=' . $search_key . '" onclick="return confirm(\'Are you sure you want to delete ' . $title . '?\')"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a>
