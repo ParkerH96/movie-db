@@ -30,7 +30,6 @@
 
     <!-- include stylesheets -->
     <link rel="stylesheet" href="../css/main.css" type="text/css">
-    <link rel="stylesheet" href="../css/main_page.css" type="text/css">
     <link rel="stylesheet" href="../css/home_page.css" type="text/css">
 
     <?php
@@ -78,7 +77,7 @@
             </ul>
           </div>
           <span class="greeting"><?php echo 'Hello, ' . $first_name . ' ' . $last_name; ?></span>
-          <button type="button" class="btn btn-danger logout"><a href="../login.php">Logout</a></button>
+          <a href="../login.php"><button type="button" class="btn btn-danger logout">Logout</button></a>
         </div>
       </div>
 
