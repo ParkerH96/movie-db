@@ -57,6 +57,7 @@
 		    $password = hash ( "sha256", $password . $username );
 
         //Gather the query for finding the particular username
+        $username = strtolower($username);
         $sql = "SELECT * FROM USER WHERE username='$username'";
         $result = $mysqli->query($sql);
 

@@ -45,6 +45,7 @@
         $dob = $mysqli->escape_string($_POST['dob']);
         $gender = $mysqli->escape_string($_POST['gender']);
         $username = $mysqli->escape_string($_POST['username']);
+        $username = strtolower($username);
         $password = $mysqli->escape_string($_POST['password']);
 		    $password = hash( "sha256", $password . $username );
 
