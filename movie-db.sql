@@ -23,6 +23,7 @@ CREATE TABLE MOVIE
   summary varchar(1024),
   language varchar(64) NOT NULL,
   duration time NOT NULL,
+  trailer varchar(1024) NOT NULL,
   PRIMARY KEY (movie_id)
 );
 
@@ -134,17 +135,17 @@ CREATE TABLE has_tags
   FOREIGN KEY (movie_id) REFERENCES MOVIE(movie_id)
 );
 
-INSERT INTO MOVIE(title, release_date, summary, language, duration) VALUES
-('Neighbors', '2014-05-09', 'Neighbors is a 2014 American comedy film directed by Nicholas Stoller', 'English', '01:37:00'),
-('Neighbors 2', '2016-05-20', 'Now that Mac and Kelly Radner have a second baby on the way, they are ready to make the final move into adulthood: the suburbs.', 'English', '01:32:00'),
-('The Notebook', '2004-06-25', 'An epic love story centered around an older man who reads aloud to an older, invalid woman whom he regularly visits.', 'English', '02:04:00'),
-('The Avengers', '2012-05-04', 'Marvels The Avengers, or simply The Avengers, is a 2012 American superhero film based on the Marvel Comics superhero team of the same name, produced by Marvel Studios and distributed by Walt Disney Studios Motion Pictures.', 'English', '02:23:00'),
-('The Ring', '2002-10-18', 'It sounded like just another urban legend--videotape filled with nightmarish images, leading to a phone call foretelling the viewers death in exactly seven days.', 'English', '02:25:00'),
-('American Psycho', '2000-04-14', 'Patrick Bateman is young, white, beautiful, ivy leagued, and indistinguishable from his Wall Street colleagues. Shielded by conformity, privilege, and wealth, Bateman is also the ultimate serial killer, roaming freely and fearlessly.', 'English', '01:44:00'),
-('The Grudge', '2004-10-22', 'The Grudge is a 2004 American supernatural horror film and a remake of the Japanese film, Ju-on: The Grudge.', 'English', '01:36:00'),
-('The Expendables', '2010-08-13', 'The Expendables is a 2010 American ensemble action film written by David Callaham and Sylvester Stallone, and directed by Stallone, who also starred in the lead role.', 'English', '01:53:00'),
-('Deadpool', '2016-02-12', 'Based upon Marvel Comics most unconventional anti-hero, DEADPOOL tells the origin story of former Special Forces operative turned mercenary Wade Wilson, who after being subjected to a rogue experiment that leaves him with accelerated healing powers, adopts the alter ego Deadpool.', 'English', '01:48:00'),
-('Thor', '2011-05-05', 'At the center of the story is The Mighty Thor, a powerful but arrogant warrior whose reckless actions reignite an ancient war.', 'English', '01:45:00');
+INSERT INTO MOVIE(title, release_date, summary, language, duration, trailer) VALUES
+('Neighbors', '2014-05-09', 'Neighbors is a 2014 American comedy film directed by Nicholas Stoller', 'English', '01:37:00', 'https://www.youtube.com/embed/KrAf5ALLxGI'),
+('Neighbors 2', '2016-05-20', 'Now that Mac and Kelly Radner have a second baby on the way, they are ready to make the final move into adulthood: the suburbs.', 'English', '01:32:00', 'https://www.youtube.com/embed/X2i9Zz_AqTg'),
+('The Notebook', '2004-06-25', 'An epic love story centered around an older man who reads aloud to an older, invalid woman whom he regularly visits.', 'English', '02:04:00', 'https://www.youtube.com/embed/4M7LIcH8C9U'),
+('The Avengers', '2012-05-04', 'Marvels The Avengers, or simply The Avengers, is a 2012 American superhero film based on the Marvel Comics superhero team of the same name, produced by Marvel Studios and distributed by Walt Disney Studios Motion Pictures.', 'English', '02:23:00', 'https://www.youtube.com/embed/hIR8Ar-Z4hw'),
+('The Ring', '2002-10-18', 'It sounded like just another urban legend--videotape filled with nightmarish images, leading to a phone call foretelling the viewers death in exactly seven days.', 'English', '02:25:00', 'https://www.youtube.com/embed/vhdqYkXor5s'),
+('American Psycho', '2000-04-14', 'Patrick Bateman is young, white, beautiful, ivy leagued, and indistinguishable from his Wall Street colleagues. Shielded by conformity, privilege, and wealth, Bateman is also the ultimate serial killer, roaming freely and fearlessly.', 'English', '01:44:00', 'https://www.youtube.com/embed/2GIsExb5jJU'),
+('The Grudge', '2004-10-22', 'The Grudge is a 2004 American supernatural horror film and a remake of the Japanese film, Ju-on: The Grudge.', 'English', '01:36:00', 'https://www.youtube.com/embed/YC3bzK_i9_s'),
+('The Expendables', '2010-08-13', 'The Expendables is a 2010 American ensemble action film written by David Callaham and Sylvester Stallone, and directed by Stallone, who also starred in the lead role.', 'English', '01:53:00', 'https://www.youtube.com/embed/IN63RwnB9NA'),
+('Deadpool', '2016-02-12', 'Based upon Marvel Comics most unconventional anti-hero, DEADPOOL tells the origin story of former Special Forces operative turned mercenary Wade Wilson, who after being subjected to a rogue experiment that leaves him with accelerated healing powers, adopts the alter ego Deadpool.', 'English', '01:48:00', 'https://www.youtube.com/embed/ONHBaC-pfsk'),
+('Thor', '2011-05-05', 'At the center of the story is The Mighty Thor, a powerful but arrogant warrior whose reckless actions reignite an ancient war.', 'English', '01:45:00', 'https://www.youtube.com/embed/JOddp-nlNvQ');
 
 INSERT INTO GENRE(genre) VALUES('Comedy'),('Romance'),('Fantasy'),('Science Fiction film'),('Drama film'),('Thriller'),('Mystery'),('Horror'),('Slasher'),('Action');
 

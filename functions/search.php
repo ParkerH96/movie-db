@@ -55,6 +55,7 @@
               $summary = $current_row['summary'];
               $language = $current_row['language'];
               $duration = $current_row['duration'];
+              $trailer = $current_row['trailer'];
 
               $rating_query = $mysqli->query("SELECT AVG(rating) FROM user_actions WHERE movie_id=$movie_id");
               $rating_result = $rating_query->fetch_assoc();
@@ -83,7 +84,8 @@
               }
 
               // open search-result div
-    				  echo '<div class="search-result"><div class="search-rating"><button type="button" class="btn btn-' . $btn_type . '">' . $rating_avg . '</button></div><h3>' . $title . '</h3>' . $release_date . ' ‧ ' . $duration . '<br>' . $summary;
+    				  echo '<div class="search-result"><div class="search-rating"><button type="button" class="btn btn-' . $btn_type . '">' . $rating_avg . '</button></div><h3>' . $title . '</h3>' . $release_date . ' ‧ ' . $duration . '<br>' . $summary .
+              '<br><html><body><iframe src="' . $trailer . '"width="560" height="315" frameborder="0" allowfullscreen></iframe></body></html>';
 
               //open the search-result-admin-functions div
               echo '<div class="search-result-admin-functions">';
