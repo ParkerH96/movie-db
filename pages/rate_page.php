@@ -55,6 +55,10 @@
         $insertion_query = $mysqli->query("INSERT INTO user_actions VALUES ($user_id, $c_movie_id, $rating, '$review')");
 
         if($insertion_query){
+
+          $_SESSION['status'] = 'Success';
+          $_SESSION['message'] = 'Success! You review has been added. Thank you for your feedback!';
+
           //success! redirect them back to the main page
           header("location: ../pages/main_page.php?option=Title&search=$search&submit=Search");
         }

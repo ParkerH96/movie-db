@@ -37,6 +37,10 @@
 
       //makes sure no one can access this page if they are not a manager
       if($_SESSION['admin_tag'] != 1){
+
+        $_SESSION['message'] = 'Request Failed. You do not have permission to view that page!';
+        $_SESSION['status'] = 'Failure';
+
         header("location: main_page.php");
       }
 
@@ -56,6 +60,9 @@
         $insertion_query = $mysqli->query("INSERT INTO MOVIE(title, release_date, summary, language, duration) VALUES ('$title', '$release_date', '$summary', '$language', '$duration')");
 
         if($insertion_query){
+          $_SESSION['message'] = 'Success! ' . $title . ' was added to the database!';
+          $_SESSION['status'] = 'Success';
+
           header("location: main_page.php");
         }
         else{

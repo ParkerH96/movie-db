@@ -114,6 +114,20 @@
             </form>
           </div>
           <div class="row results-row">
+            <?php
+                $message = $_SESSION['message'];
+
+                if(!empty($_SESSION['message']) && $_SESSION['status'] == 'Success'){
+                  echo '<br><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' . $message . '</div>';
+                }
+                else if(!empty($_SESSION['message']) && $_SESSION['status'] == 'Failure'){
+                  echo '<br><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' . $message . '</div>';
+                }
+
+
+
+                $_SESSION['message'] = '';
+            ?>
             <h1> Results: </h1>
             <?php
 

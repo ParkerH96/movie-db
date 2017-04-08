@@ -37,6 +37,10 @@
 
       //makes sure no one can access this page if they are not a manager
       if($_SESSION['admin_tag'] != 1){
+
+        $_SESSION['message'] = 'Request Failed. You do not have permission to view that page!';
+        $_SESSION['status'] = 'Failure';
+        
         header("location: main_page.php");
       }
 
@@ -69,6 +73,10 @@
         $update_query = $mysqli->query("UPDATE MOVIE SET title='$title', release_date='$release_date', summary='$summary', language='$language', duration='$duration' WHERE movie_id=$movie_id");
 
         if($update_query){
+
+          $_SESSION['status'] = 'Success';
+          $_SESSION['message'] = 'Success! The information for '. $title .' was modified.';
+
           header("location: main_page.php");
         }
         else{

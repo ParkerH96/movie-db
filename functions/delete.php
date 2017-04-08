@@ -1,5 +1,6 @@
 <?php
   include 'connection.php';
+  include 'session.php';
 
   if(isset($_GET['movie_id']) && !empty($_GET['movie_id']) && isset($_GET['search']) && !empty($_GET['search'])){
 
@@ -23,6 +24,9 @@
     if($delete_is_genres && $delete_has_tags && $delete_user_actions && $delete_has_crew && $delete_movie){
 
       $search = $_GET['search'];
+
+      $_SESSION['status'] = 'Success';
+      $_SESSION['message'] = 'Success! The movie was removed from the database.';
 
       //success! redirect them back to the main page
       header("location: ../pages/main_page.php?option=Title&search=$search&submit=Search");

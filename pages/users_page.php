@@ -85,10 +85,25 @@
 
         //makes sure no one can access this page if they are not a manager
         if($_SESSION['admin_tag'] != 1){
+
+          $_SESSION['message'] = 'Request Failed. You do not have permission to view that page!';
+          $_SESSION['status'] = 'Failure';
+          
           header("location: main_page.php");
         }
 
         $users = $mysqli->query("SELECT * FROM USER ORDER BY USER.admin_tag DESC");
+
+        $message = $_SESSION['message'];
+
+        if(!empty($_SESSION['message']) && $_SESSION['status'] == 'Success'){
+          echo '<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' . $message . '</div>';
+        }
+        else if(!empty($_SESSION['message']) && $_SESSION['status'] == 'Failure'){
+          echo '<div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' . $message . '</div>';
+        }
+
+        $_SESSION['message'] = '';
 
         if($users){
 
