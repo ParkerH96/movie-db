@@ -20,7 +20,7 @@ CREATE TABLE MOVIE
   movie_id int NOT NULL AUTO_INCREMENT,
   title varchar(64) NOT NULL,
   release_date date NOT NULL,
-  summary varchar(1024),
+  summary varchar(4096),
   language varchar(64) NOT NULL,
   duration time NOT NULL,
   trailer varchar(1024) NOT NULL,
@@ -145,7 +145,12 @@ INSERT INTO MOVIE(title, release_date, summary, language, duration, trailer) VAL
 ('The Grudge', '2004-10-22', 'The Grudge is a 2004 American supernatural horror film and a remake of the Japanese film, Ju-on: The Grudge.', 'English', '01:36:00', 'https://www.youtube.com/embed/YC3bzK_i9_s'),
 ('The Expendables', '2010-08-13', 'The Expendables is a 2010 American ensemble action film written by David Callaham and Sylvester Stallone, and directed by Stallone, who also starred in the lead role.', 'English', '01:53:00', 'https://www.youtube.com/embed/IN63RwnB9NA'),
 ('Deadpool', '2016-02-12', 'Based upon Marvel Comics most unconventional anti-hero, DEADPOOL tells the origin story of former Special Forces operative turned mercenary Wade Wilson, who after being subjected to a rogue experiment that leaves him with accelerated healing powers, adopts the alter ego Deadpool.', 'English', '01:48:00', 'https://www.youtube.com/embed/ONHBaC-pfsk'),
-('Thor', '2011-05-05', 'At the center of the story is The Mighty Thor, a powerful but arrogant warrior whose reckless actions reignite an ancient war.', 'English', '01:45:00', 'https://www.youtube.com/embed/JOddp-nlNvQ');
+('Thor', '2011-05-05', 'At the center of the story is The Mighty Thor, a powerful but arrogant warrior whose reckless actions reignite an ancient war.', 'English', '01:45:00', 'https://www.youtube.com/embed/JOddp-nlNvQ'),
+('Guardians of the Galaxy', '2014-08-01', "Brash space adventurer Peter Quill (Chris Pratt) finds himself the quarry of relentless bounty hunters after he steals an orb coveted by Ronan, a powerful villain. To evade Ronan, Quill is forced into an uneasy truce with four disparate misfits: gun-toting Rocket Raccoon, treelike-humanoid Groot, enigmatic Gamora, and vengeance-driven Drax the Destroyer.
+But when he discovers the orb's true power and the cosmic threat it poses, Quill must rally his ragtag group to save the universe.", 'English', '02:02:00', 'https://www.youtube.com/embed/d96cjJhvlMA'),
+('Star Wars: The Force Awakens', '2015-12-18', "Star Wars: The Force Awakens (also known as Star Wars: Episode VII – The Force Awakens) is a 2015 American epic space opera film directed, co-produced, and co-written by J. J. Abrams. The direct sequel to 1983's Return of the Jedi, The Force Awakens is the first installment of the Star Wars sequel trilogy, and stars Harrison Ford, Mark Hamill, Carrie Fisher,
+Adam Driver, Daisy Ridley, John Boyega, Oscar Isaac, Lupita Nyong'o, Andy Serkis, Domhnall Gleeson, Anthony Daniels, Peter Mayhew, and Max von Sydow. Produced by Lucasfilm Ltd. and Abrams' production company Bad Robot Productions and distributed worldwide by Walt Disney Studios Motion Pictures, The Force Awakens marks a break in creative control from the original series as the first Star Wars film not
+produced by franchise creator George Lucas. Set 30 years after Return of the Jedi, it follows Rey, Finn and Poe Dameron's search for Luke Skywalker and their fight alongside the Resistance, led by veterans of the Rebel Alliance, against Kylo Ren and the First Order, a successor organization to the Galactic Empire.", 'English', '02:15:00', 'https://www.youtube.com/embed/sGbxmsDFVnE');
 
 INSERT INTO GENRE(genre) VALUES('Comedy'),('Romance'),('Fantasy'),('Science Fiction film'),('Drama film'),('Thriller'),('Mystery'),('Horror'),('Slasher'),('Action');
 
