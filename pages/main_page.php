@@ -98,7 +98,6 @@
               <div class="col-xs-3 search-options">
                 <span class="small-title">Search By:</span>
                 <select name="option">
-                  <option>Any</option>
                   <option>Title</option>
                   <option>Genre</option>
                   <option>Tag</option>
