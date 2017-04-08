@@ -56,8 +56,34 @@
               $language = $current_row['language'];
               $duration = $current_row['duration'];
 
+              $rating_query = $mysqli->query("SELECT AVG(rating) FROM user_actions WHERE movie_id=$movie_id");
+              $rating_result = $rating_query->fetch_assoc();
+
+              if($rating_result['AVG(rating)'][2] === '.'){
+                $rating_avg = substr($rating_result['AVG(rating)'], 0, 2);
+              }
+              else{
+                $rating_avg = substr($rating_result['AVG(rating)'], 0, 3);
+              }
+
+              if($rating_avg >= 8){
+                $btn_type = 'success';
+              }
+              else if($rating_avg >= 6){
+                $btn_type = 'primary';
+              }
+              else if($rating_avg >= 4){
+                $btn_type = 'info';
+              }
+              else if($rating_avg >= 2){
+                $btn_type = 'warning';
+              }
+              else{
+                $btn_type = 'danger';
+              }
+
               // open search-result div
-    				  echo '<div class="search-result"><h3>' . $title . '</h3>' . $release_date . ' ‧ ' . $duration . '<br>' . $summary ;
+    				  echo '<div class="search-result"><div class="search-rating"><button type="button" class="btn btn-' . $btn_type . '">' . $rating_avg . '</button></div><h3>' . $title . '</h3>' . $release_date . ' ‧ ' . $duration . '<br>' . $summary;
 
               //open the search-result-admin-functions div
               echo '<div class="search-result-admin-functions">';

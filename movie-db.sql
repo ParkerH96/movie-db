@@ -189,11 +189,11 @@ INSERT INTO has_tags(tag_id, movie_id) VALUES (1, 1), (1, 2), (5, 3), (7, 4), (8
 INSERT INTO user_actions(user_id, movie_id, rating, review) VALUES
 (1, 1, 8, 'This movie was rather enjoyable and funny'),
 (2, 2, 7, 'It was ok, but the first one was definitely better!'),
-(3, 3, 10, 'The story told by this movie was absolutely beautiful in every single way'),
-(4, 4, 9, 'Probably one of my favorite marvel movies in recent years'),
-(5, 5, 10, 'It was very suspenseful and scary'),
+(3, 3, 0, 'The story told by this movie was absolutely beautiful in every single way'),
+(4, 4, 2, 'Probably one of my favorite marvel movies in recent years'),
+(5, 5, 4, 'It was very suspenseful and scary'),
 (6, 6, 8, 'This movie was really good, but there were definitely some flaws'),
-(7, 7, 9, 'Definitely one of my favorite horror movies of all time!'),
-(8, 8, 10, 'I absolutely love sylvestor salone, and his role in this movie was outstanding!'),
+(7, 7, 6, 'Definitely one of my favorite horror movies of all time!'),
+(8, 8, 8, 'I absolutely love sylvestor salone, and his role in this movie was outstanding!'),
 (9, 9, 10, 'This movie has to be the greatest marvel movie of all time! A must see!'),
 (10, 10, 7, 'It was good but not that good');

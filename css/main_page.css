@@ -111,7 +111,18 @@ h5, select {
   margin-right: 10px;
   margin-bottom: 10px;
   box-shadow: 0px 3px 3px #888888;
+  position: relative;
 }
+
+.search-rating {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-weight: bold;
+}
+
+
+
 .search-result-admin-functions span {
   margin-top: 2px;
 }
