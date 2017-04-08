@@ -2,7 +2,7 @@
   include 'connection.php';
   include 'session.php';
 
-  if(isset($_GET['movie_id']) && !empty($_GET['movie_id']) && isset($_GET['search']) && !empty($_GET['search'])){
+  if(isset($_GET['movie_id']) && !empty($_GET['movie_id'])){
 
     //escape the strings
     $movie_id = $mysqli->escape_string($_GET['movie_id']);
@@ -28,8 +28,13 @@
       $_SESSION['status'] = 'Success';
       $_SESSION['message'] = 'Success! The movie was removed from the database.';
 
-      //success! redirect them back to the main page
-      header("location: ../pages/main_page.php?option=Title&search=$search&submit=Search");
+      if(isset($_GET['search']) && !empty($_GET['search'])){
+        //success! redirect them back to the main page
+        header("location: ../pages/main_page.php?option=Title&search=$search&submit=Search");
+      }
+      else {
+        header("location: ../pages/main_page.php");
+      }
     }
     else{
       die();

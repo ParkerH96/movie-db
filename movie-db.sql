@@ -172,7 +172,7 @@ he succeeds, it will be the perfect crime, but a dangerous enemy anticipates Cob
 ('Divergent', '2014-03-21', "Tris Prior (Shailene Woodley) lives in a futuristic world in which society is divided into five factions. As each person enters adulthood, he or she must choose a faction and commit to it for life. Tris chooses Dauntless -- those who pursue bravery above all else. However, her initiation leads to the discovery that she is a Divergent and will never be able to fit into
 just one faction. Warned that she must conceal her status, Tris uncovers a looming war which threatens everyone she loves.", 'English', '02:19:00', 'https://www.youtube.com/embed/sutgWjz10sM', 'divergent.jpg');
 
-INSERT INTO GENRE(genre) VALUES('Comedy'),('Romance'),('Fantasy'),('Science Fiction film'),('Drama film'),('Thriller'),('Mystery'),('Horror'),('Slasher'),('Action');
+INSERT INTO GENRE(genre) VALUES('Comedy'),('Romance'),('Fantasy'),('Science Fiction'),('Drama'),('Thriller'),('Mystery'),('Horror'),('Slasher'),('Action');
 
 INSERT INTO USER(admin_tag, first_name, middle_name, last_name, dob, gender, username, password) VALUES
 (1, 'Parker', 'Alexander', 'Householder', '1996-05-01', 'Male', 'paho224', 'd96dafb2beaab65e1abb358c6f2ba54d28afb293f97166cfad806fdd71a1258e'),

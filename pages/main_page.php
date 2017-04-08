@@ -33,9 +33,18 @@
     <?php
       include '../functions/session.php';
     ?>
+
+    <script type="text/javascript">
+    function toggle(source) {
+      checkboxes = document.getElementsByName('genre[]');
+      for(var i=0, n=checkboxes.length;i<n;i++) {
+        checkboxes[i].checked = source.checked;
+      }
+    }
+    </script>
   </head>
 <body>
-  <div class="container">
+  <div id="main-page" class="container">
     <div class="row shadow">
       <div class="main-page-title">
         <h1>Movie-DB</h1>
@@ -78,21 +87,27 @@
     <div class= "row page-content">
       <div class = "col-sm-3">
         <h1> Genres </h1>
-        <!--<ul>
-          <li> Animated </li>
-          <li> Romance </li>
-          <li> Comedy </li>
-          <li> Action </li>
-          <li> Drama </li>
-          <li> Horror </li>
-        </ul>-->
+        <?php
+          if($admin_tag){
+            echo '<form method="post" action="../functions/add_genre.php">
+              <input type="text" name="genre" placeholder="Genre">
+              <input class="btn btn-info" type="submit" name="submit2" value="Add Genre">
+            </form>';
+          }
+        ?>
         <form method="get" action="">
-          <input type="checkbox" name="genre[]" value="Animated"> Animated<br>
-          <input type="checkbox" name="genre[]" value="Romance"> Romance<br>
-          <input type="checkbox" name="genre[]" value="Comedy"> Comedy<br>
-          <input type="checkbox" name="genre[]" value="Action"> Action<br>
-          <input type="checkbox" name="genre[]" value="Drama"> Drama<br>
-          <input type="checkbox" name="genre[]" value="Horror"> Horror<br>
+          <?php
+            include '../functions/connection.php';
+
+            $genre_input_query = $mysqli->query("SELECT * FROM GENRE");
+
+            echo '<input type="checkbox" onClick="toggle(this);"> All Genres<br>';
+
+            while($current_row = $genre_input_query->fetch_assoc()){
+              $i_genre = $current_row['genre'];
+              echo '<input type="checkbox" name="genre[]" value="' . $i_genre . '"> ' . $i_genre . '<br>';
+            }
+          ?>
       </div>
         <div class="col-sm-9 search-window">
           <div class="row search-bar">

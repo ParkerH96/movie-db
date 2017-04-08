@@ -38,7 +38,7 @@
     <?php
       include '../functions/session.php';
 
-      if(isset($_GET['movie_id']) && !empty($_GET['movie_id']) && isset($_GET['search']) && !empty($_GET['search'])){
+      if(isset($_GET['movie_id']) && !empty($_GET['movie_id']) && isset($_GET['search'])){
         $c_movie_id = $_GET['movie_id'];
         $search = $_GET['search'];
       }
@@ -151,6 +151,34 @@
           <img class="ratio" src="http://placehold.it/16x9"/>
           <iframe src="<?php echo $c_trailer?>" frameborder="0" allowfullscreen></iframe>
         </div>
+        <?php
+          $review_query = $mysqli->query("SELECT * FROM user_actions WHERE movie_id = $c_movie_id");
+
+          if($review_query){
+
+            while($current_row = $review_query->fetch_assoc()){
+              $i_user_id = $current_row['user_id'];
+              $i_rating = $current_row['rating'];
+              $i_review = $current_row['review'];
+
+              $user_query = $mysqli->query("SELECT * FROM USER WHERE user_id=$i_user_id");
+
+              if($user_query){
+                $c_user = $user_query->fetch_assoc();
+                $i_first_name = $c_user['first_name'];
+                $i_last_name = $c_user['last_name'];
+              }
+              else{
+                die("Error");
+              }
+
+              echo $i_first_name . ' ' . $i_last_name . '<br>' . $i_rating . '<br>' . $i_review . '<br>';
+            }
+          }
+          else{
+            die("Error");
+          }
+        ?>
         <div class="movie-feedback">
           <form method="post" action="">
             <input type="number" min="0" max="10" name="rating" required><br>
