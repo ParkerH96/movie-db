@@ -11,7 +11,14 @@
 
     if($update_query){
 
-      $_SESSION['message'] = 'Success! The User was promoted to a Manager!';
+      $result = $mysqli->query("SELECT first_name, middle_name, last_name FROM USER WHERE user_id = $c_user_id");
+      $current_row = $result->fetch_assoc();
+
+      $c_first_name = $current_row['first_name'];
+      $c_middle_name = $current_row['middle_name'];
+      $c_last_name = $current_row['last_name'];
+
+      $_SESSION['message'] = 'Success! ' . $c_first_name . ' ' . $c_middle_name . ' ' . $c_last_name . ' was promoted to a Manager!';
       $_SESSION['status'] = 'Success';
 
       header("location: ../pages/users_page.php");
