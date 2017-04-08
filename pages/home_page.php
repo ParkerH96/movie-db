@@ -1,6 +1,6 @@
 <!--
   Team Databased 2017: Movie-DB
-  Author(s): Parker Householder, Evan Heaton
+  Author(s): Evan Heaton, Parker Householder
 
   Name: home_page.php
 
@@ -25,6 +25,9 @@
     <!-- include bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/2b865347a6.css">
+
     <!-- include stylesheets -->
     <link rel="stylesheet" href="../css/main.css" type="text/css">
     <link rel="stylesheet" href="../css/main_page.css" type="text/css">
@@ -35,10 +38,14 @@
     ?>
   </head>
   <body>
-    <div class="container">
+    <div id="home-page" class="container">
       <div class="row shadow">
         <div class="main-page-title">
-          <h1>Movie-DB</h1>
+          <h1>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            Movie-DB
+            <i class="fa fa-star" aria-hidden="true"></i>
+          </h1>
         </div>
         <div id="tool-bar">
           <?php
@@ -77,6 +84,7 @@
 
       <div class="row photobanner-container">
 
+        <!-- https://designshack.net/tutorialexamples/photobanner/index.html -->
         <div class="photobanner">
           <img class="poster first" src="../images/posters/40yo-virgin.jpg">
           <img class="poster" src="../images/posters/divergent.jpg">
@@ -102,14 +110,19 @@
       </div>
       <div class="row info">
         <h1>Welcome to Movie-DB!</h1>
-        <div class="col-sm-6">Movie-DB is a large database of popular movies, complete with searchable information on each movie. Crews, Producers, and Actors for each movie are saved on the database, as well as release dates and movie lengths. </div>
-        <div class="col-sm-6">As a user, you have the ability to rate and leave comments on movies that you have watched. Help improve our database by leaving feedback on your favorite movies! To begin your search in the database, click the button below. </div>
+        <div class="col-sm-4 col-sm-offset-2"><span>&emsp;Movie-DB is a large database of popular movies, complete with searchable information on each movie. Crews, Producers, and Actors for each movie are saved on the database, as well as release dates and movie lengths.</span> </div>
+        <div class="col-sm-4"><span>&emsp;As a user, you have the ability to rate and leave comments on movies that you have watched. Help improve our database by leaving feedback on your favorite movies! To begin your search in the database, click the button below. </span></div>
       </div>
       <div class="row search">
         <h3>Search!</h3>
         <a href="main_page.php"><button type="button" class="btn btn-primary search-button"><span class="glyphicon glyphicon-search"></span></button></a>
       </div>
-
+      <div id="footer" class="row">
+        <div class="footer-links">
+          <a href="https://github.com/ParkerH96/movie-db"><i class="fa fa-github fa-2x footer-icon"></i></a>
+        </div>
+      </div>
     </div>
+
   </body>
 </html>
