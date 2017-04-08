@@ -152,7 +152,7 @@ But when he discovers the orb's true power and the cosmic threat it poses, Quill
 Adam Driver, Daisy Ridley, John Boyega, Oscar Isaac, Lupita Nyong'o, Andy Serkis, Domhnall Gleeson, Anthony Daniels, Peter Mayhew, and Max von Sydow. Produced by Lucasfilm Ltd. and Abrams' production company Bad Robot Productions and distributed worldwide by Walt Disney Studios Motion Pictures, The Force Awakens marks a break in creative control from the original series as the first Star Wars film not
 produced by franchise creator George Lucas. Set 30 years after Return of the Jedi, it follows Rey, Finn and Poe Dameron's search for Luke Skywalker and their fight alongside the Resistance, led by veterans of the Rebel Alliance, against Kylo Ren and the First Order, a successor organization to the Galactic Empire.", 'English', '02:15:00', 'https://www.youtube.com/embed/sGbxmsDFVnE');
 
-INSERT INTO GENRE(genre) VALUES('Comedy'),('Romance'),('Fantasy'),('Science Fiction film'),('Drama film'),('Thriller'),('Mystery'),('Horror'),('Slasher'),('Action');
+INSERT INTO GENRE(genre) VALUES('Comedy'),('Romance'),('Fantasy'),('Science Fiction'),('Drama'),('Thriller'),('Mystery'),('Horror'),('Slasher'),('Action');
 
 INSERT INTO USER(admin_tag, first_name, middle_name, last_name, dob, gender, username, password) VALUES
 (1, 'Parker', 'Alexander', 'Householder', '1996-05-01', 'Male', 'paho224', 'd96dafb2beaab65e1abb358c6f2ba54d28afb293f97166cfad806fdd71a1258e'),
