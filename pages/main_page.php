@@ -115,12 +115,11 @@
           </div>
           <div class="row results-row">
             <?php
-                $message = $_SESSION['message'];
 
-                if(!empty($_SESSION['message']) && $_SESSION['status'] == 'Success'){
+                if(!empty($message) && $status == 'Success'){
                   echo '<br><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' . $message . '</div>';
                 }
-                else if(!empty($_SESSION['message']) && $_SESSION['status'] == 'Failure'){
+                else if(!empty($message) && $status == 'Failure'){
                   echo '<br><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' . $message . '</div>';
                 }
 

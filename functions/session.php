@@ -21,5 +21,8 @@
     $last_name = $_SESSION['last_name'];
     $admin_tag = $_SESSION['admin_tag'];
     $user_id = $_SESSION['user_id'];
+    $message = $_SESSION['message'];
+    $status = $_SESSION['status'];
+
   }
 ?>
