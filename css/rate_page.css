@@ -1,0 +1,10 @@
+#rate-page {
+  font-family: 'Didact Gothic', sans-serif;
+}
+.poster-container {
+  text-align: center;
+}
+.poster {
+  display: inline-block;
+  max-width: 220px;
+}

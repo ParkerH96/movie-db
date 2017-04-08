@@ -27,13 +27,13 @@
     <!-- include bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+    <!-- include fonts -->
     <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/2b865347a6.css">
-    
+
     <!-- include stylesheets -->
     <link rel="stylesheet" href="../css/main.css" type="text/css">
-    <link rel="stylesheet" href="../css/main_page.css" type="text/css">
-    <link rel="stylesheet" href="../css/add_page.css" type="text/css">
+    <link rel="stylesheet" href="../css/rate_page.css" type="text/css">
 
     <?php
       include '../functions/session.php';
@@ -73,10 +73,14 @@
     ?>
   </head>
 <body>
-  <div class="container">
+  <div id="rate-page" class="container">
     <div class="row shadow">
       <div class="main-page-title">
-        <h1>Movie-DB</h1>
+        <h1>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          Movie-DB
+          <i class="fa fa-star" aria-hidden="true"></i>
+        </h1>
       </div>
       <div id="tool-bar">
         <?php
@@ -109,19 +113,28 @@
           </ul>
         </div>
         <span class="greeting"><?php echo 'Hello, ' . $first_name . ' ' . $last_name; ?></span>
-        <button type="button" class="btn btn-danger logout"><a href="../login.php">Logout</a></button>
+        <a href="../login.php"><button type="button" class="btn btn-danger logout">Logout</button></a>
       </div>
     </div>
     <div class= "row page-content">
-      <div class="col-md-3"></div>
-      <div class="col-xs-12 col-md-6">
+      <div class="col-sm-4 poster-container">
+        <img class="poster" src="../images/posters/avengers.jpg">
+      </div>
+      <div class="col-sm-8 movie-info">
+        <?php    ?>
+
+        <h1>The Avengers</h1>
+        <div class="movie-description">
+          <span>release-date ‧ duration</span><br>
+          <span>&emsp;Marvels The Avengers, or simply The Avengers, is a 2012 American superhero film based on the Marvel Comics superhero team of the same name, produced by Marvel Studios and distributed by Walt Disney Studios Motion Pictures.</span>
+        </div>
+
         <form method="post" action="">
           <input type="number" min="0" max="10" name="rating" required><br>
           <textarea name="review" rows="4" cols="50"></textarea><br>
           <input type="submit" name="submit" value="Rate Now">
         </form>
       </div>
-      <div class="col-md-3"></div>
     </div>
   </body>
 </html>
