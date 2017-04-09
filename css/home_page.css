@@ -1,3 +1,7 @@
+#home-page {
+
+}
+
 .main-page-title {
   text-align: center;
   background-color: #7885a1;
@@ -7,14 +11,7 @@
   width: 100%;
 }
 .main-page-title h1 {
-  color: #fff;
-  /*box-shadow: 0px 3px 3px #888888;*/
-  font-size: 75px;
-  margin-bottom: 0px;
-  margin-top: 0px;
-  padding: 10px;
-  text-align: center;
-  display: table-cell;
+  
 }
 
 .col-poster {

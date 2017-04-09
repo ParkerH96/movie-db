@@ -29,6 +29,7 @@
 
     <!-- include fonts -->
     <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/2b865347a6.css">
 
     <!-- include stylesheets -->
