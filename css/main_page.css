@@ -103,6 +103,9 @@ h5, select {
   display: inline-block;
   width: calc(100% - 100px);
 }
+.search-result-text h3 {
+  margin-top: 0px;
+}
 
 
 .search-result-admin-functions span {

@@ -50,7 +50,11 @@
   <div id="main-page" class="container">
     <div class="row shadow">
       <div class="main-page-title">
-        <h1>Movie-DB</h1>
+        <h1>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          Movie-DB
+          <i class="fa fa-star" aria-hidden="true"></i>
+        </h1>
       </div>
       <div id="tool-bar">
         <a href="home_page.php"><button class="btn btn-info">Home</button></a>
