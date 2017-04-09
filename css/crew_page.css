@@ -6,4 +6,52 @@
 
 .crew-result h3 {
   margin-top: 10px;
+  font-weight: bold;
+}
+
+.crew-result-title {
+  padding: 2px;
+  padding-left: 10px;
+}
+
+.crew-result-content {
+  margin-left: 10px;
+}
+
+.crew-text-box {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-right: none;
+  width: 70%;
+  font-size: 20px;
+}
+
+.crew-form button {
+  width: 30%;
+  border-left: none;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.crew-text-box, .crew-form button {
+  display: inline-block;
+  float: left;
+  padding: 0;
+  margin: 0;
+  height: 100%
+}
+
+.crew-form {
+  margin-left: 10px;
+  height: 40px;
+  width: 300px
+}
+
+.crew-result-functions button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.crew-forms {
+  display: inline-block;
 }

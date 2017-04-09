@@ -118,8 +118,3 @@ h5, select {
 .search-result-admin-functions span {
   margin-top: 2px;
 }
-
-button a:hover {
-  text-decoration: none;
-  color: white;
-}

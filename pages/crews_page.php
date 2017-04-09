@@ -82,8 +82,57 @@
       </div>
     </div>
     <div class="row page-content">
+
+      <form class="crew-forms" method="post" action="../functions/add_crew.php">
+        <div class='crew-form'>
+          <input class="crew-text-box" type="text" name="crew" placeholder="Crew">
+          <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Crew</button>
+        </div>
+      </form>
+      <form class="crew-forms" method="post" action="../functions/add_crew.php">
+        <div class='crew-form'>
+          <input class="crew-text-box" type="text" name="role" placeholder="Crew">
+          <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Role</button>
+        </div>
+      </form><br>
+
       <?php
         include '../functions/connection.php';
+
+        $select_roles_query = $mysqli->query("SELECT * FROM ROLE");
+        $select_crews_query = $mysqli->query("SELECT * FROM CREW");
+        $select_members_query = $mysqli->query("SELECT * FROM MEMBER");
+
+        echo '<select style="margin-left: 10px;" name="crew_select">';
+        while($crew_current_row = $select_crews_query->fetch_assoc()){
+
+          $curr_crew = $crew_current_row['name'];
+
+          echo '<option>' . $curr_crew . '</option>';
+        }
+
+        echo '</select> ';
+
+        echo '<select name="member_select">';
+        while($member_current_row = $select_members_query->fetch_assoc()){
+
+          $curr_first_name = $member_current_row['first_name'];
+          $curr_last_name = $member_current_row['last_name'];
+
+          echo '<option>' . $curr_first_name . ' ' . $curr_last_name . '</option>';
+        }
+
+        echo '</select> ';
+
+        echo '<select name="role_select">';
+        while($role_current_row = $select_roles_query->fetch_assoc()){
+
+          $curr_role = $role_current_row['role'];
+
+          echo '<option>' . $curr_role . '</option>';
+        }
+
+        echo '</select>';
 
         //makes sure no one can access this page if they are not a manager
         if($admin_tag != 1){
@@ -102,7 +151,7 @@
             $crew_name = $current_row['name'];
             $crew_id = $current_row['crew_id'];
 
-            echo '<div class="crew-result"><h3>' . $crew_name . '</h3>';
+            echo '<div class="crew-result"><div class="btn-info crew-result-title">Crew</div><div class="crew-result-content"><h3>' . $crew_name . '</h3>';
 
             //find the members in the crew
             $has_members_query = $mysqli->query("SELECT * FROM has_members WHERE crew_id = $crew_id");
@@ -133,7 +182,9 @@
                 }
               }
             }
-            echo '</div>';
+            echo '<div class="crew-result-functions">
+                    <a href="../functions/delete_crew.php?crew_id=' . $crew_id . '"><button class="btn btn-danger">Delete Crew</button></a>
+                  </div></div></div>';
           }
         }
         else{
