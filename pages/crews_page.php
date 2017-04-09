@@ -49,7 +49,7 @@
         <h1>Movie-DB</h1>
       </div>
       <div id="tool-bar">
-        <a href="home_page.php"><button class="btn btn-info">Home</button></a>
+        <a href="home_page.php"><button class="btn btn-info"><i class="fa fa-home" aria-hidden="true"></i></button></a>
         <?php
           if($admin_tag == 1){
             echo

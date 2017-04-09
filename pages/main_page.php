@@ -58,7 +58,7 @@
         </h1>
       </div>
       <div id="tool-bar">
-        <a href="home_page.php"><button class="btn btn-info">Home</button></a>
+        <a href="home_page.php"><button class="btn btn-info"><i class="fa fa-home" aria-hidden="true"></i></button></a>
         <?php
           if($admin_tag == 1){
             echo
@@ -92,28 +92,30 @@
     </div>
     <div class= "row page-content">
       <div class = "col-sm-3">
-        <h1> Genres </h1>
-        <?php
-          if($admin_tag){
-            echo '<form method="post" action="../functions/add_genre.php">
-              <input class="add-genre-text" type="text" name="genre" placeholder="Genre" required>
-              <button type="submit" class="add-genre btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
-            </form>';
-          }
-        ?>
-        <form method="get" action="">
+        <div class="well">
+          <h1> Genres </h1>
           <?php
-            include '../functions/connection.php';
-
-            $genre_input_query = $mysqli->query("SELECT * FROM GENRE");
-
-            echo '<input type="checkbox" onClick="toggle(this);"> All Genres<br>';
-
-            while($current_row = $genre_input_query->fetch_assoc()){
-              $i_genre = $current_row['genre'];
-              echo '<input type="checkbox" name="genre[]" value="' . $i_genre . '"> ' . $i_genre . '<br>';
+            if($admin_tag){
+              echo '<form method="post" action="../functions/add_genre.php">
+                <input class="add-genre-text" type="text" name="genre" placeholder="Genre" required>
+                <button type="submit" class="add-genre btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
+              </form>';
             }
           ?>
+          <form method="get" action="">
+            <?php
+              include '../functions/connection.php';
+
+              $genre_input_query = $mysqli->query("SELECT * FROM GENRE");
+
+              echo '<input type="checkbox" onClick="toggle(this);"> All Genres<br>';
+
+              while($current_row = $genre_input_query->fetch_assoc()){
+                $i_genre = $current_row['genre'];
+                echo '<input type="checkbox" name="genre[]" value="' . $i_genre . '"> ' . $i_genre . '<br>';
+              }
+            ?>
+          </div>
       </div>
         <div class="col-sm-9 search-window">
           <div class="row search-bar">

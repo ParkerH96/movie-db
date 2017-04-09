@@ -84,7 +84,7 @@
         </h1>
       </div>
       <div id="tool-bar">
-        <a href="home_page.php"><button class="btn btn-info">Home</button></a>
+        <a href="home_page.php"><button class="btn btn-info"><i class="fa fa-home" aria-hidden="true"></i></button></a>
         <?php
           if($admin_tag == 1){
             echo
@@ -137,7 +137,16 @@
         }
       ?>
       <div class="col-sm-4 poster-container">
-        <img class="poster" src="../images/posters/<?php echo $c_poster?>">
+        <div class="well">
+          <img class="poster" src="../images/posters/<?php echo $c_poster?>">
+        </div>
+        <div class="movie-rating">
+          <i class="fa fa-star-o fa-2x" aria-hidden="true"></i>
+          <i class="fa fa-star-o fa-2x" aria-hidden="true"></i>
+          <i class="fa fa-star-o fa-2x" aria-hidden="true"></i>
+          <i class="fa fa-star-o fa-2x" aria-hidden="true"></i>
+          <i class="fa fa-star-o fa-2x" aria-hidden="true"></i>
+        </div>
       </div>
       <div class="col-sm-8 movie-info">
 
