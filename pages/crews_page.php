@@ -56,8 +56,11 @@
                 </button>
                 <ul class="dropdown-menu">
                   <li><a href="users_page.php">View Users</a></li>
-                  <li><a href="crews_page.php">View Crews</a></li>
                   <li><a href="add_page.php">Add a Movie</a></li>
+                  <li><a href="edit_page.php">Edit a Movie</a></li>
+                  <li><a href="#">Add a Crew</a></li>
+                  <li><a href="#">Delete a Crew</a></li>
+                  <li><a href="#">Edit a Crew</a></li>
                 </ul>
               </div>';
           }
@@ -90,60 +93,46 @@
           header("location: main_page.php");
         }
 
-        $users = $mysqli->query("SELECT * FROM USER ORDER BY USER.admin_tag DESC");
+        $crews = $mysqli->query("SELECT * FROM has_members");
 
-        if(!empty($message) && $status == 'Success'){
+        if($crews){
+
+          while($current_row = $crews->fetch_assoc()){
+            $i_crew_id = $current_row['crew_id'];
+            $i_mem_id = $current_row['mem_id'];
+            $i_role_id = $current_row['role_id'];
+
+            $crew_name_query = $mysqli->query("SELECT * FROM CREW WHERE crew_id = $i_crew_id");
+            $member_query = $mysqli->query("SELECT * FROM MEMBER WHERE mem_id = $i_mem_id");
+            $role_query = $mysqli->query("SELECT * FROM ROLE WHERE role_id = $i_role_id");
+
+            if($crew_name_query && $member_query && $role_query){
+              $c_crew = $crew_name_query->fetch_assoc();
+              $c_member = $member_query->fetch_assoc();
+              $c_role = $role_query->fetch_assoc();
+
+              $crew_name = $c_crew['name'];
+              $mem_first_name = $c_member['first_name'];
+              $mem_last_name = $c_member['last_name'];
+              //$mem_gender = $c_member['gender'];
+              //$role_name
+            }
+            else {
+              die("Error");
+            }
+          }
+        }
+
+        /*if(!empty($message) && $status == 'Success'){
           echo '<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' . $message . '</div>';
           $_SESSION['message'] = '';
         }
         else if(!empty($message) && $status == 'Failure'){
           echo '<div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' . $message . '</div>';
           $_SESSION['message'] = '';
-        }
+        }*/
 
-        if($users){
 
-          while($current_row = $users->fetch_assoc()){
-            $i_user_id = $current_row['user_id'];
-            $i_username = $current_row['username'];
-            $i_admin_tag = $current_row['admin_tag'];
-            $i_first_name = $current_row['first_name'];
-            $i_middle_name = $current_row['middle_name'];
-            $i_last_name = $current_row['last_name'];
-            $i_dob = $current_row['dob'];
-            $i_gender = $current_row['gender'];
-
-            echo '<div class="user-result">';
-
-            if ($i_admin_tag) {
-              echo '<div class="user-result-title btn-primary">Manager</div>';
-            } else {
-              echo '<div class="user-result-title btn-success">User</div>';
-            }
-
-            echo '  <div class="user-result-content">
-                      <h3>' . $i_first_name . ' ' . $i_middle_name . ' ' . $i_last_name . '</h3>
-                      <h4>Username: <em>' . $i_username . '</em></h4>
-                      <h4>Gender: <em>' . $i_gender . '</em></h4>
-                      <h4>Date of Birth: <em>' . $i_dob . '</em></h4>
-                  ';
-            if ($i_user_id == $user_id) {
-              echo '<strong class="logged-in">(Your Account)</strong>';
-            } else {
-              echo '<a href="../functions/delete_user.php?user_id=' . $i_user_id . '"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a> ';
-              if (!$i_admin_tag) {
-                echo '<a href="../functions/promote.php?user_id=' . $i_user_id . '"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-collapse-up"></span> Promote</button></a>';
-              } else {
-                echo '<a href="../functions/demote.php?user_id=' . $i_user_id . '"><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-collapse-down"></span> Demote</button></a>';
-              }
-            }
-            echo '</div></div>';
-          }
-
-        }
-        else{
-          die("Error.");
-        }
       ?>
     </div>
 

@@ -90,10 +90,8 @@
                 </button>
                 <ul class="dropdown-menu">
                   <li><a href="users_page.php">View Users</a></li>
+                  <li><a href="crews_page.php">View Crews</a></li>
                   <li><a href="add_page.php">Add a Movie</a></li>
-                  <li><a href="#">Add a Crew</a></li>
-                  <li><a href="#">Delete a Crew</a></li>
-                  <li><a href="#">Edit a Crew</a></li>
                 </ul>
               </div>';
           }
