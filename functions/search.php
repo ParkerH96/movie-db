@@ -97,7 +97,8 @@
                       <a href="../pages/edit_page.php?movie_id=' . $movie_id . '&title=' . $title . '&release_date=' . $full_release_date . '&summary=' . $summary . '&language=' . $language . '&duration=' . $duration . '"><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span></button></a> ';
               }
 
-              echo '<a href="../pages/rate_page.php?movie_id=' . $movie_id . '&search=' . $search_key . '"><button type="button" class="btn btn-success">Rate/Comment/Tag</button></a>';
+              echo '<a href="../pages/rate_page.php?movie_id=' . $movie_id . '&search=' . $search_key . '"><button type="button" class="btn btn-success">Rate/Comment/Tag</button></a>
+                     <a href="../functions/add_watchlist.php?movie_id=' . $movie_id .'&search=' . $search_key .'&title=' . $title . '"><button class="btn btn-info">Add to Watchlist</button></a>';
 
               // close the search-result div
               echo '</div></div>';
@@ -186,7 +187,8 @@
                       <a href="../pages/edit_page.php?movie_id=' . $movie_id . '&title=' . $title . '&release_date=' . $full_release_date . '&summary=' . $summary . '&language=' . $language . '&duration=' . $duration . '"><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span></button></a> ';
               }
 
-              echo '<a href="../pages/rate_page.php?movie_id=' . $movie_id . '&search=' . $search_key . '"><button type="button" class="btn btn-success">Rate/Comment/Tag</button></a>';
+              echo '<a href="../pages/rate_page.php?movie_id=' . $movie_id . '&search=' . $search_key . '"><button type="button" class="btn btn-success">Rate/Comment/Tag</button></a>
+                    <a href="../functions/add_watchlist.php?movie_id=' . $movie_id .'&search=' . $search_key .'&title=' . $title . '"><button class="btn btn-info">Add to Watchlist</button></a>';
 
               // close the search-result div
               echo '</div></div>';

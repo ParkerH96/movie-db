@@ -136,6 +136,15 @@ CREATE TABLE has_tags
   FOREIGN KEY (movie_id) REFERENCES MOVIE(movie_id)
 );
 
+DROP TABLE IF EXISTS watch_list;
+CREATE TABLE watch_list
+(
+  user_id int NOT NULL,
+  movie_id int NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES USER(user_id),
+  FOREIGN KEY (movie_id) REFERENCES MOVIE(movie_id)
+);
+
 INSERT INTO MOVIE(title, release_date, summary, language, duration, trailer, poster) VALUES
 ('Neighbors', '2014-05-09', 'Neighbors is a 2014 American comedy film directed by Nicholas Stoller', 'English', '01:37:00', 'https://www.youtube.com/embed/KrAf5ALLxGI', 'neighbors.jpg'),
 ('Neighbors 2', '2016-05-20', 'Now that Mac and Kelly Radner have a second baby on the way, they are ready to make the final move into adulthood: the suburbs.', 'English', '01:32:00', 'https://www.youtube.com/embed/X2i9Zz_AqTg', 'neighbors2.jpg'),

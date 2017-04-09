@@ -108,8 +108,7 @@
           </button>
           <ul class="dropdown-menu">
              <li><a href="main_page.php">Search Movies</a></li>
-             <li><a href="#">Tag a Movie</a></li>
-             <li><a href="#">Rate and comment</a></li>
+             <li><a href="watchlist_page.php">My Watchlist</a><li>
           </ul>
         </div>
         <span class="greeting"><?php echo 'Hello, ' . $first_name . ' ' . $last_name; ?></span>

@@ -73,8 +73,7 @@
           </button>
           <ul class="dropdown-menu">
              <li><a href="main_page.php">Search Movies</a></li>
-             <li><a href="#">Tag a Movie</a></li>
-             <li><a href="#">Rate and comment</a></li>
+             <li><a href="watchlist_page.php">My Watchlist</a><li>
           </ul>
         </div>
         <span class="greeting"><?php echo 'Hello, ' . $first_name . ' ' . $last_name; ?></span>
@@ -89,9 +88,9 @@
           <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Crew</button>
         </div>
       </form>
-      <form class="crew-forms" method="post" action="../functions/add_crew.php">
+      <form class="crew-forms" method="post" action="../functions/add_role.php">
         <div class='crew-form'>
-          <input class="crew-text-box" type="text" name="role" placeholder="Crew">
+          <input class="crew-text-box" type="text" name="role" placeholder="Role">
           <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Role</button>
         </div>
       </form><br>
@@ -103,12 +102,15 @@
         $select_crews_query = $mysqli->query("SELECT * FROM CREW");
         $select_members_query = $mysqli->query("SELECT * FROM MEMBER");
 
+        echo '<form method="post" action="">';
+
         echo '<select style="margin-left: 10px;" name="crew_select">';
         while($crew_current_row = $select_crews_query->fetch_assoc()){
 
           $curr_crew = $crew_current_row['name'];
+          $curr_crew_id = $crew_current_row['crew_id'];
 
-          echo '<option>' . $curr_crew . '</option>';
+          echo '<option value="' . $curr_crew_id .'">' . $curr_crew . '</option>';
         }
 
         echo '</select> ';
@@ -118,8 +120,9 @@
 
           $curr_first_name = $member_current_row['first_name'];
           $curr_last_name = $member_current_row['last_name'];
+          $curr_mem_id = $member_current_row['mem_id'];
 
-          echo '<option>' . $curr_first_name . ' ' . $curr_last_name . '</option>';
+          echo '<option value="' . $curr_mem_id . '">' . $curr_first_name . ' ' . $curr_last_name . '</option>';
         }
 
         echo '</select> ';
@@ -128,11 +131,30 @@
         while($role_current_row = $select_roles_query->fetch_assoc()){
 
           $curr_role = $role_current_row['role'];
+          $curr_role_id = $role_current_row['role_id'];
 
-          echo '<option>' . $curr_role . '</option>';
+          echo '<option value="' . $curr_role_id . '">' . $curr_role . '</option>';
         }
 
         echo '</select>';
+        echo ' <button type="submit" name="add_member" class="btn btn-success">Add Member</button> <button type="submit" name="delete_member" class="btn btn-danger">Delete Member</button>';
+        echo '</form>';
+
+        if(isset($_POST['add_member'])){
+          include '../functions/add_member_to_crew.php';
+        }
+        else if(isset($_POST['delete_member'])){
+          include '../functions/delete_member_from_crew.php';
+        }
+
+        if(!empty($message) && $status == 'Success'){
+          echo '<br><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' . $message . '</div>';
+          $_SESSION['message'] = '';
+        }
+        else if(!empty($message) && $status == 'Failure'){
+          echo '<br><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' . $message . '</div>';
+          $_SESSION['message'] = '';
+        }
 
         //makes sure no one can access this page if they are not a manager
         if($admin_tag != 1){
@@ -190,16 +212,6 @@
         else{
           die("Error");
         }
-
-        /*if(!empty($message) && $status == 'Success'){
-          echo '<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' . $message . '</div>';
-          $_SESSION['message'] = '';
-        }
-        else if(!empty($message) && $status == 'Failure'){
-          echo '<div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' . $message . '</div>';
-          $_SESSION['message'] = '';
-        }*/
-
 
       ?>
     </div>

@@ -9,8 +9,8 @@
 
     if($insertion_query){
 
-      //$_SESSION['status'] = 'Success';
-      //$_SESSION['message'] = 'Success! The genre "' . $crew_name . '" was added to the database.';
+      $_SESSION['status'] = 'Success';
+      $_SESSION['message'] = 'Success! The crew "' . $crew_name . '" was added to the database.';
 
       header("location: ../pages/crews_page.php");
     }
