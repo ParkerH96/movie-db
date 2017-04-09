@@ -1,0 +1,9 @@
+.crew-result {
+  background-color: #fffcfc;
+  margin: 10px;
+  box-shadow: 0px 3px 3px #888888;
+}
+
+.crew-result h3 {
+  margin-top: 10px;
+}

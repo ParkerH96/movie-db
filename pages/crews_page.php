@@ -30,7 +30,7 @@
     <!-- include stylesheets -->
     <link rel="stylesheet" href="../css/main.css" type="text/css">
     <link rel="stylesheet" href="../css/main_page.css" type="text/css">
-    <link rel="stylesheet" href="../css/users_page.css" type="text/css">
+    <link rel="stylesheet" href="../css/crew_page.css" type="text/css">
 
     <?php
 
@@ -56,11 +56,8 @@
                 </button>
                 <ul class="dropdown-menu">
                   <li><a href="users_page.php">View Users</a></li>
+                  <li><a href="crews_page.php">View Crews</a></li>
                   <li><a href="add_page.php">Add a Movie</a></li>
-                  <li><a href="edit_page.php">Edit a Movie</a></li>
-                  <li><a href="#">Add a Crew</a></li>
-                  <li><a href="#">Delete a Crew</a></li>
-                  <li><a href="#">Edit a Crew</a></li>
                 </ul>
               </div>';
           }
@@ -93,34 +90,50 @@
           header("location: main_page.php");
         }
 
-        $crews = $mysqli->query("SELECT * FROM has_members");
+        $crews_query = $mysqli->query("SELECT * FROM CREW");
 
-        if($crews){
+        if($crews_query){
 
-          while($current_row = $crews->fetch_assoc()){
-            $i_crew_id = $current_row['crew_id'];
-            $i_mem_id = $current_row['mem_id'];
-            $i_role_id = $current_row['role_id'];
+          while($current_row = $crews_query->fetch_assoc()){
+            $crew_name = $current_row['name'];
+            $crew_id = $current_row['crew_id'];
 
-            $crew_name_query = $mysqli->query("SELECT * FROM CREW WHERE crew_id = $i_crew_id");
-            $member_query = $mysqli->query("SELECT * FROM MEMBER WHERE mem_id = $i_mem_id");
-            $role_query = $mysqli->query("SELECT * FROM ROLE WHERE role_id = $i_role_id");
+            echo '<div class="crew-result"><h3>' . $crew_name . '</h3>';
 
-            if($crew_name_query && $member_query && $role_query){
-              $c_crew = $crew_name_query->fetch_assoc();
-              $c_member = $member_query->fetch_assoc();
-              $c_role = $role_query->fetch_assoc();
+            //find the members in the crew
+            $has_members_query = $mysqli->query("SELECT * FROM has_members WHERE crew_id = $crew_id");
 
-              $crew_name = $c_crew['name'];
-              $mem_first_name = $c_member['first_name'];
-              $mem_last_name = $c_member['last_name'];
-              //$mem_gender = $c_member['gender'];
-              //$role_name
+            if($has_members_query){
+
+              while($current_has_members_row = $has_members_query->fetch_assoc()){
+                $role_id = $current_has_members_row['role_id'];
+                $mem_id = $current_has_members_row['mem_id'];
+
+                //find the info on the role and member
+                $member_query = $mysqli->query("SELECT * FROM MEMBER WHERE mem_id = $mem_id");
+                $role_query = $mysqli->query("SELECT * FROM ROLE WHERE role_id = $role_id");
+
+                if($member_query && $role_query){
+                  $c_member = $member_query->fetch_assoc();
+                  $c_role = $role_query->fetch_assoc();
+
+                  $mem_first_name = $c_member['first_name'];
+                  //$mem_middle_name = $c_member['middle_name'];
+                  $mem_last_name = $c_member['last_name'];
+                  //$mem_dob = $c_member['dob'];
+                  //$mem_gender = $c_member['gender'];
+
+                  $role = $c_role['role'];
+
+                  echo $mem_first_name . ' ' . $mem_last_name . ' -' . $role . '<br>';
+                }
+              }
             }
-            else {
-              die("Error");
-            }
+            echo '</div>';
           }
+        }
+        else{
+          die("Error");
         }
 
         /*if(!empty($message) && $status == 'Success'){
