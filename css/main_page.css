@@ -117,8 +117,3 @@ button a:hover {
 button a {
   color: white;
 }
-
-.dropdown-menu {
-  position: absolute;
-  margin-top: 10px;
-}

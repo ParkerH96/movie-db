@@ -98,3 +98,8 @@ div.dropdown  {
 .btn:hover {
   cursor: pointer;
 }
+
+.dropdown-menu {
+  position: absolute;
+  margin-top: 10px;
+}
