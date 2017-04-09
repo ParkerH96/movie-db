@@ -97,8 +97,10 @@
           <?php
             if($admin_tag){
               echo '<form method="post" action="../functions/add_genre.php">
+              <div class="genre-form">
                 <input class="add-genre-text" type="text" name="genre" placeholder="Genre" required>
                 <button type="submit" class="add-genre btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
+              </div>
               </form>';
             }
           ?>

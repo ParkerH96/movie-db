@@ -10,12 +10,6 @@
   font-size: 40px;
 }
 
-.add-genre-text {
-  border-radius: 4px;
-  height: 35px;
-  width: 70%;
-}
-
 .search-bar {
   border-radius: 4px;
   background-color: #7885a1;
@@ -117,4 +111,32 @@ h5, select {
 
 .search-result-admin-functions span {
   margin-top: 2px;
+}
+
+.add-genre-text {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-right: none;
+  width: 70%;
+  font-size: 20px;
+}
+
+.genre-form button {
+  width: 30%;
+  border-left: none;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  height: 30px;
+}
+
+.genre-form {
+  height: 40px;
+}
+
+.add-genre-text, .genre-form button {
+  display: inline-block;
+  float: left;
+  padding: 0;
+  margin: 0;
+  height: 100%;
 }
