@@ -3,6 +3,12 @@
   font-size: 40px;
 }
 
+.add-genre-text {
+  border-radius: 4px;
+  height: 35px;
+  width: 70%;
+}
+
 .search-bar {
   border-radius: 4px;
   background-color: #7885a1;

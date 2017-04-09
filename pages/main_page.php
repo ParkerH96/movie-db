@@ -90,8 +90,8 @@
         <?php
           if($admin_tag){
             echo '<form method="post" action="../functions/add_genre.php">
-              <input type="text" name="genre" placeholder="Genre" required>
-              <input class="btn btn-info" type="submit" name="submit2" value="Add Genre">
+              <input class="add-genre-text" type="text" name="genre" placeholder="Genre" required>
+              <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
             </form>';
           }
         ?>

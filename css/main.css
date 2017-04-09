@@ -94,3 +94,7 @@ form {
 div.dropdown  {
   display: inline;
 }
+
+.btn:hover {
+  cursor: pointer;
+}
