@@ -37,7 +37,7 @@
     ?>
   </head>
   <body>
-    <div id="home-page" class="container">
+    <div class="container">
       <div class="row shadow">
         <div class="main-page-title">
           <h1>

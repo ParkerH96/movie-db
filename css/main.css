@@ -103,3 +103,15 @@ div.dropdown  {
   position: absolute;
   margin-top: 10px;
 }
+
+.main-page-title h1 {
+  font-family: 'Didact Gothic', sans-serif;
+}
+
+.container {
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+button a {
+  color: white;
+}
