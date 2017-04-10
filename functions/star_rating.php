@@ -30,6 +30,7 @@
     else if ($rating > 3)  {for ($i=0; $i<2; $i++) echo $full_star; for ($i=0; $i<3; $i++) echo $empty_star;}
     else if ($rating > 2)  {for ($i=0; $i<1; $i++) echo $full_star; echo $half_star; for ($i=0; $i<3; $i++) echo $empty_star;}
     else if ($rating > 1)  {for ($i=0; $i<1; $i++) echo $full_star; for ($i=0; $i<4; $i++) echo $empty_star;}
-    else {echo $half_star; for ($i=0; $i<4; $i++) echo $empty_star;}
+    else if ($rating > 0)  {echo $half_star; for ($i=0; $i<4; $i++) echo $empty_star;}
+    else {for ($i=0; $i<5; $i++) echo $empty_star;}
   }
 ?>
