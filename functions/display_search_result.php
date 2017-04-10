@@ -15,6 +15,7 @@
     include 'connection.php';
 
     $movie_query = $mysqli->query("SELECT * FROM MOVIE WHERE movie_id = $movie_id");
+    $genre_query = $mysqli->query("SELECT genre FROM MOVIE, is_genres, GENRE WHERE MOVIE.movie_id = is_genres.movie_id AND GENRE.genre_id = is_genres.genre_id AND MOVIE.movie_id=$movie_id");
 
     if($movie_query){
 
@@ -73,7 +74,21 @@
 
     displayStarRating($rating, 1);
 
-    echo  '</h3>' . $release_date . ' ‧ ' . $duration . '<br>' . $summary;
+    echo  '</h3>';
+
+    $count = 0;
+    while($genre_tuple = $genre_query->fetch_assoc()){
+      $c_genre = $genre_tuple['genre'];
+      $count++;
+      if($count == $genre_query->num_rows){
+        echo $c_genre . ' ‧ ';
+      }
+      else{
+        echo $c_genre . ', ';
+      }
+    }
+
+    echo $release_date . ' ‧ ' . $duration . '<br><br>' . $summary;
 
     //open the search-result-admin-functions div
     echo '</div></div><div class="search-result-admin-functions">';
