@@ -166,16 +166,5 @@
         </div>
       </div>
     </div>
-    <script type="text/javascript">
-      function SubmitForm(formId) {
-        var oForm = document.getElementById(formId);
-        if (oForm) {
-            oForm.submit();
-        }
-        else {
-            alert("DEBUG - could not find element " + formId);
-        }
-      }
-    </script>
   </body>
 </html>
