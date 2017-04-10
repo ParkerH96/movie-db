@@ -46,6 +46,9 @@
         $sorting_option = $_GET['sorting-option'];
       }
       else {
+
+        //$_SESSION['message'] = 'Request Failed. You must first search for a movie in which you wish to rate!';
+        //$_SESSION['status'] = 'Failure';
         header("location: main_page.php");
       }
 
