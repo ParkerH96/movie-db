@@ -42,7 +42,29 @@
               $order_option = '';
             }
 
-            $search_query = $mysqli->query("SELECT * FROM MOVIE WHERE title LIKE '%$search_key%' ORDER BY $order_option");
+            if(empty($_POST['genre'])){
+              $genre_query = "SELECT DISTINCT MOVIE.movie_id FROM MOVIE, GENRE, is_genres WHERE MOVIE.movie_id = is_genres.movie_id AND is_genres.genre_id = GENRE.genre_id AND title LIKE '%$search_key%' ORDER BY $order_option";
+            }
+            else {
+
+              $genre_query = "SELECT DISTINCT MOVIE.movie_id FROM MOVIE, GENRE, is_genres WHERE MOVIE.movie_id = is_genres.movie_id AND is_genres.genre_id = GENRE.genre_id AND title LIKE '%$search_key%'";
+
+              $genre = $_POST['genre'];
+              $counter = 0;
+              foreach ($genre as $genre_values) {
+                if($counter == 0){
+                  $genre_query .= " AND (genre = '$genre_values'";
+                }
+                else{
+                  $genre_query .= " OR genre = '$genre_values'";
+                }
+                $counter += 1;
+              }
+
+              $genre_query .= ") ORDER BY $order_option";
+            }
+
+            $search_query = $mysqli->query($genre_query);
 
           }
           else if($_POST['option'] === 'Genre'){
@@ -113,10 +135,10 @@
           foreach ($genre as $genre_values) {
             if ($counter != 0) {
               $genre_query .= " UNION ";
-              $genre_query .=  "SELECT DISTINCT MOVIE.movie_id FROM MOVIE, GENRE, is_genres WHERE MOVIE.movie_id = is_genres.movie_id AND is_genres.genre_id = GENRE.genre_id AND genre LIKE '%$genre_values%'";
+              $genre_query .=  "SELECT DISTINCT MOVIE.movie_id FROM MOVIE, GENRE, is_genres WHERE MOVIE.movie_id = is_genres.movie_id AND is_genres.genre_id = GENRE.genre_id AND genre = '$genre_values'";
             }
             else {
-              $genre_query .=  "SELECT DISTINCT MOVIE.movie_id FROM MOVIE, GENRE, is_genres WHERE MOVIE.movie_id = is_genres.movie_id AND is_genres.genre_id = GENRE.genre_id AND genre LIKE '%$genre_values%'";
+              $genre_query .=  "SELECT DISTINCT MOVIE.movie_id FROM MOVIE, GENRE, is_genres WHERE MOVIE.movie_id = is_genres.movie_id AND is_genres.genre_id = GENRE.genre_id AND genre = '$genre_values'";
             }
             $counter += 1;
           }
