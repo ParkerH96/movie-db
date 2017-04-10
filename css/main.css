@@ -83,10 +83,23 @@ form {
   color: white;
 
 }
-.greeting {
-  margin-top: 6px;
-  position: absolute;
-  right: 100px;
+@media only screen and (min-width: 768px) {
+  .greeting {
+    margin-top: 6px;
+    position: absolute;
+    right: 100px;
+  }
+  .main-page-title h1 {
+    font-size: 75px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .greeting {
+    display: none;
+  }
+  .main-page-title h1 {
+    font-size: 50px;
+  }
 }
 .logout {
   position: absolute;
