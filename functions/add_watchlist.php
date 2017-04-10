@@ -26,7 +26,7 @@
       if($insertion_query){
 
         $_SESSION['status'] = 'Success';
-        $_SESSION['message'] = 'Success! "' . $title . '" was added to your watch list!';
+        $_SESSION['message'] = 'Success! "' . $title . '" was added to your watch list! <a href="../pages/watchlist_page.php">View Watchlist</a>';
 
         header("location: ../pages/main_page.php?search=$search&option=$option&sorting-option=$sorting_option&submit=Search");
 
