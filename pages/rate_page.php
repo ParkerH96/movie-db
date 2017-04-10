@@ -139,7 +139,7 @@
         }
       ?>
       <div class="col-sm-4 poster-container">
-        <a href="main_page.php"><button type="button" class="btn btn-default"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>Back to search results</button></a>
+        <a href="main_page.php"><button type="button" class="btn btn-default"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Back to search results</button></a>
         <br><br>
         <div class="well">
           <img class="poster" src="../images/posters/<?php echo $c_poster?>">
