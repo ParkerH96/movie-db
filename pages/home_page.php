@@ -113,7 +113,7 @@
       </div>
       <div class="row search">
         <h3>Search!</h3>
-        <a href="main_page.php"><button type="button" class="btn btn-primary search-button"><span class="glyphicon glyphicon-search"></span></button></a>
+        <a href="main_page.php"><button type="button" class="btn btn-primary search-button"><i class="fa fa-search" aria-hidden="true"></i></button></a>
       </div>
       <div id="footer" class="row">
         <div class="footer-links">
