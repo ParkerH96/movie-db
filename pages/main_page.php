@@ -103,7 +103,7 @@
               </form>';
             }
           ?>
-          <form method="get" action="">
+          <form method="post" action="main_page.php">
             <?php
               include '../functions/connection.php';
 
@@ -126,7 +126,13 @@
                   <option>Title</option>
                   <option>Genre</option>
                   <option>Tag</option>
-                  <option>Crew</option>
+                </select>
+                <span class="small-title">Sort By:</span>
+                <select name="sorting-option">
+                  <option>Alphabetical</option>
+                  <option>Release Year</option>
+                  <option>Duration</option>
+                  <option>Rating</option>
                 </select>
               </div>
               <div class="col-xs-9 form-input">
@@ -160,5 +166,16 @@
         </div>
       </div>
     </div>
+    <script type="text/javascript">
+      function SubmitForm(formId) {
+        var oForm = document.getElementById(formId);
+        if (oForm) {
+            oForm.submit();
+        }
+        else {
+            alert("DEBUG - could not find element " + formId);
+        }
+      }
+    </script>
   </body>
 </html>
