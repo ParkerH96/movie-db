@@ -151,10 +151,30 @@
         </div>
         <div class="movie-rating">
           <?php
+
             include '../functions/star_rating.php';
             displayStarRating($c_rating, 2);
           ?>
         </div>
+        <br>
+        <form action = "tags.php" method="post">
+        <div class="tags">
+          <h2> Tags </h2> <br>
+          <?php
+            include '../functions/tags.php';
+            include '../functions/connection.php';
+            $movie_id = $_GET['movie_id'];
+            $movie_query = $mysqli->query("SELECT * FROM MOVIE WHERE movie_id = $movie_id");
+            $result = $movie_query->fetch_assoc();
+            $movie_title = $result['title'];
+            displayTags($movie_title);
+          ?>
+        </div>
+        <br><br>
+        Add tag: <br>
+        <input type="text" name="add_tag"><br>
+        <input type="submit" value="Submit">
+      </form>
       </div>
       <div class="col-sm-8 movie-info">
         <?php
