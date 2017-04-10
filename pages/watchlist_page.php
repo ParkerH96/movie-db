@@ -81,83 +81,91 @@
       </div>
     </div>
     <div class= "row page-content">
-      <?php
-        include '../functions/connection.php';
+      <div class="col-sm-12">
+        <h1>Your watchlist:</h1>
+        <?php
+          include '../functions/connection.php';
+          include_once '../functions/star_rating.php';
 
-        $watchlist_query = $mysqli->query("SELECT * FROM watch_list WHERE user_id=$user_id");
+          $watchlist_query = $mysqli->query("SELECT * FROM watch_list WHERE user_id=$user_id");
 
-        if($watchlist_query){
-          while($watchlist_current_row = $watchlist_query->fetch_assoc()){
-            $movie_id = $watchlist_current_row['movie_id'];
+          if($watchlist_query){
+            while($watchlist_current_row = $watchlist_query->fetch_assoc()){
+              $movie_id = $watchlist_current_row['movie_id'];
 
-            $movie_query = $mysqli->query("SELECT * FROM MOVIE WHERE movie_id=$movie_id");
+              $movie_query = $mysqli->query("SELECT * FROM MOVIE WHERE movie_id=$movie_id");
+              $genre_query = $mysqli->query("SELECT genre FROM MOVIE, is_genres, GENRE WHERE MOVIE.movie_id = is_genres.movie_id AND GENRE.genre_id = is_genres.genre_id AND MOVIE.movie_id=$movie_id");
 
-            if($movie_query){
-              while($current_row = $movie_query->fetch_assoc()){
-                $movie_id = $current_row['movie_id'];
-                $title = $current_row['title'];
-                $release_date = substr($current_row['release_date'], 0, 4);
-                $full_release_date = $current_row['release_date'];
-                $summary = $current_row['summary'];
-                $language = $current_row['language'];
-                $duration = $current_row['duration'];
-                $trailer = $current_row['trailer'];
-                $poster = $current_row['poster'];
+              if($movie_query){
+                while($current_row = $movie_query->fetch_assoc()){
+                  $movie_id = $current_row['movie_id'];
+                  $title = $current_row['title'];
+                  $release_date = substr($current_row['release_date'], 0, 4);
+                  $full_release_date = $current_row['release_date'];
+                  $summary = $current_row['summary'];
+                  $language = $current_row['language'];
+                  $duration = $current_row['duration'];
+                  $trailer = $current_row['trailer'];
+                  $poster = $current_row['poster'];
 
-                $rating_query = $mysqli->query("SELECT AVG(rating) FROM user_actions WHERE movie_id=$movie_id");
-                $rating_result = $rating_query->fetch_assoc();
+                  $rating_query = $mysqli->query("SELECT AVG(rating) FROM user_actions WHERE movie_id=$movie_id");
+                  $rating_result = $rating_query->fetch_assoc();
+                  $rating = $rating_result['AVG(rating)'];
 
-                if($rating_result['AVG(rating)'][2] === '.'){
-                  $rating_avg = substr($rating_result['AVG(rating)'], 0, 2);
-                }
-                else{
-                  $rating_avg = substr($rating_result['AVG(rating)'], 0, 3);
-                }
 
-                if($rating_avg >= 8){
-                  $btn_type = 'success';
-                }
-                else if($rating_avg >= 6){
-                  $btn_type = 'primary';
-                }
-                else if($rating_avg >= 4){
-                  $btn_type = 'info';
-                }
-                else if($rating_avg >= 2){
-                  $btn_type = 'warning';
-                }
-                else{
-                  $btn_type = 'danger';
-                }
+                  // open search-result div
+                  echo '<div class="search-result">';
 
-                // open search-result div
-      				  echo '<div class="search-result"><div class="search-rating"><button type="button" class="btn btn-' . $btn_type . '">' . $rating_avg . '</button></div>' .
-                      '<div class="search-result-info"> <div class="search-result-poster-container">' .
+                  echo  '<div class="search-result-info"> <div class="search-result-poster-container">' .
                         '<img class="search-result-poster" src="../images/posters/' . $poster . '"/>' .
-                      '</div><div class="search-result-text">' .
-                      '<h3>' . $title . '</h3>' . $release_date . ' ‧ ' . $duration . '<br>' . $summary;
+                        '</div><div class="search-result-text">' .
+                        '<h3>' . $title . ' - ';
 
-                //open the search-result-admin-functions div
-                echo '</div></div><div class="search-result-admin-functions">';
+                  displayStarRating($rating, 1);
 
-                echo '<a href="../pages/rate_page.php?movie_id=' . $movie_id . '&search="><button type="button" class="btn btn-success">Rate/Comment/Tag</button></a>
-                <a href="../functions/delete_watchlist.php?movie_id=' . $movie_id . '&title=' . $title . '" onclick="return confirm(\'Are you sure you want to delete ' . $title . ' from your watch list?\')"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a>';
+                  echo  '</h3>';
 
-                // close the search-result div
-                echo '</div></div>';
+                  $count = 0;
+                  while($genre_tuple = $genre_query->fetch_assoc()){
+                    $c_genre = $genre_tuple['genre'];
+                    $count++;
+                    if($count == $genre_query->num_rows){
+                      echo $c_genre . ' ‧ ';
+                    }
+                    else{
+                      echo $c_genre . ', ';
+                    }
+                  }
 
+                  echo $release_date . ' ‧ ' . $duration . '<br><br>' . $summary;
+
+                  //open the search-result-admin-functions div
+                  echo '</div></div><div class="search-result-admin-functions">';
+
+                  echo '<a href="../pages/rate_page.php?movie_id=' . $movie_id . '&search=' . $title . '"><button type="button" class="btn btn-success">Rate/Comment/Tag</button></a>
+                         <a href="../functions/delete_watchlist.php?movie_id=' . $movie_id . '&title=' . $title . '" onclick="return confirm(\'Are you sure you want to delete ' . $title . ' from your watch list?\')"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a>';
+
+                  // close the search-result div
+                  echo '</div></div>';
+
+                }
+              }
+              else{
+                die("Movie Error");
               }
             }
-            else{
-              die("Movie Error");
+            if ($watchlist_query->num_rows == 1) {
+              echo $watchlist_query->num_rows . ' result found.<br><br>';
+            } else {
+              echo $watchlist_query->num_rows . ' results found.<br><br>';
             }
           }
-        }
-        else{
-          die("Error");
-        }
+          else{
+            die("Error");
+          }
 
-      ?>
+        ?>
+      </div>
     </div>
   </body>
 </html>
