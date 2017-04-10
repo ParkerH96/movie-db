@@ -13,12 +13,12 @@
       include 'connection.php';
       include 'star_rating.php';
 
-      if(!empty($_GET['search'])){
+      if(!empty($_POST['search'])){
 
         //escape the strings
-        $search_key = $mysqli->escape_string($_GET['search']);
+        $search_key = $mysqli->escape_string($_POST['search']);
 
-        if($_GET['option'] === 'Any'){
+        if($_POST['option'] === 'Any'){
 
           /*
           $search_query = $mysqli->query("SELECT * FROM MOVIE, GENRE, is_genres, has_tags
@@ -27,19 +27,58 @@
           */
         }
         else {
-          if($_GET['option'] === 'Title'){
+          if($_POST['option'] === 'Title'){
 
-            $search_query = $mysqli->query("SELECT * FROM MOVIE WHERE title LIKE '%" . "$search_key" . "%'");
+            if($_POST['sorting-option'] === 'Alphabetical'){
+              $order_option = 'title';
+            }
+            else if($_POST['sorting-option'] === 'Release Year'){
+              $order_option = 'release_date';
+            }
+            else if($_POST['sorting-option'] === 'Duration'){
+              $order_option = 'duration';
+            }
+            else{
+              $order_option = '';
+            }
+
+            $search_query = $mysqli->query("SELECT * FROM MOVIE WHERE title LIKE '%$search_key%' ORDER BY $order_option");
 
           }
-          else if($_GET['option'] === 'Genre'){
+          else if($_POST['option'] === 'Genre'){
 
-            $search_query = $mysqli->query("SELECT * FROM MOVIE, GENRE, is_genres WHERE MOVIE.movie_id = is_genres.movie_id AND is_genres.genre_id = GENRE.genre_id AND genre LIKE '%$search_key%' GROUP BY (MOVIE.movie_id)");
+            if($_POST['sorting-option'] === 'Alphabetical'){
+              $order_option = 'title';
+            }
+            else if($_POST['sorting-option'] === 'Release Year'){
+              $order_option = 'release_date';
+            }
+            else if($_POST['sorting-option'] === 'Duration'){
+              $order_option = 'duration';
+            }
+            else{
+              $order_option = '';
+            }
+
+            $search_query = $mysqli->query("SELECT * FROM MOVIE, GENRE, is_genres WHERE MOVIE.movie_id = is_genres.movie_id AND is_genres.genre_id = GENRE.genre_id AND genre LIKE '%$search_key%' GROUP BY (MOVIE.movie_id) ORDER BY $order_option");
 
           }
-          else if($_GET['option'] === 'Tag'){
+          else if($_POST['option'] === 'Tag'){
 
-            $search_query = $mysqli->query("SELECT * FROM MOVIE, TAGS, has_tags WHERE MOVIE.movie_id = has_tags.movie_id AND has_tags.tag_id = TAGS.tag_id AND tag LIKE '%$search_key%' GROUP BY (MOVIE.movie_id)");
+            if($_POST['sorting-option'] === 'Alphabetical'){
+              $order_option = 'title';
+            }
+            else if($_POST['sorting-option'] === 'Release Year'){
+              $order_option = 'release_date';
+            }
+            else if($_POST['sorting-option'] === 'Duration'){
+              $order_option = 'duration';
+            }
+            else{
+              $order_option = '';
+            }
+
+            $search_query = $mysqli->query("SELECT * FROM MOVIE, TAGS, has_tags WHERE MOVIE.movie_id = has_tags.movie_id AND has_tags.tag_id = TAGS.tag_id AND tag LIKE '%$search_key%' GROUP BY (MOVIE.movie_id) ORDER BY $order_option");
 
           }
 
@@ -122,9 +161,10 @@
         }
       }
       else{
-        if(!empty($_GET['genre'])){
+
+        if(!empty($_POST['genre'])){
           $search_key = "";
-          $genre = $_GET['genre'];
+          $genre = $_POST['genre'];
           $counter = 0;
           $genre_query = "";
           foreach ($genre as $genre_values) {
@@ -211,4 +251,5 @@
           }
       }
     }
+
 ?>

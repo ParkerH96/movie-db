@@ -7,15 +7,27 @@
     $movie_id = $_GET['movie_id'];
     $title = $_GET['title'];
 
-    $insertion_query = $mysqli->query("INSERT INTO watch_list VALUES ($user_id, $movie_id)");
+    //check to see if it is already on the watchlist
+    $watchlist_query = $mysqli->query("SELECT * FROM watch_list WHERE user_id = $user_id AND movie_id = $movie_id");
 
-    if($insertion_query){
+    if($watchlist_query->num_rows == 1){
 
-      $_SESSION['status'] = 'Success';
-      $_SESSION['message'] = 'Success! "' . $title . '" was added to your watch list!';
+      $_SESSION['status'] = 'Failure';
+      $_SESSION['message'] = 'Request Failed! "' . $title . '" is already on your watchlist. <a href="../pages/watchlist_page.php">View Watchlist</a>';
 
       header("location: ../pages/main_page.php");
+    }
+    else{
+      $insertion_query = $mysqli->query("INSERT INTO watch_list VALUES ($user_id, $movie_id)");
 
+      if($insertion_query){
+
+        $_SESSION['status'] = 'Success';
+        $_SESSION['message'] = 'Success! "' . $title . '" was added to your watch list!';
+
+        header("location: ../pages/main_page.php");
+
+      }
     }
   }
 ?>
