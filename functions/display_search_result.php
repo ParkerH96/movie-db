@@ -95,7 +95,7 @@
 
     if ($admin == 1) {
       echo '<a href="../functions/delete.php?movie_id=' . $movie_id . '&search=' . $search_key . '" onclick="return confirm(\'Are you sure you want to delete ' . $title . '?\')"><button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
-            <a href="../pages/edit_page.php?movie_id=' . $movie_id . '&title=' . $title . '&release_date=' . $full_release_date . '&summary=' . $summary . '&language=' . $language . '&duration=' . $duration . '"><button type="button" class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a> ';
+            <a href="../pages/edit_page.php?movie_id=' . $movie_id . '"><button type="button" class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a> ';
     }
 
     echo '<a href="../pages/rate_page.php?movie_id=' . $movie_id . '&search=' . $search_key . '"><button type="button" class="btn btn-success">Rate/Comment/Tag</button></a>
