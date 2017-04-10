@@ -37,6 +37,7 @@
 
     <?php
       include '../functions/session.php';
+      include '../functions/connection.php';
 
       //makes sure no one can access this page if they are not a manager
       if($_SESSION['admin_tag'] != 1){
@@ -47,13 +48,18 @@
         header("location: main_page.php");
       }
 
-      if(isset($_GET['movie_id']) && !empty($_GET['movie_id']) && isset($_GET['title']) && !empty($_GET['title']) && isset($_GET['summary'])
-      && !empty($_GET['summary']) && isset($_GET['duration']) && !empty($_GET['duration']) && isset($_GET['language']) && !empty($_GET['language'])){
-        $c_title = $_GET['title'];
-        $c_release_date = $_GET['release_date'];
-        $c_summary = $_GET['summary'];
-        $c_language = $_GET['language'];
-        $c_duration = $_GET['duration'];
+      if(isset($_GET['movie_id']) && !empty($_GET['movie_id'])){
+
+        $movie_id = $_GET['movie_id'];
+        $movie_query = $mysqli->query("SELECT * FROM MOVIE WHERE movie_id=$movie_id");
+        $movie_tuple = $movie_query->fetch_assoc();
+
+        $c_title = $movie_tuple['title'];
+        $c_release_date = $movie_tuple['release_date'];
+        $c_summary = $movie_tuple['summary'];
+        $c_language = $movie_tuple['language'];
+        $c_duration = $movie_tuple['duration'];
+        $c_trailer = $movie_tuple['trailer'];
       }
       else {
         header("location: main_page.php");
@@ -61,19 +67,17 @@
 
       if(!empty($_POST)){
 
-        //connect to the database
-        include '../functions/connection.php';
-
         //translate the form inputs into php variables
         $title = $mysqli->escape_string($_POST['title']);
         $release_date = $mysqli->escape_string($_POST['release_date']);
         $summary = $mysqli->escape_string($_POST['summary']);
         $language = $mysqli->escape_string($_POST['language']);
         $duration = $mysqli->escape_string($_POST['duration']);
+        $trailer = $mysqli->escape_string($_POST['trailer']);
         $movie_id = $mysqli->escape_string($_GET['movie_id']);
 
         //create the insertion query using the form data
-        $update_query = $mysqli->query("UPDATE MOVIE SET title='$title', release_date='$release_date', summary='$summary', language='$language', duration='$duration' WHERE movie_id=$movie_id");
+        $update_query = $mysqli->query("UPDATE MOVIE SET title='$title', release_date='$release_date', summary='$summary', language='$language', duration='$duration', trailer='$trailer' WHERE movie_id=$movie_id");
 
         if($update_query){
 
@@ -142,6 +146,7 @@
               <textarea name="summary" rows="4" cols="50"><?php echo $c_summary;?></textarea><br>
               <input type="text" name="language" value="<?php echo $c_language;?>"><br>
               <input type="text" name="duration" value="<?php echo $c_duration;?>"><br>
+              <input type="text" name="trailer" value="<?php echo $c_trailer;?>"><br>
               <input class="databased-btn" type="submit" name="submit" value="Update Movie">
             </form>
           </div>
