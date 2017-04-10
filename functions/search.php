@@ -113,10 +113,10 @@
           foreach ($genre as $genre_values) {
             if ($counter != 0) {
               $genre_query .= " UNION ";
-              $genre_query .=  "SELECT * FROM MOVIE, GENRE, is_genres WHERE MOVIE.movie_id = is_genres.movie_id AND is_genres.genre_id = GENRE.genre_id AND genre LIKE '%$genre_values%'";
+              $genre_query .=  "SELECT DISTINCT MOVIE.movie_id FROM MOVIE, GENRE, is_genres WHERE MOVIE.movie_id = is_genres.movie_id AND is_genres.genre_id = GENRE.genre_id AND genre LIKE '%$genre_values%'";
             }
             else {
-              $genre_query .=  "SELECT * FROM MOVIE, GENRE, is_genres WHERE MOVIE.movie_id = is_genres.movie_id AND is_genres.genre_id = GENRE.genre_id AND genre LIKE '%$genre_values%'";
+              $genre_query .=  "SELECT DISTINCT MOVIE.movie_id FROM MOVIE, GENRE, is_genres WHERE MOVIE.movie_id = is_genres.movie_id AND is_genres.genre_id = GENRE.genre_id AND genre LIKE '%$genre_values%'";
             }
             $counter += 1;
           }
@@ -128,7 +128,7 @@
               $movie_id = $current_row['movie_id'];
 
               displaySearchResult($movie_id, $admin_tag, $search_key, 0);
-              
+
             }
 
             if ($genre_query->num_rows == 1) {
