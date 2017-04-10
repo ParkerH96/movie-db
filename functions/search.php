@@ -2,7 +2,7 @@
 <?php
 /*
   Team Databased 2017: Movie-DB
-  Author(s): Parker Householder, Evan Heaton
+  Author(s): Parker Householder, Evan Heaton, David Cottrell
 
   Name: search.php
 
@@ -11,6 +11,7 @@
 
 */
       include 'connection.php';
+      include 'star_rating.php';
 
       if(!empty($_GET['search'])){
 
@@ -58,6 +59,7 @@
 
               $rating_query = $mysqli->query("SELECT AVG(rating) FROM user_actions WHERE movie_id=$movie_id");
               $rating_result = $rating_query->fetch_assoc();
+              $rating = $rating_result['AVG(rating)'];
 
               if($rating_result['AVG(rating)'][2] === '.'){
                 $rating_avg = substr($rating_result['AVG(rating)'], 0, 2);
@@ -87,7 +89,11 @@
                     '<div class="search-result-info"> <div class="search-result-poster-container">' .
                       '<img class="search-result-poster" src="../images/posters/' . $poster . '"/>' .
                     '</div><div class="search-result-text">' .
-                    '<h3>' . $title . '</h3>' . $release_date . ' ‧ ' . $duration . '<br>' . $summary;
+                    '<h3>' . $title . ' - ';
+
+              displayStarRating($rating, 1);
+
+              echo  '</h3>' . $release_date . ' ‧ ' . $duration . '<br>' . $summary;
 
               //open the search-result-admin-functions div
               echo '</div></div><div class="search-result-admin-functions">';

@@ -133,6 +133,9 @@
           $c_trailer = $result['trailer'];
           $c_poster = $result['poster'];
 
+          $rating_query = $mysqli->query("SELECT AVG(rating) FROM user_actions WHERE movie_id=$c_movie_id");
+          $rating_result = $rating_query->fetch_assoc();
+          $c_rating = $rating_result['AVG(rating)'];
         }
       ?>
       <div class="col-sm-4 poster-container">
@@ -140,11 +143,10 @@
           <img class="poster" src="../images/posters/<?php echo $c_poster?>">
         </div>
         <div class="movie-rating">
-          <i class="fa fa-star-o fa-2x" aria-hidden="true"></i>
-          <i class="fa fa-star-o fa-2x" aria-hidden="true"></i>
-          <i class="fa fa-star-o fa-2x" aria-hidden="true"></i>
-          <i class="fa fa-star-o fa-2x" aria-hidden="true"></i>
-          <i class="fa fa-star-o fa-2x" aria-hidden="true"></i>
+          <?php
+            include '../functions/star_rating.php';
+            displayStarRating($c_rating, 2);
+          ?>
         </div>
       </div>
       <div class="col-sm-8 movie-info">
