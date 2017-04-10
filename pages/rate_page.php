@@ -62,11 +62,11 @@
 
         if($insertion_query){
 
-          $_SESSION['status'] = 'Success';
-          $_SESSION['message'] = 'Success! You review has been added. Thank you for your feedback!';
+          //$_SESSION['status'] = 'Success';
+          //$_SESSION['message'] = 'Success! You review has been added. Thank you for your feedback!';
 
           //success! redirect them back to the main page
-          header("location: ../pages/main_page.php?option=$option&sorting-option=$sorting_option&search=$search&submit=Search");
+          //header("location: ../pages/main_page.php?option=$option&sorting-option=$sorting_option&search=$search&submit=Search");
         }
         else {
           die("Error.");
@@ -141,7 +141,7 @@
         }
       ?>
       <div class="col-sm-4 poster-container">
-        <a href="main_page.php"><button type="button" class="btn btn-default"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Back to search results</button></a>
+        <a href="<?php echo "../pages/main_page.php?option=$option&sorting-option=$sorting_option&search=$search&submit=Search";?>"><button type="button" class="btn btn-default"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Back to search results</button></a>
         <br><br>
         <div class="well">
           <img class="poster" src="../images/posters/<?php echo $c_poster?>">
