@@ -62,11 +62,11 @@
 
         if($insertion_query){
 
-          //$_SESSION['status'] = 'Success';
-          //$_SESSION['message'] = 'Success! You review has been added. Thank you for your feedback!';
+          $_SESSION['status'] = 'Success';
+          $_SESSION['message'] = 'Success! You review has been added. Thank you for your feedback!';
 
           //success! redirect them back to the main page
-          //header("location: ../pages/main_page.php?option=$option&sorting-option=$sorting_option&search=$search&submit=Search");
+          header("location: rate_page.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option");
         }
         else {
           die("Error.");
@@ -154,7 +154,17 @@
         </div>
       </div>
       <div class="col-sm-8 movie-info">
+        <?php
+          if(!empty($message) && $status == 'Success'){
+            echo '<br><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' . $message . '</div>';
+            $_SESSION['message'] = '';
+          }
+          else if(!empty($message) && $status == 'Failure'){
+            echo '<br><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' . $message . '</div>';
+            $_SESSION['message'] = '';
+          }
 
+        ?>
         <h1><?php echo $c_title; ?></h1>
         <div class="movie-description">
           <span><?php echo $c_release_date . ' ‧ ' . $c_duration; ?></span><br>
