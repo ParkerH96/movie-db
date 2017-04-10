@@ -83,7 +83,7 @@ form {
   color: white;
 
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 767px) {
   .greeting {
     margin-top: 6px;
     position: absolute;
@@ -93,7 +93,7 @@ form {
     font-size: 75px;
   }
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .greeting {
     display: none;
   }
