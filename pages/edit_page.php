@@ -81,10 +81,14 @@
 
         if($update_query){
 
+          $search = $_GET['search'];
+          $option = $_GET['option'];
+          $sorting_option = $_GET['sorting-option'];
+
           $_SESSION['status'] = 'Success';
           $_SESSION['message'] = 'Success! The information for '. $title .' was modified.';
 
-          header("location: main_page.php");
+          header("location: main_page.php?search=$search&option=$option&sorting-option=$sorting_option&submit=Search");
         }
         else{
           die("Error...");

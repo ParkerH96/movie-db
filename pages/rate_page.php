@@ -39,9 +39,11 @@
     <?php
       include '../functions/session.php';
 
-      if(isset($_GET['movie_id']) && !empty($_GET['movie_id']) && isset($_GET['search'])){
+      if(isset($_GET['movie_id']) && !empty($_GET['movie_id']) && isset($_GET['search']) && isset($_GET['option']) && isset($_GET['sorting-option'])){
         $c_movie_id = $_GET['movie_id'];
         $search = $_GET['search'];
+        $option = $_GET['option'];
+        $sorting_option = $_GET['sorting-option'];
       }
       else {
         header("location: main_page.php");
@@ -64,7 +66,7 @@
           $_SESSION['message'] = 'Success! You review has been added. Thank you for your feedback!';
 
           //success! redirect them back to the main page
-          header("location: ../pages/main_page.php?option=Title&search=$search&submit=Search");
+          header("location: ../pages/main_page.php?option=$option&sorting-option=$sorting_option&search=$search&submit=Search");
         }
         else {
           die("Error.");

@@ -9,7 +9,7 @@
 -->
 <?php
 
-  function displaySearchResult($movie_id, $admin, $search_key, $display_button_rating) {
+  function displaySearchResult($movie_id, $admin, $search_key, $display_button_rating, $option, $sorting_option) {
 
     include_once 'star_rating.php';
     include 'connection.php';
@@ -94,12 +94,12 @@
     echo '</div></div><div class="search-result-admin-functions">';
 
     if ($admin == 1) {
-      echo '<a href="../functions/delete.php?movie_id=' . $movie_id . '&search=' . $search_key . '" onclick="return confirm(\'Are you sure you want to delete ' . $title . '?\')"><button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
-            <a href="../pages/edit_page.php?movie_id=' . $movie_id . '"><button type="button" class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a> ';
+      echo '<a href="../functions/delete.php?movie_id=' . $movie_id . '&search=' . $search_key . '&option=' . $option .'&sorting-option=' . $sorting_option . '" onclick="return confirm(\'Are you sure you want to delete ' . $title . '?\')"><button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
+            <a href="../pages/edit_page.php?movie_id=' . $movie_id . '&search=' . $search_key . '&option=' . $option .'&sorting-option=' . $sorting_option . '"><button type="button" class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a> ';
     }
 
-    echo '<a href="../pages/rate_page.php?movie_id=' . $movie_id . '&search=' . $search_key . '"><button type="button" class="btn btn-success">Rate/Comment/Tag</button></a>
-           <a href="../functions/add_watchlist.php?movie_id=' . $movie_id .'&search=' . $search_key .'&title=' . $title . '"><button class="btn btn-info">Add to Watchlist</button></a>';
+    echo '<a href="../pages/rate_page.php?movie_id=' . $movie_id . '&search=' . $search_key . '&option=' . $option .'&sorting-option=' . $sorting_option . '"><button type="button" class="btn btn-success">Rate/Comment/Tag</button></a>
+           <a href="../functions/add_watchlist.php?movie_id=' . $movie_id .'&search=' . $search_key .'&title=' . $title . '&option=' . $option .'&sorting-option=' . $sorting_option . '"><button class="btn btn-info">Add to Watchlist</button></a>';
 
     // close the search-result div
     echo '</div></div>';

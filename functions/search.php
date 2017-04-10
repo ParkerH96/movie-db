@@ -13,12 +13,15 @@
       include 'connection.php';
       include 'display_search_result.php';
 
-      if(!empty($_POST['search'])){
+      if(!empty($_GET['search'])){
+
+        $option = $_GET['option'];
+        $sorting_option = $_GET['sorting-option'];
 
         //escape the strings
-        $search_key = $mysqli->escape_string($_POST['search']);
+        $search_key = $mysqli->escape_string($_GET['search']);
 
-        if($_POST['option'] === 'Any'){
+        if($_GET['option'] === 'Any'){
 
           /*
           $search_query = $mysqli->query("SELECT * FROM MOVIE, GENRE, is_genres, has_tags
@@ -27,29 +30,29 @@
           */
         }
         else {
-          if($_POST['option'] === 'Title'){
+          if($_GET['option'] === 'Title'){
 
-            if($_POST['sorting-option'] === 'Alphabetical'){
+            if($_GET['sorting-option'] === 'Alphabetical'){
               $order_option = 'title';
             }
-            else if($_POST['sorting-option'] === 'Release Year'){
+            else if($_GET['sorting-option'] === 'Release Year'){
               $order_option = 'release_date';
             }
-            else if($_POST['sorting-option'] === 'Duration'){
+            else if($_GET['sorting-option'] === 'Duration'){
               $order_option = 'duration';
             }
             else{
               $order_option = '';
             }
 
-            if(empty($_POST['genre'])){
+            if(empty($_GET['genre'])){
               $genre_query = "SELECT DISTINCT MOVIE.movie_id FROM MOVIE, GENRE, is_genres WHERE MOVIE.movie_id = is_genres.movie_id AND is_genres.genre_id = GENRE.genre_id AND title LIKE '%$search_key%' ORDER BY $order_option";
             }
             else {
 
               $genre_query = "SELECT DISTINCT MOVIE.movie_id FROM MOVIE, GENRE, is_genres WHERE MOVIE.movie_id = is_genres.movie_id AND is_genres.genre_id = GENRE.genre_id AND title LIKE '%$search_key%'";
 
-              $genre = $_POST['genre'];
+              $genre = $_GET['genre'];
               $counter = 0;
               foreach ($genre as $genre_values) {
                 if($counter == 0){
@@ -67,15 +70,15 @@
             $search_query = $mysqli->query($genre_query);
 
           }
-          else if($_POST['option'] === 'Genre'){
+          else if($_GET['option'] === 'Genre'){
 
-            if($_POST['sorting-option'] === 'Alphabetical'){
+            if($_GET['sorting-option'] === 'Alphabetical'){
               $order_option = 'title';
             }
-            else if($_POST['sorting-option'] === 'Release Year'){
+            else if($_GET['sorting-option'] === 'Release Year'){
               $order_option = 'release_date';
             }
-            else if($_POST['sorting-option'] === 'Duration'){
+            else if($_GET['sorting-option'] === 'Duration'){
               $order_option = 'duration';
             }
             else{
@@ -85,15 +88,15 @@
             $search_query = $mysqli->query("SELECT * FROM MOVIE, GENRE, is_genres WHERE MOVIE.movie_id = is_genres.movie_id AND is_genres.genre_id = GENRE.genre_id AND genre LIKE '%$search_key%' GROUP BY (MOVIE.movie_id) ORDER BY $order_option");
 
           }
-          else if($_POST['option'] === 'Tag'){
+          else if($_GET['option'] === 'Tag'){
 
-            if($_POST['sorting-option'] === 'Alphabetical'){
+            if($_GET['sorting-option'] === 'Alphabetical'){
               $order_option = 'title';
             }
-            else if($_POST['sorting-option'] === 'Release Year'){
+            else if($_GET['sorting-option'] === 'Release Year'){
               $order_option = 'release_date';
             }
-            else if($_POST['sorting-option'] === 'Duration'){
+            else if($_GET['sorting-option'] === 'Duration'){
               $order_option = 'duration';
             }
             else{
@@ -110,7 +113,7 @@
             while($current_row = $search_query->fetch_assoc()){
               $movie_id = $current_row['movie_id'];
 
-              displaySearchResult($movie_id, $admin_tag, $search_key, 0);
+              displaySearchResult($movie_id, $admin_tag, $search_key, 0, $option, $sorting_option);
 
             }
 
@@ -127,9 +130,13 @@
       }
       else{
 
-        if(!empty($_POST['genre'])){
+        if(!empty($_GET['genre'])){
+
+          $option = $_GET['option'];
+          $sorting_option = $_GET['sorting-option'];
+          
           $search_key = "";
-          $genre = $_POST['genre'];
+          $genre = $_GET['genre'];
           $counter = 0;
           $genre_query = "";
           foreach ($genre as $genre_values) {
@@ -149,7 +156,7 @@
             while($current_row = $genre_query->fetch_assoc()){
               $movie_id = $current_row['movie_id'];
 
-              displaySearchResult($movie_id, $admin_tag, $search_key, 0);
+              displaySearchResult($movie_id, $admin_tag, $search_key, 0, $option, $sorting_option);
 
             }
 

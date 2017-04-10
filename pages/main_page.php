@@ -103,7 +103,7 @@
               </form>';
             }
           ?>
-          <form method="post" action="main_page.php">
+          <form method="get" action="">
             <?php
               include '../functions/connection.php';
 

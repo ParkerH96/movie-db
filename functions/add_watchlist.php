@@ -6,6 +6,9 @@
 
     $movie_id = $_GET['movie_id'];
     $title = $_GET['title'];
+    $search = $_GET['search'];
+    $option = $_GET['option'];
+    $sorting_option = $_GET['sorting-option'];
 
     //check to see if it is already on the watchlist
     $watchlist_query = $mysqli->query("SELECT * FROM watch_list WHERE user_id = $user_id AND movie_id = $movie_id");
@@ -25,7 +28,7 @@
         $_SESSION['status'] = 'Success';
         $_SESSION['message'] = 'Success! "' . $title . '" was added to your watch list!';
 
-        header("location: ../pages/main_page.php");
+        header("location: ../pages/main_page.php?search=$search&option=$option&sorting-option=$sorting_option&submit=Search");
 
       }
     }

@@ -4,6 +4,9 @@
 
   if(isset($_GET['movie_id']) && !empty($_GET['movie_id'])){
 
+    $option = $_GET['option'];
+    $sorting_option = $_GET['sorting-option'];
+
     //escape the strings
     $movie_id = $mysqli->escape_string($_GET['movie_id']);
 
@@ -19,9 +22,10 @@
     $delete_has_tags = $mysqli->query("DELETE FROM has_tags WHERE movie_id = $movie_id");
     $delete_user_actions = $mysqli->query("DELETE FROM user_actions WHERE movie_id = $movie_id");
     $delete_has_crew = $mysqli->query("DELETE FROM has_crew WHERE movie_id = $movie_id");
+    $delete_watch_list = $mysqli->query("DELETE FROM watch_list WHERE movie_id = $movie_id");
     $delete_movie = $mysqli->query("DELETE FROM MOVIE WHERE movie_id = $movie_id");
 
-    if($delete_is_genres && $delete_has_tags && $delete_user_actions && $delete_has_crew && $delete_movie){
+    if($delete_is_genres && $delete_has_tags && $delete_user_actions && $delete_has_crew && $delete_movie && $delete_watch_list){
 
       $search = $_GET['search'];
 
@@ -30,7 +34,7 @@
 
       if(isset($_GET['search']) && !empty($_GET['search'])){
         //success! redirect them back to the main page
-        header("location: ../pages/main_page.php?option=Title&search=$search&submit=Search");
+        header("location: ../pages/main_page.php?option=$option&sorting-option=$sorting_option&search=$search&submit=Search");
       }
       else {
         header("location: ../pages/main_page.php");
