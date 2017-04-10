@@ -165,6 +165,8 @@
 
           if($review_query){
 
+            echo '<h2>User Reviews:</h2>';
+
             while($current_row = $review_query->fetch_assoc()){
               $i_user_id = $current_row['user_id'];
               $i_rating = $current_row['rating'];
@@ -181,9 +183,7 @@
                 die("Error");
               }
 
-              echo '<h2>User Reviews:</h2>';
-
-              include '../functions/display_user_review.php';
+              include_once '../functions/display_user_review.php';
               displayUserReview($i_first_name, $i_last_name, $i_rating, $i_review);
               // echo $i_first_name . ' ' . $i_last_name . '<br>' . $i_rating . '<br>' . $i_review . '<br>';
             }
