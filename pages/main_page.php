@@ -28,7 +28,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/2b865347a6.css">
+    <link rel="stylesheet" href="../fonts/font-awesome/css/font-awesome.min.css">
 
     <!-- include stylesheets -->
     <link rel="stylesheet" href="../css/main.css" type="text/css">
