@@ -132,7 +132,7 @@
                   <option>Alphabetical</option>
                   <option>Release Year</option>
                   <option>Duration</option>
-                  <option>Rating</option>
+                  <!--<option>Rating</option>-->
                 </select>
               </div>
               <div class="col-xs-9 form-input">
