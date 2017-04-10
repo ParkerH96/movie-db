@@ -181,7 +181,11 @@
                 die("Error");
               }
 
-              echo $i_first_name . ' ' . $i_last_name . '<br>' . $i_rating . '<br>' . $i_review . '<br>';
+              echo '<h2>User Reviews:</h2>';
+
+              include '../functions/display_user_review.php';
+              displayUserReview($i_first_name, $i_last_name, $i_rating, $i_review);
+              // echo $i_first_name . ' ' . $i_last_name . '<br>' . $i_rating . '<br>' . $i_review . '<br>';
             }
           }
           else{
