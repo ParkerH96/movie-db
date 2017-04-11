@@ -98,7 +98,7 @@
             <a href="../pages/edit_page.php?movie_id=' . $movie_id . '&search=' . $search_key . '&option=' . $option .'&sorting-option=' . $sorting_option . '"><button type="button" class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a> ';
     }
 
-    echo '<a href="../pages/rate_page.php?movie_id=' . $movie_id . '&search=' . $search_key . '&option=' . $option .'&sorting-option=' . $sorting_option . '"><button type="button" class="btn btn-success">Rate/Comment/Tag</button></a>
+    echo '<a href="../pages/rate_page.php?movie_id=' . $movie_id . '&search=' . $search_key . '&option=' . $option .'&sorting-option=' . $sorting_option . '&navigated-from=search"><button type="button" class="btn btn-success">Rate/Comment/Tag</button></a>
            <a href="../functions/add_watchlist.php?movie_id=' . $movie_id .'&search=' . $search_key .'&title=' . $title . '&option=' . $option .'&sorting-option=' . $sorting_option . '"><button class="btn btn-info">Add to Watchlist</button></a>';
 
     // close the search-result div

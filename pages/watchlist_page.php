@@ -142,7 +142,7 @@
                   //open the search-result-admin-functions div
                   echo '</div></div><div class="search-result-admin-functions">';
 
-                  //echo '<a href="../pages/rate_page.php?movie_id=' . $movie_id . '&search=' . $title . '"><button type="button" class="btn btn-success">Rate/Comment/Tag</button></a>';
+                  echo '<a href="../pages/rate_page.php?movie_id=' . $movie_id . '&navigated-from=watchlist"><button type="button" class="btn btn-success">Rate/Comment/Tag</button></a>';
                   echo ' <a href="../functions/delete_watchlist.php?movie_id=' . $movie_id . '&title=' . $title . '" onclick="return confirm(\'Are you sure you want to delete ' . $title . ' from your watch list?\')"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a>';
 
                   // close the search-result div

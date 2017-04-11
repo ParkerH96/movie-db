@@ -44,11 +44,16 @@
         $search = $_GET['search'];
         $option = $_GET['option'];
         $sorting_option = $_GET['sorting-option'];
+        $navigation = $_GET['navigated-from'];
       }
-      else {
+      if(isset($_GET['movie_id']) && !empty($_GET['movie_id']) && isset($_GET['navigated-from'])){
+        $c_movie_id = $_GET['movie_id'];
+        $navigation = $_GET['navigated-from'];
+      }
+      else{
+        $_SESSION['status'] = 'Failure';
+        $_SESSION['message'] = 'Request Failed. No movie data could be found. Please earch for one first or select one from <a href="watchlist_page.php">Your Watchlist</a>';
 
-        //$_SESSION['message'] = 'Request Failed. You must first search for a movie in which you wish to rate!';
-        //$_SESSION['status'] = 'Failure';
         header("location: main_page.php");
       }
 
@@ -80,7 +85,7 @@
     			 $_SESSION['message'] = 'Success! Your review has been added. Thank you for your feedback!';
 
     		  //success! redirect them back to the main page
-    			 header("location: rate_page.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option");
+    			 header("location: rate_page.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option&navigated-from=$navigation");
     		}
     		else {
     		  die("Error.");
@@ -159,7 +164,17 @@
       <!-- **END movie information code -->
 
       <div class="col-sm-4 poster-container">
-        <a href="<?php echo "../pages/main_page.php?option=$option&sorting-option=$sorting_option&search=$search&submit=Search";?>"><button type="button" class="btn btn-default"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Back to search results</button></a>
+        <?php
+          if($navigation == 'search'){
+            echo '<a href="../pages/main_page.php?option=' . $option . '&sorting-option=' . $sorting_option . '&search=' . $search . '&submit=Search"><button type="button" class="btn btn-default"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Back to search results</button></a>';
+          }
+          else if($navigation == 'watchlist'){
+            echo '<a href="../pages/watchlist_page.php"><button class="btn btn-success"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Back to watch list</button></a>';
+          }
+          else if($navigation == 'home'){
+            echo '<a href="../pages/watchlist_page.php"><button class="btn btn-info"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Back to home page</button></a>';
+          }
+        ?>
         <br><br>
         <div class="well">
           <img class="poster" src="../images/posters/<?php echo $c_poster?>">
