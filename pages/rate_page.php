@@ -56,7 +56,7 @@
         header("location: ../functions/add_tag.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option");
       }
 
-      if(!empty($_POST['review'])){
+      if(!empty($_POST['star'])){
 
         //connect to the database
         include '../functions/connection.php';
@@ -178,6 +178,7 @@
 
         </div>
         <h1>Tags:</h1>
+        <div class="row tag-content">
 
         <!-- PHP for displaying the current tags in the database of the movie -->
         <?php
@@ -197,24 +198,25 @@
                   $tag = $tag_tuple['tag'];
                   $counter++;
 
-                  echo $tag . ' ';
+                  echo '<div class="tag col-xs-6"><button class="tag-btn btn btn-info">' . $tag . '</button></div>';
 
                 }
               }
 
             }
           }
-
         ?>
         <!-- **END display tag code -->
+        </div>
 
         <form method="post" action="../functions/add_tag.php">
           <input style="display: none;" type="text" name="movie_id" value="<?php echo $c_movie_id ?>">
           <input style="display: none;" type="text" name="search" value="<?php echo $search ?>">
           <input style="display: none;" type="text" name="option" value="<?php echo $option; ?>">
           <input style="display: none;" type="text" name="sorting-option" value="<?php echo $sorting_option; ?>">
-          <input type="text" name="tag" placeholder="Tag">
-          <input type="submit" name="submit" value="Add Tag">
+          <div class="tag-form">
+            <input class="tag-text" type="text" maxlength="16" name="tag" placeholder="Tag"><button class="btn btn-success" type="submit" name="submit"><span class="glyphicon glyphicon-plus"></span> Tag</button>
+          </div>
         </form>
 
       </div>

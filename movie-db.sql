@@ -55,7 +55,7 @@ DROP TABLE IF EXISTS TAGS;
 CREATE TABLE TAGS
 (
   tag_id int NOT NULL AUTO_INCREMENT,
-  tag varchar(64) NOT NULL,
+  tag varchar(16) NOT NULL,
   PRIMARY KEY (tag_id)
 );
 
