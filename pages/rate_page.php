@@ -57,56 +57,62 @@
         //connect to the database
         include '../functions/connection.php';
 
-		if (!isset($_POST['add_tag'])) {
-			//escape the strings
-			$rating = $mysqli->escape_string($_POST['rating']);
-			$review = $mysqli->escape_string($_POST['review']);
+    		if (!isset($_POST['add_tag'])) {
+    			//escape the strings
+    			$review = $mysqli->escape_string($_POST['review']);
 
-			$insertion_query = $mysqli->query("INSERT INTO user_actions VALUES ($user_id, $c_movie_id, $rating, '$review')");
+          if (isset($_POST['star'])) {
+            $rating = $_POST['star'];
+          } else {
+            die("Error: didn't input rating");
+            // Parker please fix ^^^^^^^^
+          }
 
-			if($insertion_query){
+    			$insertion_query = $mysqli->query("INSERT INTO user_actions VALUES ($user_id, $c_movie_id, $rating, '$review')");
 
-			  $_SESSION['status'] = 'Success';
-			  $_SESSION['message'] = 'Success! Your review has been added. Thank you for your feedback!';
+    			if($insertion_query){
 
-			  //success! redirect them back to the main page
-			  header("location: rate_page.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option");
-			}
-			else {
-			  die("Error.");
-			}
-		}
-		else {
-			//escape the strings
-			$tag = $mysqli->escape_string($_POST['add_tag']);
-			
-			
-			//Figure out our tag id
-			$tag_query = $mysqli->query("SELECT * FROM TAGS WHERE tag = '$tag'");
-			if ($tag_query) {
-				$result = $tag_query->fetch_assoc();
-				$tag_id = $result['tag_id'];
-			
-				$insertion_query = $mysqli->query("INSERT INTO has_tags VALUES ($tag_id, $c_movie_id)");
-				
-				if($insertion_query){
+    			  $_SESSION['status'] = 'Success';
+    			  $_SESSION['message'] = 'Success! Your review has been added. Thank you for your feedback!';
 
-					$_SESSION['status'] = 'Success';
-					$_SESSION['message'] = 'Success! Your tag has been added. Thank you for your feedback!';
+    			  //success! redirect them back to the main page
+    			  // header("location: rate_page.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option");
+    			}
+    			else {
+    			  die("Error.");
+    			}
+    		}
+    		else {
+    			//escape the strings
+    			$tag = $mysqli->escape_string($_POST['add_tag']);
 
-					//success! redirect them back to the main page
-					header("location: rate_page.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option");
-				}
-				else {
-				  die("Error.");
-				}
-			}
-			else{
-				//We didn't find the tag in TAGS
-				$_SESSION['status'] = 'Failed';
-				$_SESSION['message'] = 'Sorry! Your tag is not a valid tag. Try again!';
-			}
-		}
+
+    			//Figure out our tag id
+    			$tag_query = $mysqli->query("SELECT * FROM TAGS WHERE tag = '$tag'");
+    			if ($tag_query) {
+    				$result = $tag_query->fetch_assoc();
+    				$tag_id = $result['tag_id'];
+
+    				$insertion_query = $mysqli->query("INSERT INTO has_tags VALUES ($tag_id, $c_movie_id)");
+
+    				if($insertion_query){
+
+    					$_SESSION['status'] = 'Success';
+    					$_SESSION['message'] = 'Success! Your tag has been added. Thank you for your feedback!';
+
+    					//success! redirect them back to the main page
+    					header("location: rate_page.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option");
+    				}
+    				else {
+    				  die("Error. insertion query failed");
+    				}
+    			}
+    			else{
+    				//We didn't find the tag in TAGS
+    				$_SESSION['status'] = 'Failed';
+    				$_SESSION['message'] = 'Sorry! Your tag is not a valid tag. Try again!';
+    			}
+    		}
       }
     ?>
   </head>
@@ -266,18 +272,18 @@
         <h2>Leave a Rating/Review:</h2>
         <div class="movie-feedback">
           <form method="post" action="">
-            <input type="number" min="0" max="10" name="rating" required><br>
+            <!-- <input type="number" min="0" max="10" name="rating" required><br> -->
             <!-- http://www.cssscript.com/simple-5-star-rating-system-with-css-and-html-radios/ -->
             <div class="stars">
-              <input class="star star-5" id="star-5" type="radio" name="star"/>
+              <input class="star star-5" value="10" id="star-5" type="radio" name="star"/>
               <label class="star star-5" for="star-5"></label>
-              <input class="star star-4" id="star-4" type="radio" name="star"/>
+              <input class="star star-4" value="8" id="star-4" type="radio" name="star"/>
               <label class="star star-4" for="star-4"></label>
-              <input class="star star-3" id="star-3" type="radio" name="star"/>
+              <input class="star star-3" value="6" id="star-3" type="radio" name="star"/>
               <label class="star star-3" for="star-3"></label>
-              <input class="star star-2" id="star-2" type="radio" name="star"/>
+              <input class="star star-2" value="4" id="star-2" type="radio" name="star"/>
               <label class="star star-2" for="star-2"></label>
-              <input class="star star-1" id="star-1" type="radio" name="star"/>
+              <input class="star star-1" value="2" id="star-1" type="radio" name="star"/>
               <label class="star star-1" for="star-1"></label>
             </div>
             <textarea name="review" rows="4" cols="50"></textarea><br>
