@@ -45,10 +45,12 @@
         $option = $_GET['option'];
         $sorting_option = $_GET['sorting-option'];
         $navigation = $_GET['navigated-from'];
+        $search_flag = 1;
       }
       if(isset($_GET['movie_id']) && !empty($_GET['movie_id']) && isset($_GET['navigated-from'])){
         $c_movie_id = $_GET['movie_id'];
         $navigation = $_GET['navigated-from'];
+        $search_flag = 0;
       }
       else{
         $_SESSION['status'] = 'Failure';
@@ -225,10 +227,15 @@
         </div>
 
         <form method="post" action="../functions/add_tag.php">
-          <input style="display: none;" type="text" name="movie_id" value="<?php echo $c_movie_id ?>">
-          <input style="display: none;" type="text" name="search" value="<?php echo $search ?>">
-          <input style="display: none;" type="text" name="option" value="<?php echo $option; ?>">
-          <input style="display: none;" type="text" name="sorting-option" value="<?php echo $sorting_option; ?>">
+          <input style="display: none" type="text" name="movie_id" value="<?php echo $c_movie_id ?>">
+          <input style="display: none" type="text" name="navigated-from" value="<?php echo $navigation; ?>">
+          <?php
+            if($search_flag){
+              echo '<input style="display: none" type="text" name="search" value="' . $search . '">';
+              echo '<input style="display: none" type="text" name="option" value="' . $option . '">';
+              echo '<input style="display: none" type="text" name="sorting-option" value="' . $sorting_option . '">';
+            }
+          ?>
           <div class="tag-form">
             <input class="tag-text" type="text" maxlength="16" name="tag" placeholder="Tag"><button class="btn btn-success" type="submit" name="submit"><span class="glyphicon glyphicon-plus"></span> Tag</button>
           </div>

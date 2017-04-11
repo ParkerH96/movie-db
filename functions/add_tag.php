@@ -3,9 +3,13 @@
 
   $tag = $mysqli->escape_string($_POST['tag']);
   $movie_id = $mysqli->escape_string($_POST['movie_id']);
-  $search = $_POST['search'];
-  $option = $_POST['option'];
-  $sorting_option = $_POST['sorting-option'];
+  $navigation = $_POST['navigated-from'];
+
+  if($navigation == 'search'){
+    $search = $_POST['search'];
+    $option = $_POST['option'];
+    $sorting_option = $_POST['sorting-option'];
+  }
 
   $tag_query = $mysqli->query("SELECT * FROM TAGS WHERE tag = '$tag'");
 
@@ -28,7 +32,12 @@
         $insertion_query = $mysqli->query("INSERT INTO has_tags VALUES ($tag_id, $movie_id)");
       }
 
-      header("location: ../pages/rate_page.php?movie_id=$movie_id&search=$search&option=$option&sorting-option=$sorting_option");
+      if($navigation == 'search'){
+        header("location: ../pages/rate_page.php?movie_id=$movie_id&search=$search&option=$option&sorting-option=$sorting_option&navigated-from=$navigation");
+      }
+      else{
+        header("location: ../pages/rate_page.php?movie_id=$movie_id&navigated-from=$navigation");
+      }
     }
   }
   else{
