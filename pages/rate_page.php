@@ -77,7 +77,7 @@
     			  $_SESSION['message'] = 'Success! Your review has been added. Thank you for your feedback!';
 
     			  //success! redirect them back to the main page
-    			  // header("location: rate_page.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option");
+    			  header("location: rate_page.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option");
     			}
     			else {
     			  die("Error.");
@@ -273,7 +273,7 @@
           }
         ?>
         <h2>Leave a Rating/Review:</h2>
-        <div class="movie-feedback">
+        <div class="well movie-feedback">
           <form method="post" action="">
             <!-- <input type="number" min="0" max="10" name="rating" required><br> -->
             <!-- http://www.cssscript.com/simple-5-star-rating-system-with-css-and-html-radios/ -->
@@ -290,7 +290,7 @@
               <label class="star star-1" for="star-1"></label>
             </div>
             <textarea name="review" rows="4" cols="50"></textarea><br>
-            <input type="submit" name="submit" value="Rate Now">
+            <button type="submit" class="btn btn-info">Rate Now</button>
           </form>
         </div>
       </div>
