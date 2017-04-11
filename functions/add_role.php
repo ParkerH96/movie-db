@@ -3,7 +3,7 @@
   include 'session.php';
 
   if(isset($_POST['role']) && !empty($_POST['role'])){
-    $role_name = $_POST['role'];
+    $role_name = $mysqli->escape_string($_POST['role']);
 
     $insertion_query = $mysqli->query("INSERT INTO ROLE(role) VALUES ('$role_name')");
 

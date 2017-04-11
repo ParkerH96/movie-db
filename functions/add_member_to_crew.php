@@ -2,9 +2,9 @@
 include 'connection.php';
 
 if(!empty($_POST)){
-  $crew = $_POST['crew_select'];
-  $member = $_POST['member_select'];
-  $role = $_POST['role_select'];
+  $crew = $mysqli->escape_string($_POST['crew_select']);
+  $member = $mysqli->escape_string($_POST['member_select']);
+  $role = $mysqli->escape_string($_POST['role_select']);
 
   $insertion_query = $mysqli->query("INSERT INTO has_members VALUES ($crew, $member, $role)");
 

@@ -4,7 +4,7 @@
 
   if(isset($_GET['movie_id']) && !empty($_GET['movie_id']) && isset($_GET['title']) && !empty($_GET['title'])){
 
-    $movie_id = $_GET['movie_id'];
+    $movie_id = $mysqli->escape_string($_GET['movie_id']);
     $title = $_GET['title'];
     $search = $_GET['search'];
     $option = $_GET['option'];

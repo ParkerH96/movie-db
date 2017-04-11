@@ -3,7 +3,7 @@
   include 'session.php';
 
   if(isset($_POST['crew']) && !empty($_POST['crew'])){
-    $crew_name = $_POST['crew'];
+    $crew_name = $mysqli->escape_string($_POST['crew']);
 
     $insertion_query = $mysqli->query("INSERT INTO CREW(name) VALUES ('$crew_name')");
 

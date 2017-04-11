@@ -52,69 +52,41 @@
         header("location: main_page.php");
       }
 
-      if(!empty($_POST)){
+      if(!empty($_POST['tag'])){
+        header("location: ../functions/add_tag.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option");
+      }
+
+      if(!empty($_POST['review'])){
 
         //connect to the database
         include '../functions/connection.php';
 
-    		if (!isset($_POST['add_tag'])) {
-    			//escape the strings
-    			$review = $mysqli->escape_string($_POST['review']);
+    		//escape the strings
+    		$review = $mysqli->escape_string($_POST['review']);
 
-          if (isset($_POST['star'])) {
-            $rating = $_POST['star'];
-          } else {
-            $_SESSION['status'] = 'Failure';
-    			  $_SESSION['message'] = 'You must enter a rating before submitting!';
-            header("location: rate_page.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option");
-          }
+        if (isset($_POST['star'])) {
+          $rating = $_POST['star'];
+        } else {
+          $_SESSION['status'] = 'Failure';
+    		  $_SESSION['message'] = 'You must enter a rating before submitting!';
+          header("location: rate_page.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option");
+        }
 
-    			$insertion_query = $mysqli->query("INSERT INTO user_actions VALUES ($user_id, $c_movie_id, $rating, '$review')");
+    		$insertion_query = $mysqli->query("INSERT INTO user_actions VALUES ($user_id, $c_movie_id, $rating, '$review')");
 
-    			if($insertion_query){
+    		if($insertion_query){
 
-    			  $_SESSION['status'] = 'Success';
-    			  $_SESSION['message'] = 'Success! Your review has been added. Thank you for your feedback!';
+    			 $_SESSION['status'] = 'Success';
+    			 $_SESSION['message'] = 'Success! Your review has been added. Thank you for your feedback!';
 
-    			  //success! redirect them back to the main page
-    			  header("location: rate_page.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option");
-    			}
-    			else {
-    			  die("Error.");
-    			}
+    		  //success! redirect them back to the main page
+    			 header("location: rate_page.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option");
     		}
     		else {
-    			//escape the strings
-    			$tag = $mysqli->escape_string($_POST['add_tag']);
-
-
-    			//Figure out our tag id
-    			$tag_query = $mysqli->query("SELECT * FROM TAGS WHERE tag = '$tag'");
-    			if ($tag_query) {
-    				$result = $tag_query->fetch_assoc();
-    				$tag_id = $result['tag_id'];
-
-    				$insertion_query = $mysqli->query("INSERT INTO has_tags VALUES ($tag_id, $c_movie_id)");
-
-    				if($insertion_query){
-
-    					$_SESSION['status'] = 'Success';
-    					$_SESSION['message'] = 'Success! Your tag has been added. Thank you for your feedback!';
-
-    					//success! redirect them back to the main page
-    					header("location: rate_page.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option");
-    				}
-    				else {
-    				  die("Error. insertion query failed");
-    				}
-    			}
-    			else{
-    				//We didn't find the tag in TAGS
-    				$_SESSION['status'] = 'Failed';
-    				$_SESSION['message'] = 'Sorry! Your tag is not a valid tag. Try again!';
-    			}
+    		  die("Error.");
     		}
-      }
+    	}
+
     ?>
   </head>
 <body>
@@ -160,6 +132,8 @@
       </div>
     </div>
     <div class= "row page-content">
+
+      <!-- PHP for gathering all of the necessairy information about the movie to set up the page -->
       <?php
         include '../functions/connection.php';
 
@@ -182,6 +156,8 @@
           $c_rating = $rating_result['AVG(rating)'];
         }
       ?>
+      <!-- **END movie information code -->
+
       <div class="col-sm-4 poster-container">
         <a href="<?php echo "../pages/main_page.php?option=$option&sorting-option=$sorting_option&search=$search&submit=Search";?>"><button type="button" class="btn btn-default"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Back to search results</button></a>
         <br><br>
@@ -189,6 +165,8 @@
           <img class="poster" src="../images/posters/<?php echo $c_poster?>">
         </div>
         <div class="movie-rating">
+
+          <!-- PHP for displaying the star rating underneath the movie poster -->
           <?php
 
             include '../functions/star_rating.php';
@@ -196,28 +174,53 @@
             $rating_4char = substr($c_rating, 0, 4);
             echo "<h4>$rating_4char/10</h4>"
           ?>
+          <!-- **END star rating -->
+
         </div>
-        <br>
-		<div class="tags">
-		<h2> Tags </h2> <br>
-		<?php
-			include '../functions/tags.php';
-			include '../functions/connection.php';
-			$movie_id = $_GET['movie_id'];
-			$movie_query = $mysqli->query("SELECT * FROM MOVIE WHERE movie_id = $movie_id");
-			$result = $movie_query->fetch_assoc();
-			$movie_title = $result['title'];
-			displayTags($movie_title);
-		?>
-		</div>
-		<br><br>
-		Add tag: <br>
-        <form action = "" method="post">
-			<input type="text" name="add_tag"><br>
-			<input type="submit" value="Submit">
-		</form>
+        <h1>Tags:</h1>
+
+        <!-- PHP for displaying the current tags in the database of the movie -->
+        <?php
+          $has_tags_query = $mysqli->query("SELECT * FROM has_tags WHERE movie_id = $c_movie_id");
+
+          if($has_tags_query){
+
+            while($has_tag_tuple = $has_tags_query->fetch_assoc()){
+              $tag_id = $has_tag_tuple['tag_id'];
+
+              $tag_query = $mysqli->query("SELECT * FROM TAGS WHERE tag_id=$tag_id");
+
+              if($tag_query){
+
+                $counter = 0;
+                while($tag_tuple = $tag_query->fetch_assoc()){
+                  $tag = $tag_tuple['tag'];
+                  $counter++;
+
+                  echo $tag . ' ';
+
+                }
+              }
+
+            }
+          }
+
+        ?>
+        <!-- **END display tag code -->
+
+        <form method="post" action="../functions/add_tag.php">
+          <input style="display: none;" type="text" name="movie_id" value="<?php echo $c_movie_id ?>">
+          <input style="display: none;" type="text" name="search" value="<?php echo $search ?>">
+          <input style="display: none;" type="text" name="option" value="<?php echo $option; ?>">
+          <input style="display: none;" type="text" name="sorting-option" value="<?php echo $sorting_option; ?>">
+          <input type="text" name="tag" placeholder="Tag">
+          <input type="submit" name="submit" value="Add Tag">
+        </form>
+
       </div>
       <div class="col-sm-8 movie-info">
+
+        <!-- PHP for displaying the current session message for the alert system -->
         <?php
           if(!empty($message) && $status == 'Success'){
             echo '<br><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' . $message . '</div>';
@@ -229,6 +232,8 @@
           }
 
         ?>
+        <!-- **END Alert Code -->
+
         <h1><?php echo $c_title; ?></h1>
         <div class="movie-description">
           <span><?php echo $c_release_date . ' ‧ ' . $c_duration; ?></span><br>
@@ -238,7 +243,10 @@
           <img class="ratio" src="http://placehold.it/16x9"/>
           <iframe src="<?php echo $c_trailer?>" frameborder="0" allowfullscreen></iframe>
         </div>
+
+        <!-- PHP that lays out all of the current reviews for a given movie -->
         <?php
+          //review query that gathers all of the data from user_actions on a given movie id
           $review_query = $mysqli->query("SELECT * FROM user_actions WHERE movie_id = $c_movie_id");
 
           if($review_query){
@@ -272,6 +280,8 @@
             die("Error");
           }
         ?>
+        <!-- **END User Reviews -->
+
         <h2>Leave a Rating/Review:</h2>
         <div class="well movie-feedback">
           <form method="post" action="">

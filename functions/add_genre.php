@@ -3,7 +3,7 @@
   include 'session.php';
 
   if(isset($_POST['genre']) && !empty($_POST['genre'])){
-    $c_genre = $_POST['genre'];
+    $c_genre = $mysqli->escape_string($_POST['genre']);
 
     $insertion_query = $mysqli->query("INSERT INTO GENRE(genre) VALUES ('$c_genre')");
 
