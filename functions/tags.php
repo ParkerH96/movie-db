@@ -1,6 +1,6 @@
 <!--
   Team Databased 2017: Movie-DB
-  Author(s): Davud Cottrell
+  Author(s): David Cottrell
 
   Name: tags.php
 
@@ -13,7 +13,7 @@
       $search_query = $mysqli->query("SELECT * FROM MOVIE, TAGS, has_tags WHERE MOVIE.movie_id = has_tags.movie_id AND has_tags.tag_id = TAGS.tag_id AND title LIKE '$movie_title'");
       if($search_query){
         while($current_tag = $search_query->fetch_assoc()){
-            echo $current_tag['tag'];
+            echo $current_tag['tag'] . '<br>';
         }
 
       }

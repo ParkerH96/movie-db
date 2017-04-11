@@ -57,24 +57,56 @@
         //connect to the database
         include '../functions/connection.php';
 
-        //escape the strings
-        $rating = $mysqli->escape_string($_POST['rating']);
-        $review = $mysqli->escape_string($_POST['review']);
+		if (!isset($_POST['add_tag'])) {
+			//escape the strings
+			$rating = $mysqli->escape_string($_POST['rating']);
+			$review = $mysqli->escape_string($_POST['review']);
 
-        $insertion_query = $mysqli->query("INSERT INTO user_actions VALUES ($user_id, $c_movie_id, $rating, '$review')");
+			$insertion_query = $mysqli->query("INSERT INTO user_actions VALUES ($user_id, $c_movie_id, $rating, '$review')");
 
-        if($insertion_query){
+			if($insertion_query){
 
-          $_SESSION['status'] = 'Success';
-          $_SESSION['message'] = 'Success! You review has been added. Thank you for your feedback!';
+			  $_SESSION['status'] = 'Success';
+			  $_SESSION['message'] = 'Success! Your review has been added. Thank you for your feedback!';
 
-          //success! redirect them back to the main page
-          header("location: rate_page.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option");
-        }
-        else {
-          die("Error.");
-        }
+			  //success! redirect them back to the main page
+			  header("location: rate_page.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option");
+			}
+			else {
+			  die("Error.");
+			}
+		}
+		else {
+			//escape the strings
+			$tag = $mysqli->escape_string($_POST['add_tag']);
+			
+			
+			//Figure out our tag id
+			$tag_query = $mysqli->query("SELECT * FROM TAGS WHERE tag = '$tag'");
+			if ($tag_query) {
+				$result = $tag_query->fetch_assoc();
+				$tag_id = $result['tag_id'];
+			
+				$insertion_query = $mysqli->query("INSERT INTO has_tags VALUES ($tag_id, $c_movie_id)");
+				
+				if($insertion_query){
 
+					$_SESSION['status'] = 'Success';
+					$_SESSION['message'] = 'Success! Your tag has been added. Thank you for your feedback!';
+
+					//success! redirect them back to the main page
+					header("location: rate_page.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option");
+				}
+				else {
+				  die("Error.");
+				}
+			}
+			else{
+				//We didn't find the tag in TAGS
+				$_SESSION['status'] = 'Failed';
+				$_SESSION['message'] = 'Sorry! Your tag is not a valid tag. Try again!';
+			}
+		}
       }
     ?>
   </head>
@@ -157,24 +189,24 @@
           ?>
         </div>
         <br>
-        <form action = "tags.php" method="post">
-        <div class="tags">
-          <h2> Tags </h2> <br>
-          <?php
-            include '../functions/tags.php';
-            include '../functions/connection.php';
-            $movie_id = $_GET['movie_id'];
-            $movie_query = $mysqli->query("SELECT * FROM MOVIE WHERE movie_id = $movie_id");
-            $result = $movie_query->fetch_assoc();
-            $movie_title = $result['title'];
-            displayTags($movie_title);
-          ?>
-        </div>
-        <br><br>
-        Add tag: <br>
-        <input type="text" name="add_tag"><br>
-        <input type="submit" value="Submit">
-      </form>
+		<div class="tags">
+		<h2> Tags </h2> <br>
+		<?php
+			include '../functions/tags.php';
+			include '../functions/connection.php';
+			$movie_id = $_GET['movie_id'];
+			$movie_query = $mysqli->query("SELECT * FROM MOVIE WHERE movie_id = $movie_id");
+			$result = $movie_query->fetch_assoc();
+			$movie_title = $result['title'];
+			displayTags($movie_title);
+		?>
+		</div>
+		<br><br>
+		Add tag: <br>
+        <form action = "" method="post">
+			<input type="text" name="add_tag"><br>
+			<input type="submit" value="Submit">
+		</form>
       </div>
       <div class="col-sm-8 movie-info">
         <?php
