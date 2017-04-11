@@ -120,7 +120,7 @@
       </div>
         <div class="col-sm-9 search-window">
           <div class="row search-bar">
-              <div class="col-xs-3 search-options">
+              <div class="col-xs-12 col-sm-3 search-options">
                 <span class="small-title">Search By:</span>
                 <select name="option">
                   <option>Title</option>
@@ -135,10 +135,10 @@
                   <!--<option>Rating</option>-->
                 </select>
               </div>
-              <div class="col-xs-9 form-input">
+              <div class="col-xs-12 col-sm-9 form-input">
                 <div class="text-and-button">
-                  <input placeholder="Search" name="search" type="text">
-                  <input type="submit" name="submit" value="Search" class="databased-btn search-btn">
+                  <input placeholder="Search" name="search" type="text" class="search-text">
+                  <button type="submit" name="submit" value="Search" class="btn btn-success search-btn">Search</button>
                 </div>
               </div>
             </form>
