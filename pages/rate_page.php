@@ -301,7 +301,7 @@
               <input class="star star-1" value="2" id="star-1" type="radio" name="star"/>
               <label class="star star-1" for="star-1"></label>
             </div>
-            <textarea name="review" rows="4" cols="50"></textarea><br>
+            <textarea class="text-input" name="review" rows="4"></textarea><br>
             <button type="submit" class="btn btn-info">Rate Now</button>
           </form>
         </div>
