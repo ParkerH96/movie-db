@@ -202,7 +202,9 @@
 
           if($review_query){
 
-            echo '<h2>User Reviews:</h2>';
+            if ($review_query->num_rows > 0) {
+              echo '<h2>User Reviews:</h2>';
+            }
 
             while($current_row = $review_query->fetch_assoc()){
               $i_user_id = $current_row['user_id'];
@@ -229,9 +231,23 @@
             die("Error");
           }
         ?>
+        <h2>Leave a Rating/Review:</h2>
         <div class="movie-feedback">
           <form method="post" action="">
             <input type="number" min="0" max="10" name="rating" required><br>
+            <!-- http://www.cssscript.com/simple-5-star-rating-system-with-css-and-html-radios/ -->
+            <div class="stars">
+              <input class="star star-5" id="star-5" type="radio" name="star"/>
+              <label class="star star-5" for="star-5"></label>
+              <input class="star star-4" id="star-4" type="radio" name="star"/>
+              <label class="star star-4" for="star-4"></label>
+              <input class="star star-3" id="star-3" type="radio" name="star"/>
+              <label class="star star-3" for="star-3"></label>
+              <input class="star star-2" id="star-2" type="radio" name="star"/>
+              <label class="star star-2" for="star-2"></label>
+              <input class="star star-1" id="star-1" type="radio" name="star"/>
+              <label class="star star-1" for="star-1"></label>
+            </div>
             <textarea name="review" rows="4" cols="50"></textarea><br>
             <input type="submit" name="submit" value="Rate Now">
           </form>
