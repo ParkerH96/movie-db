@@ -64,8 +64,9 @@
           if (isset($_POST['star'])) {
             $rating = $_POST['star'];
           } else {
-            die("Error: didn't input rating");
-            // Parker please fix ^^^^^^^^
+            $_SESSION['status'] = 'Failure';
+    			  $_SESSION['message'] = 'You must enter a rating before submitting!';
+            header("location: rate_page.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option");
           }
 
     			$insertion_query = $mysqli->query("INSERT INTO user_actions VALUES ($user_id, $c_movie_id, $rating, '$review')");
@@ -192,6 +193,8 @@
 
             include '../functions/star_rating.php';
             displayStarRating($c_rating, 2);
+            $rating_4char = substr($c_rating, 0, 4);
+            echo "<h4>$rating_4char/10</h4>"
           ?>
         </div>
         <br>
