@@ -47,7 +47,7 @@
         $navigation = $_GET['navigated-from'];
         $search_flag = 1;
       }
-      if(isset($_GET['movie_id']) && !empty($_GET['movie_id']) && isset($_GET['navigated-from'])){
+      else if(isset($_GET['movie_id']) && !empty($_GET['movie_id']) && isset($_GET['navigated-from'])){
         $c_movie_id = $_GET['movie_id'];
         $navigation = $_GET['navigated-from'];
         $search_flag = 0;
@@ -59,8 +59,19 @@
         header("location: main_page.php");
       }
 
+      $genre_list = '';
+      if(isset($_GET['genre'])){
+        $genre = $_GET['genre'];
+        foreach($genre as $genre_value){
+          if($genre_value != ''){
+            $genre_list .= '&genre[]=';
+            $genre_list .= $genre_value;
+          }
+        }
+      }
+
       if(!empty($_POST['tag'])){
-        header("location: ../functions/add_tag.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option");
+        header("location: ../functions/add_tag.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option$genre_list");
       }
 
       if(!empty($_POST['star'])){
@@ -71,12 +82,12 @@
     		//escape the strings
     		$review = $mysqli->escape_string($_POST['review']);
 
-        if (isset($_POST['star'])) {
+        if (isset($_POST['star']) && !empty($_POST['star'])) {
           $rating = $_POST['star'];
         } else {
           $_SESSION['status'] = 'Failure';
     		  $_SESSION['message'] = 'You must enter a rating before submitting!';
-          header("location: rate_page.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option");
+          header("location: rate_page.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option$genre_list");
         }
 
     		$insertion_query = $mysqli->query("INSERT INTO user_actions VALUES ($user_id, $c_movie_id, $rating, '$review')");
@@ -87,7 +98,7 @@
     			 $_SESSION['message'] = 'Success! Your review has been added. Thank you for your feedback!';
 
     		  //success! redirect them back to the main page
-    			 header("location: rate_page.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option&navigated-from=$navigation");
+    			 header("location: rate_page.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option&navigated-from=$navigation$genre_list");
     		}
     		else {
     		  die("Error.");
@@ -168,7 +179,7 @@
       <div class="col-sm-4 poster-container">
         <?php
           if($navigation == 'search'){
-            echo '<a href="../pages/main_page.php?option=' . $option . '&sorting-option=' . $sorting_option . '&search=' . $search . '&submit=Search"><button type="button" class="btn btn-default"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Back to search results</button></a>';
+            echo '<a href="../pages/main_page.php?option=' . $option . '&sorting-option=' . $sorting_option . '&search=' . $search . '&submit=Search' . $genre_list . '"><button type="button" class="btn btn-default"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Back to search results</button></a>';
           }
           else if($navigation == 'watchlist'){
             echo '<a href="../pages/watchlist_page.php"><button class="btn btn-success"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Back to watch list</button></a>';
@@ -231,6 +242,7 @@
           <input style="display: none" type="text" name="navigated-from" value="<?php echo $navigation; ?>">
           <?php
             if($search_flag){
+              //echo '<input type="text" name="genrelist" value"' . $genre_list .'">';
               echo '<input style="display: none" type="text" name="search" value="' . $search . '">';
               echo '<input style="display: none" type="text" name="option" value="' . $option . '">';
               echo '<input style="display: none" type="text" name="sorting-option" value="' . $sorting_option . '">';

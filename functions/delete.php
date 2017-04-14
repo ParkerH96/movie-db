@@ -4,6 +4,17 @@
 
   if(isset($_GET['movie_id']) && !empty($_GET['movie_id'])){
 
+    $genre_list = '';
+    if(isset($_GET['genre'])){
+      $genre = $_GET['genre'];
+      foreach($genre as $genre_value){
+        if($genre_value != ''){
+          $genre_list .= '&genre[]=';
+          $genre_list .= $genre_value;
+        }
+      }
+    }
+
     $option = $_GET['option'];
     $sorting_option = $_GET['sorting-option'];
 
@@ -34,10 +45,10 @@
 
       if(isset($_GET['search']) && !empty($_GET['search'])){
         //success! redirect them back to the main page
-        header("location: ../pages/main_page.php?option=$option&sorting-option=$sorting_option&search=$search&submit=Search");
+        header("location: ../pages/main_page.php?option=$option&sorting-option=$sorting_option&search=$search&submit=Search$genre_list");
       }
       else {
-        header("location: ../pages/main_page.php");
+        header("location: ../pages/main_page.php?option=$option&sorting-option=$sorting_option$genre_list");
       }
     }
     else{

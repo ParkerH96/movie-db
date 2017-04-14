@@ -46,6 +46,7 @@
             }
 
             if(empty($_GET['genre'])){
+              $genre = [''];
               $genre_query = "SELECT DISTINCT MOVIE.movie_id FROM MOVIE, GENRE, is_genres WHERE MOVIE.movie_id = is_genres.movie_id AND is_genres.genre_id = GENRE.genre_id AND title LIKE '%$search_key%' ORDER BY $order_option";
             }
             else {
@@ -113,7 +114,7 @@
             while($current_row = $search_query->fetch_assoc()){
               $movie_id = $current_row['movie_id'];
 
-              displaySearchResult($movie_id, $admin_tag, $search_key, 0, $option, $sorting_option);
+              displaySearchResult($movie_id, $admin_tag, $search_key, 0, $option, $sorting_option, $genre);
 
             }
 
@@ -134,7 +135,7 @@
 
           $option = $_GET['option'];
           $sorting_option = $_GET['sorting-option'];
-          
+
           $search_key = "";
           $genre = $_GET['genre'];
           $counter = 0;
@@ -156,7 +157,7 @@
             while($current_row = $genre_query->fetch_assoc()){
               $movie_id = $current_row['movie_id'];
 
-              displaySearchResult($movie_id, $admin_tag, $search_key, 0, $option, $sorting_option);
+              displaySearchResult($movie_id, $admin_tag, $search_key, 0, $option, $sorting_option, $genre);
 
             }
 

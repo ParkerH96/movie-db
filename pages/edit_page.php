@@ -85,10 +85,21 @@
           $option = $_GET['option'];
           $sorting_option = $_GET['sorting-option'];
 
+          $genre_list = '';
+          if(isset($_GET['genre'])){
+            $genre = $_GET['genre'];
+            foreach($genre as $genre_value){
+              if($genre_value != ''){
+                $genre_list .= '&genre[]=';
+                $genre_list .= $genre_value;
+              }
+            }
+          }
+
           $_SESSION['status'] = 'Success';
           $_SESSION['message'] = 'Success! The information for '. $title .' was modified.';
 
-          header("location: main_page.php?search=$search&option=$option&sorting-option=$sorting_option&submit=Search");
+          header("location: main_page.php?search=$search&option=$option&sorting-option=$sorting_option&submit=Search$genre_list");
         }
         else{
           die("Error...");

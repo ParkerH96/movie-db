@@ -4,6 +4,17 @@
   $tag = $mysqli->escape_string($_POST['tag']);
   $movie_id = $mysqli->escape_string($_POST['movie_id']);
   $navigation = $_POST['navigated-from'];
+  //$genre_list = '';
+
+  /*if(isset($_POST['genrelist']) && !empty($_POST['genrelist'])){
+    $genre = $_POST['genrelist'];
+    foreach($genre as $genre_value){
+      if($genre_value != ''){
+        $genre_list .= '&genre[]=';
+        $genre_list .= $genre_value;
+      }
+    }
+  }*/
 
   if($navigation == 'search'){
     $search = $_POST['search'];
