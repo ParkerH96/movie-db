@@ -113,6 +113,10 @@
 
               while($current_row = $genre_input_query->fetch_assoc()){
                 $i_genre = $current_row['genre'];
+                $i_genre_id = $current_row['genre_id'];
+                if ($admin_tag == 1) {
+                  echo '<a class="light-x" href="../functions/delete_genre.php?genre_id=' . $i_genre_id . '" onclick="return confirm(\'Are you sure you want to remove the genre ' . $i_genre . ' from the database?\')"><i class="fa fa-times" aria-hidden="true"></i></a> ';
+                }
                 echo '<input type="checkbox" name="genre[]" value="' . $i_genre . '"> ' . $i_genre . '<br>';
               }
             ?>

@@ -133,3 +133,7 @@ h5, select {
   margin: 0;
   height: 100%;
 }
+
+.light-x {
+  color: #888;
+}
