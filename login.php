@@ -30,13 +30,13 @@
     <!-- Javascipt -->
     <script type="text/javascript">
       function Success(){
-        alert("Login was succesfull!");
+        alert("Login was successful!");
       }
       function PassFailure(){
-        alert("Login unsuccesfull. The password was not correct.");
+        alert("Login unsuccessful. The password was not correct.");
       }
       function UserFailure(){
-        alert("Login unseccesfull. The username could not be found.");
+        alert("Login unsuccessful. The username could not be found.");
       }
     </script>
 

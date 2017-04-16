@@ -54,7 +54,7 @@
       }
       else{
         $_SESSION['status'] = 'Failure';
-        $_SESSION['message'] = 'Request Failed. No movie data could be found. Please earch for one first or select one from <a href="watchlist_page.php">Your Watchlist</a>';
+        $_SESSION['message'] = 'Request Failed. No movie data could be found. Please sarch for one first or select one from <a href="watchlist_page.php">Your Watchlist</a>';
 
         header("location: main_page.php");
       }
