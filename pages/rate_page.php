@@ -75,21 +75,22 @@
         header("location: ../functions/add_tag.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option$genre_list");
       }
 
-      if(!empty($_POST['star'])){
+      if(!empty($_POST['star']) && isset($_POST['star'])){
 
         //connect to the database
         include '../functions/connection.php';
 
     		//escape the strings
     		$review = $mysqli->escape_string($_POST['review']);
+        $rating = $_POST['star'];
 
-        if (isset($_POST['star']) && !empty($_POST['star'])) {
+        /*if (isset($_POST['star']) && !empty($_POST['star'])) {
           $rating = $_POST['star'];
         } else {
           $_SESSION['status'] = 'Failure';
     		  $_SESSION['message'] = 'You must enter a rating before submitting!';
-          header("location: rate_page.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option$genre_list");
-        }
+          //header("location: rate_page.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option&navigated-from=$navigation$genre_list");
+        }*/
 
     		$insertion_query = $mysqli->query("INSERT INTO user_actions VALUES ($user_id, $c_movie_id, $rating, '$review')");
 
@@ -105,6 +106,11 @@
     		  die("Error.");
     		}
     	}
+      else{
+       //$_SESSION['status'] = 'Failure';
+       //$_SESSION['message'] = 'You must enter a rating before submitting!';
+       //header("location: rate_page.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option&navigated-from=$navigation$genre_list");
+      }
 
     ?>
   </head>
@@ -406,7 +412,7 @@
               <label class="star star-1" for="star-1"></label>
             </div>
             <textarea class="text-input" name="review" rows="4"></textarea><br>
-            <button type="submit" class="btn btn-info">Rate Now</button>
+            <button type="submit" name="submit" class="btn btn-info">Rate Now</button>
           </form>
         </div>
       </div>
