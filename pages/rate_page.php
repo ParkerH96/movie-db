@@ -271,8 +271,31 @@
         <!-- **END Alert Code -->
 
         <h1><?php echo $c_title; ?></h1>
+        <hr>
+        <h4>
+          <!-- list genres for the movie -->
+          <?php
+            $is_genres_query = $mysqli->query("SELECT * FROM is_genres WHERE movie_id = $c_movie_id");
+            if ($is_genres_query) {
+              $first = true;
+              while ($is_genres_tuple = $is_genres_query->fetch_assoc()) {
+                $g_id = $is_genres_tuple['genre_id'];
+                $genre_query = $mysqli->query("SELECT * FROM GENRE WHERE genre_id = $g_id");
+                if ($genre_tuple = $genre_query->fetch_assoc()) {
+                  $c_genre = $genre_tuple['genre'];
+                  if ($first) {
+                    echo "$c_genre";
+                    $first = false;
+                  } else {
+                    echo ", $c_genre";
+                  }
+                }
+              }
+            }
+          ?>
+        </h4>
         <div class="movie-description">
-          <span><?php echo $c_release_date . ' ‧ ' . $c_duration; ?></span><br>
+          <span><?php echo $c_release_date . ' ‧ ' . $c_duration; ?></span><br><br>
           <span>&emsp;<?php echo $c_summary?></span>
         </div>
         <div class="responsive-iframe">
