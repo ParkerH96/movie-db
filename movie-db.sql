@@ -189,9 +189,24 @@ through the wormhole and across the galaxy to find out which of three planets co
 he succeeds, it will be the perfect crime, but a dangerous enemy anticipates Cobb's every move.", 'English', '02:28:00', 'https://www.youtube.com/embed/YoHD9XEInc0', 'inception.jpg'),
 ('Frank', '2014-10-10', "An aspiring musician (Domhnall Gleeson) finds himself way out of his element after he joins a pop group led by an enigmatic figure (Michael Fassbender) who wears a giant fake head.", 'English', '01:36:00', 'https://www.youtube.com/embed/-catC4tBVyY', 'frank.jpg'),
 ('Divergent', '2014-03-21', "Tris Prior (Shailene Woodley) lives in a futuristic world in which society is divided into five factions. As each person enters adulthood, he or she must choose a faction and commit to it for life. Tris chooses Dauntless -- those who pursue bravery above all else. However, her initiation leads to the discovery that she is a Divergent and will never be able to fit into
-just one faction. Warned that she must conceal her status, Tris uncovers a looming war which threatens everyone she loves.", 'English', '02:19:00', 'https://www.youtube.com/embed/sutgWjz10sM', 'divergent.jpg');
+just one faction. Warned that she must conceal her status, Tris uncovers a looming war which threatens everyone she loves.", 'English', '02:19:00', 'https://www.youtube.com/embed/sutgWjz10sM', 'divergent.jpg'),
+('Anchorman 2: The Legend Continues', '2013-12-18', "Seven years after capturing the heart of co-anchor Veronica Corningstone (Christina Applegate), newsman Ron Burgundy (Will Ferrell) is offered the chance of a lifetime: a spot on the world's first 24-hour global cable news network. Ron quickly assembles his team: Champ Kind (David Koechner), Brian Fantana (Paul Rudd) and Brick Tamland
+(Steve Carell). Challenged by his tough female boss, a network owner and a popular anchor, Ron and his pals must find their own way to the top of the ratings.", 'English', '01:59:00', 'https://www.youtube.com/embed/Elczv0ghqw0', 'anchorman2.jpg'),
+('Bruce Almighty', '2003-05-23', "Bruce Nolan's (Jim Carrey) career in TV has been stalled for a while, and when he's passed over for a coveted anchorman position, he loses it, complaining that God is treating him poorly. Soon after, God (Morgan Freeman) actually contacts Bruce and offers him all of his powers if he thinks he can do a better job. Bruce accepts and goes on a spree, using his new-found
+abilities for selfish, personal use until he realizes that the prayers of the world are going unanswered.", 'English', '01:41:00', 'https://www.youtube.com/embed/fe-luzrqWSk', 'bruce.jpg'),
+('The Grand Budapest Hotel', '2014-03-07', "In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave's friend and protege. Gustave prides himself on providing first-class service to the hotel's guests, including satisfying the sexual needs of the many elderly women who stay there. When one
+of Gustave's lovers dies mysteriously, Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.", 'English', '01:40:00', 'https://www.youtube.com/embed/1Fg5iWmQjwk', 'budapest.jpg'),
+('Forrest Gump', '1994-07-06', "Slow-witted Forrest Gump (Tom Hanks) has never thought of himself as disadvantaged, and thanks to his supportive mother (Sally Field), he leads anything but a restricted life. Whether dominating on the gridiron as a college football star, fighting in Vietnam or captaining a shrimp boat, Forrest inspires people with his childlike optimism. But one person Forrest cares
+about most may be the most difficult to save -- his childhood love, the sweet but troubled Jenny (Robin Wright).", 'English', '02:22:00', 'https://www.youtube.com/embed/bLvqoHBptjg', 'gump.png'),
+('Big Hero 6', '2014-11-07', "Robotics prodigy Hiro (Ryan Potter) lives in the city of San Fransokyo. Next to his older brother, Tadashi, Hiro's closest companion is Baymax (Scott Adsit), a robot whose sole purpose is to take care of people. When a devastating turn of events throws Hiro into the middle of a dangerous plot, he transforms Baymax and his other friends, Go Go Tamago (Jamie Chung),
+Wasabi (Damon Wayans Jr.), Honey Lemon (Genesis Rodriguez) and Fred (T.J. Miller) into a band of high-tech heroes.", 'English', '01:42:00', 'https://www.youtube.com/embed/z3biFxZIJOQ', 'hero6.jpg'),
+('Your Name', '2017-04-07', "A teenage boy and girl embark on a quest to meet each other for the first time after they magically swap bodies.", 'Japanese', '01:47:00', 'https://www.youtube.com/embed/hRfHcp2GjVI', 'kimi.jpg'),
+('Taken', '2009-01-30', "Bryan Mills (Liam Neeson), a former government operative, is trying to reconnect with his daughter, Kim (Maggie Grace). Then his worst fears become real when sex slavers abduct Kim and her friend shortly after they arrive in Paris for vacation. With just four days until Kim will be auctioned off, Bryan must call on every skill he learned in black ops to rescue her.", 'English',
+'01:33:00', 'https://www.youtube.com/embed/uPJVJBm9TPA', 'taken.jpg'),
+('Tenacious D in The Pick of Destiny', '2006-11-22', "Musicians JB (Jack Black) and KG (Kyle Gass) begin a friendship that could lead to the formation of the greatest rock band in the world. To make that dream come true, the righteous duo embark on a quest to find a legendary guitar pick that possesses supernatural powers.", 'English', '01:35:00', 'https://www.youtube.com/embed/TXxQFMG86HA', 'tenacious.jpg');
 
-INSERT INTO GENRE(genre) VALUES('Comedy'),('Romance'),('Fantasy'),('Science Fiction'),('Drama'),('Thriller'),('Mystery'),('Horror'),('Slasher'),('Action'), ('Buddy'), ('Disaster');
+INSERT INTO GENRE(genre) VALUES('Comedy'),('Romance'),('Fantasy'),('Science Fiction'),('Drama'),('Thriller'),('Mystery'),('Horror'),('Slasher'),('Action'), ('Buddy'), ('Disaster'), ('Farce'), ('Crime'), ('Western'), ('Animation'), ('Romantic Comedy'), ('War'), ('Adventure'), ('Fiction'), ('Documentary'), ('Art'), ('Biographical'), ('Family'),
+('Spy'), ('Experimental'), ('Heist'), ('Melodrama'), ('Cult'), ('Epic');
 
 INSERT INTO USER(admin_tag, first_name, middle_name, last_name, dob, gender, username, password) VALUES
 (1, 'Parker', 'Alexander', 'Householder', '1996-05-01', 'Male', 'paho224', 'd96dafb2beaab65e1abb358c6f2ba54d28afb293f97166cfad806fdd71a1258e'),
@@ -205,7 +220,8 @@ INSERT INTO USER(admin_tag, first_name, middle_name, last_name, dob, gender, use
 (0, 'Monica', 'Ott', 'Householder', '1967-03-14', 'Female', 'moho232', '4dfdad8afbcf7135eba27c9145aa62d0d0890dacdac1f459c19f9169f11745b6'),
 (0, 'Donald', 'John', 'Trump', '1946-05-14', 'Male', 'djtr233', '0cbf32966ac2ad6e21e5da39cf80e7203a04218b44edcca347afe435dd05bf3b');
 
-INSERT INTO TAGS(tag) VALUES('funny'), ('scary'), ('suspenseful'), ('silly'), ('romantic'), ('hardcore'), ('superhero'), ('marvel'), ('gory'), ('adult');
+INSERT INTO TAGS(tag) VALUES('funny'), ('scary'), ('suspenseful'), ('silly'), ('romantic'), ('hardcore'), ('superhero'), ('marvel'), ('gory'), ('adult'), ('action'), ('hero'), ('antihero'), ('competition'), ('corruption'), ('conspiracy'), ('criminal'), ('futuristic'), ('murder'), ('kidnapping'), ('parenthood'), ('supernatural'), ('fantasy'), ('fictional'),
+('musical'), ('satire'), ('spoof'), ('slasher'), ('intense'), ('parody');
 
 INSERT INTO CREW(name) VALUES ('Deadpool-crew'), ('Thor-crew'), ('Grudge-crew'), ('Avengers-crew'), ('Neighbors-crew'), ('Expendables-crew'), ('Ring-crew'), ('Notebook-crew'), ('Psycho-crew'), ('crew10');
 
@@ -228,18 +244,19 @@ INSERT INTO has_members(crew_id, mem_id, role_id) VALUES (1, 1, 4), (2, 2, 4), (
 INSERT INTO has_crew(movie_id, crew_id) VALUES (1, 5), (2, 5), (3, 8), (4, 4), (5, 7), (6, 9), (7, 3), (8, 6), (9, 1), (10, 2);
 
 INSERT INTO is_genres(movie_id, genre_id) VALUES (1, 1), (2, 1), (3, 2), (3, 5), (4, 3), (4, 4), (5, 6), (5, 7), (6, 5), (6, 9), (7, 6), (7, 7), (8, 10), (8, 6), (9, 10), (9, 4), (10, 3),
-(10, 4), (12, 3), (12, 4), (11, 3), (11, 10), (13, 2), (13, 11), (14, 5), (15, 7), (15, 5), (16, 12), (16, 5), (17, 3), (17, 4), (18, 2), (18, 5), (19, 4), (19, 7), (20, 4), (20, 6), (21, 3), (21, 5), (22, 4), (22, 6);
+(10, 4), (12, 3), (12, 4), (11, 3), (11, 10), (13, 2), (13, 11), (14, 5), (15, 7), (15, 5), (16, 12), (16, 5), (17, 3), (17, 4), (18, 2), (18, 5), (19, 4), (19, 7), (20, 4), (20, 6), (21, 3),
+(21, 5), (22, 4), (22, 6), (30, 1), (30, 13), (29, 6), (29, 10), (28, 3), (28, 5), (27, 10), (27, 4), (26, 1), (26, 5), (25, 14), (25, 5), (24, 5), (24, 3), (23, 1);
 
 INSERT INTO has_tags(tag_id, movie_id) VALUES (1, 1), (1, 2), (5, 3), (7, 4), (8, 4), (2, 5), (3, 5), (4, 6), (9, 7), (2, 7), (1, 8), (6, 8), (10, 9), (8, 9), (8, 10), (7, 10);
 
 INSERT INTO user_actions(user_id, movie_id, rating, review) VALUES
 (1, 1, 8, 'This movie was rather enjoyable and funny'),
-(2, 2, 7, 'It was ok, but the first one was definitely better!'),
-(3, 3, 0, 'The story told by this movie was absolutely beautiful in every single way'),
-(4, 4, 2, 'Probably one of my favorite marvel movies in recent years'),
-(5, 5, 4, 'It was very suspenseful and scary'),
+(2, 2, 8, 'It was ok, but the first one was definitely better!'),
+(3, 3, 10, 'The story told by this movie was absolutely beautiful in every single way'),
+(4, 4, 10, 'Probably one of my favorite marvel movies in recent years'),
+(5, 5, 8, 'It was very suspenseful and scary'),
 (6, 6, 8, 'This movie was really good, but there were definitely some flaws'),
-(7, 7, 6, 'Definitely one of my favorite horror movies of all time!'),
+(7, 7, 8, 'Definitely one of my favorite horror movies of all time!'),
 (8, 8, 8, 'I absolutely love sylvestor salone, and his role in this movie was outstanding!'),
 (9, 9, 10, 'This movie has to be the greatest marvel movie of all time! A must see!'),
-(10, 10, 7, 'It was good but not that good');
+(10, 10, 6, 'It was good but not that good');
