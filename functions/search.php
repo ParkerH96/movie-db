@@ -136,19 +136,34 @@
           $option = $_GET['option'];
           $sorting_option = $_GET['sorting-option'];
 
-          $search_key = "";
-          $genre = $_GET['genre'];
-          $counter = 0;
-          $genre_query = "";
-          foreach ($genre as $genre_values) {
-            if ($counter != 0) {
-              $genre_query .= " UNION ";
-              $genre_query .=  "SELECT DISTINCT MOVIE.movie_id FROM MOVIE, GENRE, is_genres WHERE MOVIE.movie_id = is_genres.movie_id AND is_genres.genre_id = GENRE.genre_id AND genre = '$genre_values'";
+          if($_GET['option'] === 'Title'){
+
+            if($_GET['sorting-option'] === 'Alphabetical'){
+              $order_option = 'title';
             }
-            else {
-              $genre_query .=  "SELECT DISTINCT MOVIE.movie_id FROM MOVIE, GENRE, is_genres WHERE MOVIE.movie_id = is_genres.movie_id AND is_genres.genre_id = GENRE.genre_id AND genre = '$genre_values'";
+            else if($_GET['sorting-option'] === 'Release Year'){
+              $order_option = 'release_date';
             }
-            $counter += 1;
+            else if($_GET['sorting-option'] === 'Duration'){
+              $order_option = 'duration';
+            }
+
+            $search_key = "";
+            $genre = $_GET['genre'];
+            $counter = 0;
+            $genre_query = "";
+            foreach ($genre as $genre_values) {
+              if ($counter != 0) {
+                $genre_query .= " UNION ";
+                $genre_query .=  "SELECT DISTINCT MOVIE.movie_id, title, duration, release_date FROM MOVIE, GENRE, is_genres WHERE MOVIE.movie_id = is_genres.movie_id AND is_genres.genre_id = GENRE.genre_id AND genre = '$genre_values'";
+              }
+              else {
+                $genre_query .=  "SELECT DISTINCT MOVIE.movie_id, title, duration, release_date FROM MOVIE, GENRE, is_genres WHERE MOVIE.movie_id = is_genres.movie_id AND is_genres.genre_id = GENRE.genre_id AND genre = '$genre_values'";
+              }
+              $counter += 1;
+            }
+
+            $genre_query .= " ORDER BY $order_option";
           }
           $genre_query = $mysqli->query($genre_query);
           if($genre_query){
