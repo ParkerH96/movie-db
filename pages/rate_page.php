@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="../fonts/font-awesome/css/font-awesome.min.css">
 
     <!-- include stylesheets -->
+    <link rel="stylesheet" href="../css/crew_page.css" type="text/css">
     <link rel="stylesheet" href="../css/main.css" type="text/css">
     <link rel="stylesheet" href="../css/rate_page.css" type="text/css">
 
@@ -296,7 +297,53 @@
         </h4>
         <div class="movie-description">
           <span><?php echo $c_release_date . ' ‧ ' . $c_duration; ?></span><br><br>
-          <span>&emsp;<?php echo $c_summary?></span>
+          <span>&emsp;<?php echo $c_summary?></span><br><br>
+        </div>
+        <div class="crew-info">
+          <?php
+            $has_crew_query = $mysqli->query("SELECT * FROM has_crew WHERE movie_id = $c_movie_id");
+            if ($has_crew_query) {
+              // echo "<h3>Crews:</h3>";
+              // for each crew associated with the given movie
+              while ($has_crew_tuple = $has_crew_query->fetch_assoc()) {
+                $c_crew_id = $has_crew_tuple['crew_id'];
+                $crew_query = $mysqli->query("SELECT * FROM CREW WHERE crew_id = $c_crew_id");
+                if ($crew_tuple = $crew_query->fetch_assoc()) {
+                  $c_crew_name = $crew_tuple['name'];
+
+                  echo '<div class="crew-result"><div class="btn-info crew-result-title">Crew</div><div class="crew-result-content"><br>';
+
+                  //for each member in the crew
+                  $has_members_query = $mysqli->query("SELECT * FROM has_members WHERE crew_id = $c_crew_id");
+                  while ($has_members_tuple = $has_members_query->fetch_assoc()) {
+                    $c_role_id = $has_members_tuple['role_id'];
+                    $c_mem_id = $has_members_tuple['mem_id'];
+
+                    //find the info on the role and member
+                    $member_query = $mysqli->query("SELECT * FROM MEMBER WHERE mem_id = $c_mem_id");
+                    $role_query = $mysqli->query("SELECT * FROM ROLE WHERE role_id = $c_role_id");
+
+                    if($member_query && $role_query){
+                      $c_member = $member_query->fetch_assoc();
+                      $c_role = $role_query->fetch_assoc();
+
+                      $mem_first_name = $c_member['first_name'];
+                      //$mem_middle_name = $c_member['middle_name'];
+                      $mem_last_name = $c_member['last_name'];
+                      //$mem_dob = $c_member['dob'];
+                      //$mem_gender = $c_member['gender'];
+
+                      $role = $c_role['role'];
+
+                      echo $mem_first_name . ' ' . $mem_last_name . ' - ' . $role . '<br>';
+                    }
+                  }
+                  echo '</div><br></div><br>';
+                }
+              }
+            }
+
+          ?>
         </div>
         <div class="responsive-iframe">
           <img class="ratio" src="http://placehold.it/16x9"/>
