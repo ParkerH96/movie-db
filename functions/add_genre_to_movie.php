@@ -1,7 +1,7 @@
 <?php
 include 'connection.php';
 
-if(!empty($_POST)){
+if(!empty($_POST['genre_select'])){
   $crew = $mysqli->escape_string($_POST['crew_select']);
   $member = $mysqli->escape_string($_POST['member_select']);
   $role = $mysqli->escape_string($_POST['role_select']);

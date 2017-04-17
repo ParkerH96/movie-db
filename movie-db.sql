@@ -38,7 +38,7 @@ CREATE TABLE USER
   last_name varchar(64) NOT NULL,
   dob date NOT NULL,
   gender varchar(64),
-  username varchar(16) NOT NULL,
+  username varchar(64) NOT NULL,
   password varchar(64) NOT NULL,
   PRIMARY KEY (user_id)
 );
