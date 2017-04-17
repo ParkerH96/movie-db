@@ -265,17 +265,18 @@
                       $btn_type = 'info';
                     }
                   }
+
+                  if ($admin_tag == 1) {
+                    if ($search_flag) {
+                      $delete_address = "../functions/delete_tag_from_movie.php?movie_id=$c_movie_id&tag_id=$tag_id&search=$search&option=$option&sorting-option=$sorting_option&navigated-from=$navigation$genre_list";
+                    } else {
+                      $delete_address = "../functions/delete_tag_from_movie.php?movie_id=$c_movie_id&tag_id=$tag_id&navigated-from=$navigation";
+                    }
+                    echo '<a class="light-x" href="'. $address .'" onclick="return confirm(\'Are you sure you want to remove the tag ' . $tag . ' from the database?\')"><i class="fa fa-times" aria-hidden="true"></i></a> ';
+                  }
+
                   echo '<a href="' . $address . '"><button class="tag-btn btn btn-' . $btn_type . '">';
-                  /*if ($admin_tag == 1) {
-                    if($search_flag){
-                      $address = "../functions/delete_tag_from_movie.php?movie_id=$c_movie_id&tag_id=$tag_id&search=$search&option=$option&sorting-option=$sorting_option&navigated-from=$navigation$genre_list";
-                      echo '<a class="light-x" href="'. $address .'" onclick="return confirm(\'Are you sure you want to remove the tag ' . $tag . ' from the database?\')"><i class="fa fa-times" aria-hidden="true"></i></a> ';
-                    }
-                    else{
-                      $address = "../functions/delete_tag_from_movie.php?movie_id=$c_movie_id&tag_id=$tag_id&navigated-from=$navigation";
-                      echo '<a class="light-x" href="'. $address .'" onclick="return confirm(\'Are you sure you want to remove the tag ' . $tag . ' from the database?\')"><i class="fa fa-times" aria-hidden="true"></i></a> ';
-                    }
-                  }*/
+                  
                   echo $tag . ' ('. $counter . ') ';
                   echo '</button></a></div>';
 
