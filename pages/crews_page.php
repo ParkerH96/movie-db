@@ -204,6 +204,8 @@
 
                   $role = $c_role['role'];
 
+                  echo '<a class="light-x" href="../functions/delete_member_from_crew.php?mem_id=' . $mem_id . '&role_id=' . $role_id . '&crew_id=' . $crew_id . ' " onclick="return confirm(\'Are you sure you want to remove the member ' . $mem_first_name . ' ' . $mem_last_name . ' from the crew ' . $crew_name . '?\')"><i class="fa fa-times" aria-hidden="true"></i></a> ';
+
                   echo $mem_first_name . ' ' . $mem_last_name . ' -' . $role . '<br>';
                 }
               }
