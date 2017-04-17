@@ -69,7 +69,7 @@
         header("location: main_page.php");
       }
 
-      if(!empty($_POST)){
+      if(isset($_POST['submit'])){
 
         //translate the form inputs into php variables
         $title = $mysqli->escape_string($_POST['title']);
@@ -158,6 +158,12 @@
             <img src="https://cdn4.iconfinder.com/data/icons/IMPRESSIONS/multimedia/png/400/video.png"></img>
             <h4>
               <?php
+                if(isset($_POST['add_genre'])){
+                  include '../functions/add_genre_to_movie.php';
+                }
+                else if(isset($_POST['delete_genre'])){
+                  include '../functions/delete_genre_from_movie.php';
+                }
                 $is_genres_query = $mysqli->query("SELECT * FROM is_genres WHERE movie_id = $movie_id");
                 $first = true;
                 while ($is_genres_tuple = $is_genres_query->fetch_assoc()) {
@@ -175,7 +181,7 @@
                 }
               ?>
             </h4>
-            <form id="genre-form" method="post" action="../functions/delete_genre_from_movie.php">
+            <form id="genre-form" method="post" action="">
               <select name="genre_select" class="genres-select">
                 <?php
                 $genres_query = $mysqli->query("SELECT * FROM GENRE");
@@ -189,17 +195,9 @@
               <input style="display: none;" type="text" name="option" value="<?php echo $option; ?>">
               <input style="display: none;" type="text" name="sorting-option" value="<?php echo $sorting_option; ?>">
               <input style="display: none;" type="text" name="movie_id" value="<?php echo $movie_id; ?>">
-              <button name="delete_genre" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></button></a>
-              <button name="add_genre" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i></button></a><br><br>
+              <button form="genre-form" type="submit" name="delete_genre" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></button>
+              <button form="genre-form" type="submit" name="add_genre" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i></button><br><br>
             </form>
-            <?php
-              if(isset($_POST['delete_genre'])){
-                include '../functions/delete_genre_from_movie.php';
-              }
-              else if(isset($_POST['add_genre'])){
-
-              }
-            ?>
             <form method="post" action="">
               <input type="text" name="title" value="<?php echo $c_title;?>"><br>
               <input type="date" name="release_date" value="<?php echo $c_release_date;?>"><br>
