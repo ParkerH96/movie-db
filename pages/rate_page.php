@@ -235,8 +235,14 @@
 
                   echo '<div class="tag col-xs-6"><button class="tag-btn btn btn-info">';
                   if ($admin_tag == 1) {
-                    $address = "../functions/delete_tag_from_movie.php?movie_id=$c_movie_id&tag_id=$tag_id&search=$search&option=$option&sorting-option=$sorting_option&navigated-from=$navigation$genre_list";
-                    echo '<a class="light-x" href="'. $address .'" onclick="return confirm(\'Are you sure you want to remove the tag ' . $tag . ' from the database?\')"><i class="fa fa-times" aria-hidden="true"></i></a> ';
+                    if($search_flag){
+                      $address = "../functions/delete_tag_from_movie.php?movie_id=$c_movie_id&tag_id=$tag_id&search=$search&option=$option&sorting-option=$sorting_option&navigated-from=$navigation$genre_list";
+                      echo '<a class="light-x" href="'. $address .'" onclick="return confirm(\'Are you sure you want to remove the tag ' . $tag . ' from the database?\')"><i class="fa fa-times" aria-hidden="true"></i></a> ';
+                    }
+                    else{
+                      $address = "../functions/delete_tag_from_movie.php?movie_id=$c_movie_id&tag_id=$tag_id&navigated-from=$navigation";
+                      echo '<a class="light-x" href="'. $address .'" onclick="return confirm(\'Are you sure you want to remove the tag ' . $tag . ' from the database?\')"><i class="fa fa-times" aria-hidden="true"></i></a> ';
+                    }
                   }
                   echo $tag . ' (' . $counter . ')';
                   echo '</button></div>';
