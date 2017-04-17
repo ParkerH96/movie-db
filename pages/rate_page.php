@@ -272,7 +272,7 @@
                     } else {
                       $delete_address = "../functions/delete_tag_from_movie.php?movie_id=$c_movie_id&tag_id=$tag_id&navigated-from=$navigation";
                     }
-                    echo '<a class="light-x" href="'. $address .'" onclick="return confirm(\'Are you sure you want to remove the tag ' . $tag . ' from the database?\')"><i class="fa fa-times" aria-hidden="true"></i></a> ';
+                    echo '<a class="light-x" href="'. $delete_address .'" onclick="return confirm(\'Are you sure you want to remove the tag ' . $tag . ' from the database?\')"><i class="fa fa-times" aria-hidden="true"></i></a> ';
                   }
 
                   echo '<a href="' . $address . '"><button class="tag-btn btn btn-' . $btn_type . '">';
