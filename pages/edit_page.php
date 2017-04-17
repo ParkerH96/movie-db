@@ -60,6 +60,7 @@
         $c_language = $movie_tuple['language'];
         $c_duration = $movie_tuple['duration'];
         $c_trailer = $movie_tuple['trailer'];
+        $c_poster = $movie_tuple['poster'];
       }
       else {
         header("location: main_page.php");
@@ -74,10 +75,11 @@
         $language = $mysqli->escape_string($_POST['language']);
         $duration = $mysqli->escape_string($_POST['duration']);
         $trailer = $mysqli->escape_string($_POST['trailer']);
+        $poster = $mysqli->escape_string($_POST['poster']);
         $movie_id = $mysqli->escape_string($_GET['movie_id']);
 
         //create the insertion query using the form data
-        $update_query = $mysqli->query("UPDATE MOVIE SET title='$title', release_date='$release_date', summary='$summary', language='$language', duration='$duration', trailer='$trailer' WHERE movie_id=$movie_id");
+        $update_query = $mysqli->query("UPDATE MOVIE SET title='$title', release_date='$release_date', summary='$summary', language='$language', duration='$duration', trailer='$trailer', poster='$poster' WHERE movie_id=$movie_id");
 
         if($update_query){
 
@@ -157,11 +159,43 @@
             <img src="https://cdn4.iconfinder.com/data/icons/IMPRESSIONS/multimedia/png/400/video.png"></img>
             <form method="post" action="">
               <input type="text" name="title" value="<?php echo $c_title;?>"><br>
+              <h4>
+                <?php
+                  $is_genres_query = $mysqli->query("SELECT * FROM is_genres WHERE movie_id = $movie_id");
+                  $first = true;
+                  while ($is_genres_tuple = $is_genres_query->fetch_assoc()) {
+                    $genre_id = $is_genres_tuple['genre_id'];
+                    $genre_query = $mysqli->query("SELECT * FROM GENRE WHERE genre_id = $genre_id");
+                    if ($genre_tuple = $genre_query->fetch_assoc()) {
+                      $genre = $genre_tuple['genre'];
+                      if ($first) {
+                        echo $genre;
+                        $first = false;
+                      } else {
+                        echo ", $genre";
+                      }
+                    }
+                  }
+                ?>
+              </h4>
+              <select name="genre_select" class="genres-select">
+                <?php
+                $genres_query = $mysqli->query("SELECT * FROM GENRE");
+                while ($genres_tuple = $genres_query->fetch_assoc()) {
+                  $i_genre = $genres_tuple['genre'];
+                  $i_genre_id = $genres_tuple['genre_id'];
+                  echo '<option value="' . $i_genre_id .'">' . $i_genre . '</option>';
+                }
+                ?>
+              </select><br>
+              <a href="..."><button type="button" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i></button></a>
+              <a href="..."><button type="button" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></button></a><br><br>
               <input type="date" name="release_date" value="<?php echo $c_release_date;?>"><br>
-              <textarea name="summary" rows="4" cols="50"><?php echo $c_summary;?></textarea><br>
+              <textarea name="summary" rows="8" cols="50"><?php echo $c_summary;?></textarea><br>
               <input type="text" name="language" value="<?php echo $c_language;?>"><br>
               <input type="text" name="duration" value="<?php echo $c_duration;?>"><br>
               <input type="text" name="trailer" value="<?php echo $c_trailer;?>"><br>
+              <input type="text" name="poster" value="<?php echo $c_poster;?>"><br>
               <input class="databased-btn" type="submit" name="submit" value="Update Movie">
             </form>
           </div>

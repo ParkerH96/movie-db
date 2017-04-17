@@ -6,7 +6,7 @@
   margin-top: 60px;
 }
 
-.add-form input, textarea {
+.add-form input, textarea, select {
   height: 45px;
   width: 80%;
   max-width: 250px;
@@ -16,9 +16,17 @@
   border-radius: 4px;
 }
 
+.add-form textarea {
+  height: 100px;
+}
+
 .add-form img {
   width: 120px;
   height: 120px;
   margin-top: -60px;
   margin-bottom: 10px;
+}
+
+.genres-select {
+  margin-bottom: 5px;
 }

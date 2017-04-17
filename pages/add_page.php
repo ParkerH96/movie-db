@@ -38,6 +38,8 @@
 
     <?php
       include '../functions/session.php';
+      //connect to the database
+      include '../functions/connection.php';
 
       //makes sure no one can access this page if they are not a manager
       if($_SESSION['admin_tag'] != 1){
@@ -50,27 +52,41 @@
 
       if(!empty($_POST)){
 
-        //connect to the database
-        include '../functions/connection.php';
+
 
         //translate the form inputs into php variables
         $title = $mysqli->escape_string($_POST['title']);
+        $genre_id = $mysqli->escape_string($_POST['genre_select']);
         $release_date = $mysqli->escape_string($_POST['release_date']);
         $summary = $mysqli->escape_string($_POST['summary']);
         $language = $mysqli->escape_string($_POST['language']);
         $duration = $mysqli->escape_string($_POST['duration']);
+        $trailer = $mysqli->escape_string($_POST['trailer']);
+        $poster = $mysqli->escape_string($_POST['poster']);
 
         //create the insertion query using the form data
-        $insertion_query = $mysqli->query("INSERT INTO MOVIE(title, release_date, summary, language, duration) VALUES ('$title', '$release_date', '$summary', '$language', '$duration')");
+        $insertion_query = $mysqli->query("INSERT INTO MOVIE(title, release_date, summary, language, duration, trailer, poster) VALUES ('$title', '$release_date', '$summary', '$language', '$duration', '$trailer', '$poster')");
 
         if($insertion_query){
-          $_SESSION['message'] = 'Success! ' . $title . ' was added to the database!';
-          $_SESSION['status'] = 'Success';
 
-          header("location: main_page.php");
+          // http://php.net/manual/en/function.mysql-insert-id.php
+          $movie_id = mysqli_insert_id($mysqli);
+          echo $movie_id;
+
+          // assign the genre
+          $is_genres_query = $mysqli->query("INSERT INTO is_genres(movie_id, genre_id) VALUES ('$movie_id', '$genre_id')");
+
+          if ($is_genres_query) {
+            $_SESSION['message'] = 'Success! ' . $title . ' was added to the database!';
+            $_SESSION['status'] = 'Success';
+
+            header("location: main_page.php");
+          } else {
+            die("Error assigning genre");
+          }
         }
         else{
-          die("Error...");
+          die("Error inserting movie");
         }
       }
 
@@ -126,10 +142,22 @@
             <img src="https://cdn4.iconfinder.com/data/icons/IMPRESSIONS/multimedia/png/400/video.png"></img>
             <form method="post" action="">
               <input type="text" name="title" placeholder="Movie Title"><br>
+              <select name="genre_select">
+                <?php
+                  $genres_query = $mysqli->query("SELECT * FROM GENRE");
+                  while ($genres_tuple = $genres_query->fetch_assoc()) {
+                    $i_genre = $genres_tuple['genre'];
+                    $i_genre_id = $genres_tuple['genre_id'];
+                    echo '<option value="' . $i_genre_id .'">' . $i_genre . '</option>';
+                  }
+                ?>
+              </select><br>
               <input type="date" name="release_date"><br>
-              <textarea name="summary" rows="4" cols="50" placeholder="Enter text..."></textarea><br>
+              <textarea name="summary" rows="4" cols="50" placeholder="Enter summary..."></textarea><br>
               <input type="text" name="language" placeholder="Language"><br>
               <input type="text" name="duration" placeholder="hh:mm:ss"><br>
+              <input type="text" name="trailer" placeholder="Trailer"><br>
+              <input type="text" name="poster" placeholder="Poster"><br>
               <input class="databased-btn" type="submit" name="submit" value="Add Movie">
             </form>
           </div>
