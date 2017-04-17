@@ -32,6 +32,10 @@
       function Failure(){
         alert("Registration failed! Try again...");
       }
+
+      function Failure_User_Exists(){
+        alert("Registration failed! A user with that username already exists!");
+      }
     </script>
 
     <?php
@@ -52,13 +56,21 @@
         //Create the sql query
         $sql = "INSERT INTO USER(admin_tag, first_name, middle_name, last_name, dob, gender, username, password)
         VALUES (0, '$firstname', '$middlename', '$lastname', '$dob', '$gender', '$username', '$password');";
-        $result = $mysqli->query($sql);
 
-        if($result){
-          header("location: login.php");
+        $user_exist_query = $mysqli->query("SELECT * FROM USER WHERE username='$username'");
+
+        if($user_exist_query->num_rows == 0){
+          $result = $mysqli->query($sql);
+
+          if($result){
+            header("location: login.php");
+          }
+          else {
+            echo "<script type='text/javascript'> Failure(); </script>";
+          }
         }
-        else {
-          echo "<script type='text/javascript'> Failure(); </script>";
+        else{
+          echo "<script type='text/javascript'> Failure_User_Exists(); </script>";
         }
 
         //Close the connection
