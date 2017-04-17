@@ -276,8 +276,9 @@
                   }
 
                   echo '<a href="' . $address . '"><button class="tag-btn btn btn-' . $btn_type . '">';
-                  
-                  echo $tag . ' ('. $counter . ') ';
+
+                  echo $tag . ' - ('. $counter . ') ';
+
                   echo '</button></a></div>';
 
                 }
