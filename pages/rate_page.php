@@ -217,7 +217,7 @@
 
         <!-- PHP for displaying the current tags in the database of the movie -->
         <?php
-          $has_tags_query = $mysqli->query("SELECT * FROM has_tags WHERE movie_id = $c_movie_id");
+          $has_tags_query = $mysqli->query("SELECT DISTINCT movie_id, tag_id FROM has_tags WHERE movie_id = $c_movie_id");
 
           if($has_tags_query){
 
@@ -228,13 +228,45 @@
 
               if($tag_query){
 
-                $counter = 0;
                 while($tag_tuple = $tag_query->fetch_assoc()){
                   $tag = $tag_tuple['tag'];
-                  $counter++;
 
-                  echo '<div class="tag col-xs-6"><button class="tag-btn btn btn-info">';
-                  if ($admin_tag == 1) {
+                  $counter_query = $mysqli->query("SELECT COUNT(*) AS count FROM has_tags WHERE tag_id=$tag_id AND movie_id=$c_movie_id");
+                  $counter_tuple = $counter_query->fetch_assoc();
+                  $counter = $counter_tuple['count'];
+
+                  $tag_user_query = $mysqli->query("SELECT * FROM has_tags WHERE user_id=$user_id AND tag_id=$tag_id AND movie_id=$c_movie_id");
+                  if($tag_user_query->num_rows == 0){
+                    $user_vote = false;
+                  }
+                  else{
+                    $user_vote = true;
+                  }
+
+                  echo '<div class="tag col-xs-6">';
+
+                  if($search_flag){
+                    if($user_vote){
+                      $address = "../functions/unvote_tag.php?tag_id=$tag_id&option=$option&sorting-option=$sorting_option&movie_id=$c_movie_id&search=$search&navigated-from=$navigation";
+                      $btn_type = 'primary';
+                    }
+                    else{
+                      $address = "../functions/vote_tag.php?tag_id=$tag_id&option=$option&sorting-option=$sorting_option&movie_id=$c_movie_id&search=$search&navigated-from=$navigation";
+                      $btn_type = 'info';
+                    }
+                  }
+                  else{
+                    if($user_vote){
+                      $address = "../functions/unvote_tag.php?tag_id=$tag_id&movie_id=$c_movie_id&navigated-from=$navigation";
+                      $btn_type = 'primary';
+                    }
+                    else{
+                      $address = "../functions/vote_tag.php?tag_id=$tag_id&movie_id=$c_movie_id&navigated-from=$navigation";
+                      $btn_type = 'info';
+                    }
+                  }
+                  echo '<a href="' . $address . '"><button class="tag-btn btn btn-' . $btn_type . '">';
+                  /*if ($admin_tag == 1) {
                     if($search_flag){
                       $address = "../functions/delete_tag_from_movie.php?movie_id=$c_movie_id&tag_id=$tag_id&search=$search&option=$option&sorting-option=$sorting_option&navigated-from=$navigation$genre_list";
                       echo '<a class="light-x" href="'. $address .'" onclick="return confirm(\'Are you sure you want to remove the tag ' . $tag . ' from the database?\')"><i class="fa fa-times" aria-hidden="true"></i></a> ';
@@ -243,9 +275,9 @@
                       $address = "../functions/delete_tag_from_movie.php?movie_id=$c_movie_id&tag_id=$tag_id&navigated-from=$navigation";
                       echo '<a class="light-x" href="'. $address .'" onclick="return confirm(\'Are you sure you want to remove the tag ' . $tag . ' from the database?\')"><i class="fa fa-times" aria-hidden="true"></i></a> ';
                     }
-                  }
-                  echo $tag . ' (' . $counter . ')';
-                  echo '</button></div>';
+                  }*/
+                  echo $tag . ' ('. $counter . ') ';
+                  echo '</button></a></div>';
 
                 }
               }

@@ -137,7 +137,3 @@ label.star:before {
   width: 100%;
   margin-bottom: 10px;
 }
-
-.tag-btn:hover {
-  transform: scale(1.1);
-}

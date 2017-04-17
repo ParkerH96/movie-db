@@ -1,5 +1,6 @@
 <?php
   include 'connection.php';
+  include 'session.php';
 
   $tag = $mysqli->escape_string($_POST['tag']);
   $movie_id = $mysqli->escape_string($_POST['movie_id']);
@@ -37,10 +38,10 @@
 
       $tag_id = $tag_tuple['tag_id'];
 
-      $temp_query = $mysqli->query("SELECT * FROM has_tags WHERE tag_id = $tag_id AND movie_id = $movie_id");
+      $temp_query = $mysqli->query("SELECT * FROM has_tags WHERE tag_id = $tag_id AND movie_id = $movie_id AND user_id=$user_id");
 
       if($temp_query->num_rows == 0){
-        $insertion_query = $mysqli->query("INSERT INTO has_tags VALUES ($tag_id, $movie_id)");
+        $insertion_query = $mysqli->query("INSERT INTO has_tags VALUES ($tag_id, $movie_id, $user_id)");
       }
 
       if($navigation == 'search'){
