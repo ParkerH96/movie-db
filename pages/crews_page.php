@@ -106,7 +106,7 @@
         $select_crews_query = $mysqli->query("SELECT * FROM CREW");
         $select_members_query = $mysqli->query("SELECT * FROM MEMBER");
 
-        echo '<form method="post" action="">';
+        echo '<form method="post" action="../functions/add_member_to_crew.php">';
 
         echo '<select style="margin-left: 10px;" name="crew_select">';
         while($crew_current_row = $select_crews_query->fetch_assoc()){
@@ -141,15 +141,14 @@
         }
 
         echo '</select>';
-        echo ' <button type="submit" name="add_member" class="btn btn-success">Add Member</button> <button type="submit" name="delete_member" class="btn btn-danger">Delete Member</button>';
+        echo ' <button type="submit" name="add_member" class="btn btn-success">Add Member</button>';
         echo '</form>';
 
-        if(isset($_POST['add_member'])){
-          include '../functions/add_member_to_crew.php';
-        }
-        else if(isset($_POST['delete_member'])){
-          include '../functions/delete_member_from_crew.php';
-        }
+        echo '<br>';
+
+        echo '<form method="post" action="">
+
+              </form>';
 
         if(!empty($message) && $status == 'Success'){
           echo '<br><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' . $message . '</div>';
