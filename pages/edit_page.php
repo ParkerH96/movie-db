@@ -156,6 +156,9 @@
           <div class="col-md-3"></div>
           <div class="col-xs-12 col-md-6 add-form">
             <img src="https://cdn4.iconfinder.com/data/icons/IMPRESSIONS/multimedia/png/400/video.png"></img>
+            <?php
+              echo "<div class='well'><h2>$c_title</h2></div>";
+            ?>
             <h4>
               <?php
                 if(isset($_POST['add_genre'])){
