@@ -106,11 +106,11 @@
     		  die("Error.");
     		}
     	}
-      else{
+      /*else{
        $_SESSION['status'] = 'Failure';
        $_SESSION['message'] = 'You must enter a rating before submitting!';
-       //header("location: rate_page.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option&navigated-from=$navigation$genre_list");
-      }
+       header("location: rate_page.php?movie_id=$c_movie_id&search=$search&option=$option&sorting-option=$sorting_option&navigated-from=$navigation$genre_list");
+     }*/
 
     ?>
   </head>
