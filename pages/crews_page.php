@@ -85,19 +85,23 @@
       </div>
     </div>
     <div class="row page-content">
-
-      <form class="crew-forms" method="post" action="../functions/add_crew.php">
-        <div class='crew-form'>
-          <input class="crew-text-box" type="text" name="crew" placeholder="Crew">
-          <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Crew</button>
-        </div>
-      </form>
-      <form class="crew-forms" method="post" action="../functions/add_role.php">
-        <div class='crew-form'>
-          <input class="crew-text-box" type="text" name="role" placeholder="Role">
-          <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Role</button>
-        </div>
-      </form><br>
+      <div class="col-sm-12">
+      <h3>Add New Crews or Roles:</h3>
+      <div class="well">
+        <form class="crew-forms" method="post" action="../functions/add_crew.php">
+          <div class='crew-form'>
+            <input class="crew-text-box" type="text" name="crew" placeholder="Crew">
+            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Crew</button>
+          </div>
+        </form>
+        <form class="crew-forms" method="post" action="../functions/add_role.php">
+          <div class='crew-form'>
+            <input class="crew-text-box" type="text" name="role" placeholder="Role">
+            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Role</button>
+          </div>
+        </form>
+      </div>
+      <h3>Add Existing Members to Crews:</h3>
 
       <?php
         include '../functions/connection.php';
@@ -106,7 +110,7 @@
         $select_crews_query = $mysqli->query("SELECT * FROM CREW");
         $select_members_query = $mysqli->query("SELECT * FROM MEMBER");
 
-        echo '<form method="post" action="../functions/add_member_to_crew.php">';
+        echo '<div class="well"><form method="post" action="../functions/add_member_to_crew.php">';
 
         echo '<select style="margin-left: 10px;" name="crew_select">';
         while($crew_current_row = $select_crews_query->fetch_assoc()){
@@ -142,24 +146,25 @@
 
         echo '</select>';
         echo ' <button type="submit" class="btn btn-success">Add to Crew</button>';
-        echo '</form>';
+        echo '</form></div>';
 
-        echo '<br>';
+        echo '<h3>Add New Member to Database:</h3>';
 
-        echo '<form style="margin-left: 10px;" method="post" action="../functions/add_member.php">
+        echo '<div class="well"><form style="margin-left: 10px;" method="post" action="../functions/add_member.php">
                 <input type="text" name="first_name" placeholder="First Name" required>
                 <input type="text" name="middle_name" placeholder="Middle Name">
                 <input type="text" name="last_name" placeholder="Last Name" required>
                 <input type="date" name="dob" required>
                 <input type="text" name="gender" placeholder="Gender" required>
                 <input class="btn btn-success" type="submit" value="Add Member">
-              </form>';
+              </form></div>';
 
         $select_members_query = $mysqli->query("SELECT * FROM MEMBER");
         $select_crews_query = $mysqli->query("SELECT * FROM CREW");
         $select_movie_query = $mysqli->query("SELECT * FROM MOVIE");
 
-        echo '<form style="margin-left: 10px;" method="post" action="../functions/delete_member.php">';
+        echo '<h3>Delete Member from Database:</h3>';
+        echo '<div class="well"><form style="margin-left: 10px;" method="post" action="../functions/delete_member.php">';
         echo '<select name="member_select_delete">';
         while($member_current_row = $select_members_query->fetch_assoc()){
 
@@ -171,9 +176,11 @@
         }
 
         echo '</select> ';
-        echo '<input class="btn btn-danger" type="submit" value="Delete member"></form>';
+        echo '<input class="btn btn-danger" type="submit" value="Delete member"></form></div>';
 
-        echo '<form method="post" action="../functions/add_crew_to_movie.php">';
+        echo '<h3>Associate Existing Crew with Movie:</h3>';
+
+        echo '<div class="well"><form method="post" action="../functions/add_crew_to_movie.php">';
 
         echo '<select style="margin-left: 10px;" name="crew_select_movie">';
         while($crew_current_row = $select_crews_query->fetch_assoc()){
@@ -194,7 +201,7 @@
           echo '<option value="' . $curr_movie_id . '">' . $curr_title . '</option>';
         }
         echo '</select> ';
-        echo '<input class="btn btn-success" type="submit" value="Add to Movie">';
+        echo '<input class="btn btn-success" type="submit" value="Add to Movie"></form></div>';
 
 
         if(!empty($message) && $status == 'Success'){
@@ -267,6 +274,6 @@
 
       ?>
     </div>
-
+    </div>
   </body>
 </html>
