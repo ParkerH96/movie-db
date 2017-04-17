@@ -192,7 +192,7 @@
             echo '<a href="../pages/watchlist_page.php"><button class="btn btn-success"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Back to watch list</button></a>';
           }
           else if($navigation == 'home'){
-            echo '<a href="../pages/watchlist_page.php"><button class="btn btn-info"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Back to home page</button></a>';
+            echo '<a href="../pages/home_page.php"><button class="btn btn-info"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Back to home page</button></a>';
           }
         ?>
         <br><br>
