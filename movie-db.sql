@@ -132,8 +132,10 @@ CREATE TABLE has_tags
 (
   tag_id int NOT NULL,
   movie_id int NOT NULL,
+  user_id int NOT NULL,
   FOREIGN KEY (tag_id) REFERENCES TAGS(tag_id),
-  FOREIGN KEY (movie_id) REFERENCES MOVIE(movie_id)
+  FOREIGN KEY (movie_id) REFERENCES MOVIE(movie_id),
+  FOREIGN KEY (user_id) REFERENCES USER(user_id)
 );
 
 DROP TABLE IF EXISTS watch_list;
@@ -247,7 +249,7 @@ INSERT INTO is_genres(movie_id, genre_id) VALUES (1, 1), (2, 1), (3, 2), (3, 5),
 (10, 4), (12, 3), (12, 4), (11, 3), (11, 10), (13, 2), (13, 11), (14, 5), (15, 7), (15, 5), (16, 12), (16, 5), (17, 3), (17, 4), (18, 2), (18, 5), (19, 4), (19, 7), (20, 4), (20, 6), (21, 3),
 (21, 5), (22, 4), (22, 6), (30, 1), (30, 13), (29, 6), (29, 10), (28, 3), (28, 5), (27, 10), (27, 4), (26, 1), (26, 5), (25, 14), (25, 5), (24, 5), (24, 3), (23, 1);
 
-INSERT INTO has_tags(tag_id, movie_id) VALUES (1, 1), (1, 2), (5, 3), (7, 4), (8, 4), (2, 5), (3, 5), (4, 6), (9, 7), (2, 7), (1, 8), (6, 8), (10, 9), (8, 9), (8, 10), (7, 10);
+INSERT INTO has_tags VALUES (1, 1, 1), (1, 2, 2), (5, 3, 3), (7, 4, 4), (8, 4, 5), (2, 5, 6), (3, 5, 7), (4, 6, 8), (9, 7, 9), (2, 7, 10), (1, 8, 1), (6, 8, 2), (10, 9, 3), (8, 9, 4), (8, 10, 5), (7, 10, 6);
 
 INSERT INTO user_actions(user_id, movie_id, rating, review) VALUES
 (1, 1, 8, 'This movie was rather enjoyable and funny'),
