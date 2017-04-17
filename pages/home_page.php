@@ -84,25 +84,25 @@
 
         <!-- https://designshack.net/tutorialexamples/photobanner/index.html -->
         <div class="photobanner">
-          <img class="poster first" src="../images/posters/40yo-virgin.jpg">
-          <img class="poster" src="../images/posters/divergent.jpg">
-          <img class="poster" src="../images/posters/fight-club.jpg">
-          <img class="poster" src="../images/posters/force-awakens.jpg">
-          <img class="poster" src="../images/posters/frank.jpg">
-          <img class="poster" src="../images/posters/guardians.jpg">
-          <img class="poster" src="../images/posters/her.jpg">
-          <img class="poster" src="../images/posters/inception.jpg">
-          <img class="poster" src="../images/posters/interstellar.jpg">
-          <img class="poster" src="../images/posters/jaws.jpg">
-          <img class="poster" src="../images/posters/jurassic-park.jpg">
-          <img class="poster" src="../images/posters/titanic.jpg">
-          <img class="poster" src="../images/posters/40yo-virgin.jpg">
-          <img class="poster" src="../images/posters/divergent.jpg">
-          <img class="poster" src="../images/posters/fight-club.jpg">
-          <img class="poster" src="../images/posters/force-awakens.jpg">
-          <img class="poster" src="../images/posters/frank.jpg">
-          <img class="poster" src="../images/posters/guardians.jpg">
-          <img class="poster" src="../images/posters/her.jpg">
+          <a href="<?php echo "rate_page.php?movie_id=13&navigated-from=home"; ?>"><img class="poster first" src="../images/posters/40yo-virgin.jpg"></a>
+          <a href="<?php echo "rate_page.php?movie_id=22&navigated-from=home"; ?>"><img class="poster" src="../images/posters/divergent.jpg"></a>
+          <a href="<?php echo "rate_page.php?movie_id=14&navigated-from=home"; ?>"><img class="poster" src="../images/posters/fight-club.jpg"></a>
+          <a href="<?php echo "rate_page.php?movie_id=12&navigated-from=home"; ?>"><img class="poster" src="../images/posters/force-awakens.jpg"></a>
+          <a href="<?php echo "rate_page.php?movie_id=21&navigated-from=home"; ?>"><img class="poster" src="../images/posters/frank.jpg"></a>
+          <a href="<?php echo "rate_page.php?movie_id=11&navigated-from=home"; ?>"><img class="poster" src="../images/posters/guardians.jpg"></a>
+          <a href="<?php echo "rate_page.php?movie_id=18&navigated-from=home"; ?>"><img class="poster" src="../images/posters/her.jpg"></a>
+          <a href="<?php echo "rate_page.php?movie_id=20&navigated-from=home"; ?>"><img class="poster" src="../images/posters/inception.jpg"></a>
+          <a href="<?php echo "rate_page.php?movie_id=19&navigated-from=home"; ?>"><img class="poster" src="../images/posters/interstellar.jpg"></a>
+          <a href="<?php echo "rate_page.php?movie_id=15&navigated-from=home"; ?>"><img class="poster" src="../images/posters/jaws.jpg"></a>
+          <a href="<?php echo "rate_page.php?movie_id=17&navigated-from=home"; ?>"><img class="poster" src="../images/posters/jurassic-park.jpg"></a>
+          <a href="<?php echo "rate_page.php?movie_id=16&navigated-from=home"; ?>"><img class="poster" src="../images/posters/titanic.jpg"></a>
+          <a href="<?php echo "rate_page.php?movie_id=13&navigated-from=home"; ?>"><img class="poster" src="../images/posters/40yo-virgin.jpg"></a>
+          <a href="<?php echo "rate_page.php?movie_id=22&navigated-from=home"; ?>"><img class="poster" src="../images/posters/divergent.jpg"></a>
+          <a href="<?php echo "rate_page.php?movie_id=14&navigated-from=home"; ?>"><img class="poster" src="../images/posters/fight-club.jpg"></a>
+          <a href="<?php echo "rate_page.php?movie_id=12&navigated-from=home"; ?>"><img class="poster" src="../images/posters/force-awakens.jpg"></a>
+          <a href="<?php echo "rate_page.php?movie_id=21&navigated-from=home"; ?>"><img class="poster" src="../images/posters/frank.jpg"></a>
+          <a href="<?php echo "rate_page.php?movie_id=11&navigated-from=home"; ?>"><img class="poster" src="../images/posters/guardians.jpg"></a>
+          <a href="<?php echo "rate_page.php?movie_id=18&navigated-from=home"; ?>"><img class="poster" src="../images/posters/her.jpg"></a>
         </div>
 
       </div>
