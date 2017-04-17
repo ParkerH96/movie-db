@@ -128,7 +128,7 @@
                 <span class="small-title">Search By:</span>
                 <select name="option">
                   <option>Title</option>
-                  <option>Genre</option>
+                  <option>Crew</option>
                   <option>Tag</option>
                 </select>
                 <span class="small-title">Sort By:</span>
