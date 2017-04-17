@@ -21,7 +21,7 @@ if(!empty($_POST)){
 
     /*$_SESSION['status'] = 'Success';
     $_SESSION['message'] = 'Success! ' . $temp_mem_first_name . ' ' . $temp_mem_last_name . ' was added to ' . $temp_crew_name . '!';
-
+    */
     header("location: ../pages/crews_page.php");
   }
 
