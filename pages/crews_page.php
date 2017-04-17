@@ -180,7 +180,7 @@
 
         echo '<h3>Associate Existing Crew with Movie:</h3>';
 
-        echo '<div class="well"><form method="post" action="../functions/add_crew_to_movie.php">';
+        echo '<div class="well"><form method="post" action="">';
 
         echo '<select style="margin-left: 10px;" name="crew_select_movie">';
         while($crew_current_row = $select_crews_query->fetch_assoc()){
@@ -201,8 +201,15 @@
           echo '<option value="' . $curr_movie_id . '">' . $curr_title . '</option>';
         }
         echo '</select> ';
-        echo '<input class="btn btn-success" type="submit" value="Add to Movie"></form></div>';
+        echo '<input class="btn btn-success" name="add_crew_movie" type="submit" value="Add to Movie">
+              <input class="btn btn-danger" name="delete_crew_movie" type="submit" value="Delete from Movie"></form></div>';
 
+        if(isset($_POST['add_crew_movie'])){
+          include '../functions/add_crew_to_movie.php';
+        }
+        else if(isset($_POST['delete_crew_movie'])){
+          include '../functions/delete_crew_from_movie.php';
+        }
 
         if(!empty($message) && $status == 'Success'){
           echo '<br><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' . $message . '</div>';
