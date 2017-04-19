@@ -36,43 +36,55 @@
       function Failure_User_Exists(){
         alert("Registration failed! A user with that username already exists!");
       }
+
+      function Failure_Password(){
+        alert("Registration failed! The passwords did not match.");
+      }
     </script>
 
     <?php
       if(!empty($_POST)){
         include 'functions/connection.php';
 
-        //escape the strings
-        $firstname = $mysqli->escape_string($_POST['first-name']);
-        $middlename = $mysqli->escape_string($_POST['middle-name']);
-        $lastname = $mysqli->escape_string($_POST['last-name']);
-        $dob = $mysqli->escape_string($_POST['dob']);
-        $gender = $mysqli->escape_string($_POST['gender']);
-        $username = $mysqli->escape_string($_POST['username']);
-        $username = strtolower($username);
-        $password = $mysqli->escape_string($_POST['password']);
-		    $password = hash( "sha256", $password . $username );
+        $pass = $_POST['password'];
+        $confirm_pass = $_POST['confirm-password'];
 
-        //Create the sql query
-        $sql = "INSERT INTO USER(admin_tag, first_name, middle_name, last_name, dob, gender, username, password)
-        VALUES (0, '$firstname', '$middlename', '$lastname', '$dob', '$gender', '$username', '$password');";
+        if($pass == $confirm_pass){
 
-        $user_exist_query = $mysqli->query("SELECT * FROM USER WHERE username='$username'");
+          //escape the strings
+          $firstname = $mysqli->escape_string($_POST['first-name']);
+          $middlename = $mysqli->escape_string($_POST['middle-name']);
+          $lastname = $mysqli->escape_string($_POST['last-name']);
+          $dob = $mysqli->escape_string($_POST['dob']);
+          $gender = $mysqli->escape_string($_POST['gender']);
+          $username = $mysqli->escape_string($_POST['username']);
+          $username = strtolower($username);
+          $password = $mysqli->escape_string($_POST['password']);
+  		    $password = hash( "sha256", $password . $username );
 
-        if($user_exist_query->num_rows == 0){
-          $result = $mysqli->query($sql);
+          //Create the sql query
+          $sql = "INSERT INTO USER(admin_tag, first_name, middle_name, last_name, dob, gender, username, password)
+          VALUES (0, '$firstname', '$middlename', '$lastname', '$dob', '$gender', '$username', '$password');";
 
-          if($result){
-            header("location: login.php");
+          $user_exist_query = $mysqli->query("SELECT * FROM USER WHERE username='$username'");
+
+          if($user_exist_query->num_rows == 0){
+              $result = $mysqli->query($sql);
+
+              if($result){
+                header("location: login.php");
+              }
+              else {
+                echo "<script type='text/javascript'> Failure(); </script>";
+              }
           }
-          else {
-            echo "<script type='text/javascript'> Failure(); </script>";
+          else{
+            echo "<script type='text/javascript'> Failure_User_Exists(); </script>";
           }
         }
-        else{
-          echo "<script type='text/javascript'> Failure_User_Exists(); </script>";
+        else {
+          echo "<script type='text/javascript'> Failure_Password(); </script>";
         }
-
         //Close the connection
         $mysqli->close();
       }
@@ -94,6 +106,7 @@
                 <input type="text" name="gender" placeholder="Gender" required><br>
                 <input type="text" name="username" placeholder="Username" required><br>
                 <input type="password" name="password" placeholder="Password" required><br>
+                <input type="password" name="confirm-password" placeholder="Confirm Password" required><br>
               </div>
               <input type="submit" name="submit" value="Register" class="register-btn">
             </form>
