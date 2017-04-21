@@ -75,7 +75,7 @@
             $_SESSION['last_name'] = $row['last_name'];
             $_SESSION['admin_tag'] = $row['admin_tag'];
             $_SESSION['user_id'] = $row['user_id'];
-            $_SESSION['message'] = 'hello my name is parker';
+            $_SESSION['message'] = '';
             $_SESSION['status'] = '';
 
             $_SESSION['logged_in'] = true;
