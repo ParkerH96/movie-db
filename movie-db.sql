@@ -282,7 +282,8 @@ INSERT INTO MEMBER(first_name, middle_name, last_name, dob, gender) VALUES
 ('Scarlett', NULL, 'Johansson', '1984-11-22', 'Female'),
 ('Joaquin', 'Rafael', 'Phoenix', '1974-10-28', 'Male');
 
-INSERT INTO ROLE(role) VALUES ('Director'), ('Producer'), ('Screenwriter'), ('Actor'), ('Editor'), ('Production Designer'), ('Art Director'), ('Extra'), ('Cinematographer'), ('Tech');
+INSERT INTO ROLE(role) VALUES ('Director'), ('Producer'), ('Screenwriter'), ('Actor'), ('Editor'), ('Production Designer'), ('Art Director'), ('Extra'), ('Cinematographer'), ('Tech'), ('Sound Director'), ('Music Composer'), ('Casting Director'), ('Costume Designer'), ('Star'), ('Co-Star'), ('Executive Producer'), ('Writer'),
+('Visual Effects Supervisor'), ('Co-Producer'), ('Unit Production Manager'), ('Set Decorator'), ('Location Manager'), ('Cameraman'), ('Stunt Double'), ('Stylist'), ('Make-Up Artist'), ('Video Engineer'), ('Lighting Technician'), ('Animator');
 
 INSERT INTO has_members(crew_id, mem_id, role_id) VALUES (1, 1, 4), (2, 2, 4), (3, 3, 1), (4, 4, 5), (5, 5, 4), (6, 6, 3), (7, 7, 4), (8, 8, 9), (8, 9, 4), (9, 10, 4), (10, 26, 4), (10, 27, 4), (10, 28, 4), (5, 11, 4), (5, 13, 4), (11, 25, 4),
 (11, 16, 4), (12, 19, 5), (13, 19, 5), (14, 14, 4), (15, 12, 4), (16, 15, 4), (17, 17, 4), (13, 18, 4), (18, 20, 4), (19, 21, 4), (20, 22, 4);
@@ -305,4 +306,28 @@ INSERT INTO user_actions(user_id, movie_id, rating, review) VALUES
 (7, 7, 8, 'Definitely one of my favorite horror movies of all time!'),
 (8, 8, 8, 'I absolutely love sylvestor salone, and his role in this movie was outstanding!'),
 (9, 9, 10, 'This movie has to be the greatest marvel movie of all time! A must see!'),
-(10, 10, 6, 'It was good but not that good');
+(10, 10, 6, 'This movie is one of my secret pleasures. Believe me, great. Everyone tells me this. It\'s not good objectively. But it is a fun movie. America'),
+(11, 11, 10, 'Guardians of the galaxy set a standard for new marvel movies that will be hard to beat. Can\'t wait for part 2.'),
+(12, 12, 6, 'Meh.'),
+(13, 13, 10, ''),
+(14, 14, 8, 'A classic.'),
+(15, 15, 8, 'DUNDUNDUNDUNDUNDUNDUNDUDUNDUN'),
+(16, 16, 7, 'What movie is this?'),
+(17, 17, 4, 'Didn\'t watch it. Rating anyway.'),
+(18, 18, 10, 'Great movie. Very heartwarming.'),
+(19, 19, 8, 'Space Movie.'),
+(20, 20, 8, '2deep4u'),
+(21, 21, 10, 'Weird but good'),
+(29, 22, 2, 'Trash. Tried too hard to cash in on the Hunger Games crowd, which wasn\'t good source material to copy anyway.'),
+(23, 23, 8, 'Hilarious.'),
+(24, 24, 8, 'Amazing movie'),
+(25, 25, 7, 'What movie?'),
+(26, 26, 10, 'Great movie, and an american classic.'),
+(27, 27, 6, 'It was good but not that good.'),
+(28, 28, 10, 'An amazing story exploring the human condition and what love means'),
+(22, 29, 6, 'Very quotable, but as a movie, just ok.'),
+(30, 30, 8, 'Tenacious D is amazing');
+
+INSERT INTO watch_list(user_id, movie_id) VALUES (1, 1), (2, 2), (2, 3), (5, 1), (7, 1), (10, 10), (10, 11), (10, 20), (29, 22), (30, 12),
+(10, 4), (12, 3), (12, 4), (11, 3), (11, 10), (13, 2), (13, 11), (14, 5), (15, 7), (15, 5), (16, 12), (16, 5), (17, 3), (17, 4), (18, 2), (18, 5), (19, 4), (19, 7), (20, 4), (20, 6), (21, 3),
+(21, 5), (22, 4), (22, 6), (30, 1), (30, 13), (29, 6), (29, 10), (28, 3), (28, 5), (27, 10), (27, 4), (26, 1), (26, 5), (25, 14), (25, 5), (24, 5), (24, 3), (23, 1);
