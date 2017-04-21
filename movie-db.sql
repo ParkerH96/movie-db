@@ -248,7 +248,7 @@ INSERT INTO TAGS(tag) VALUES('funny'), ('scary'), ('suspenseful'), ('silly'), ('
 ('musical'), ('satire'), ('spoof'), ('slasher'), ('intense'), ('parody');
 
 INSERT INTO CREW(name) VALUES ('Deadpool-crew'), ('Thor-crew'), ('Grudge-crew'), ('Avengers-crew'), ('Neighbors-crew'), ('Expendables-crew'), ('Ring-crew'), ('Notebook-crew'), ('Psycho-crew'), ('Star Wars-crew'), ('Taken-crew'), ('40yo-virgin-crew'), ('Anchorman2-crew'), ('Forrest-crew'), ('Bruce-Almighty-crew'), ('guardians-crew'), ('Titanic-crew'), ('fight-club-crew'), ('Divergent-crew'),
-('Jurassic-park-crew');
+('Jurassic-park-crew'), ('Her-crew'), ('frank-crew'), ('hotel-budapest-crew'), ('interstellar-crew'), ('inception-crew'), ('jaws-crew'), ('hero6-crew'), ('Your-name-crew'), ('tenacious-crew'), ('crew30');
 
 INSERT INTO MEMBER(first_name, middle_name, last_name, dob, gender) VALUES
 ('Ryan', 'Rodney', 'Reynolds', '1976-10-23', 'Male'),
@@ -286,9 +286,10 @@ INSERT INTO ROLE(role) VALUES ('Director'), ('Producer'), ('Screenwriter'), ('Ac
 ('Visual Effects Supervisor'), ('Co-Producer'), ('Unit Production Manager'), ('Set Decorator'), ('Location Manager'), ('Cameraman'), ('Stunt Double'), ('Stylist'), ('Make-Up Artist'), ('Video Engineer'), ('Lighting Technician'), ('Animator');
 
 INSERT INTO has_members(crew_id, mem_id, role_id) VALUES (1, 1, 4), (2, 2, 4), (3, 3, 1), (4, 4, 5), (5, 5, 4), (6, 6, 3), (7, 7, 4), (8, 8, 9), (8, 9, 4), (9, 10, 4), (10, 26, 4), (10, 27, 4), (10, 28, 4), (5, 11, 4), (5, 13, 4), (11, 25, 4),
-(11, 16, 4), (12, 19, 5), (13, 19, 5), (14, 14, 4), (15, 12, 4), (16, 15, 4), (17, 17, 4), (13, 18, 4), (18, 20, 4), (19, 21, 4), (20, 22, 4);
+(11, 16, 4), (12, 19, 5), (13, 19, 5), (14, 14, 4), (15, 12, 4), (16, 15, 4), (17, 17, 4), (13, 18, 4), (18, 20, 4), (19, 21, 4), (20, 22, 4), (21, 29, 4), (21, 30, 4), (12, 23, 4);
 
-INSERT INTO has_crew(movie_id, crew_id) VALUES (1, 5), (2, 5), (3, 8), (4, 4), (5, 7), (6, 9), (7, 3), (8, 6), (9, 1), (10, 2), (12, 10), (23, 13), (13, 12), (29, 11), (26, 14), (24, 15), (11, 16), (16, 17), (14, 18), (22, 19), (17, 20);
+INSERT INTO has_crew(movie_id, crew_id) VALUES (1, 5), (2, 5), (3, 8), (4, 4), (5, 7), (6, 9), (7, 3), (8, 6), (9, 1), (10, 2), (12, 10), (23, 13), (13, 12), (29, 11), (26, 14), (24, 15), (11, 16), (16, 17), (14, 18), (22, 19), (17, 20), (18, 21), (21, 22), (25, 23),
+(19, 24), (20, 25), (15, 26), (27, 27), (28, 28), (30, 29);
 
 INSERT INTO is_genres(movie_id, genre_id) VALUES (1, 1), (2, 1), (3, 2), (3, 5), (4, 3), (4, 4), (5, 6), (5, 7), (6, 5), (6, 9), (7, 6), (7, 7), (8, 10), (8, 6), (9, 10), (9, 4), (10, 3),
 (10, 4), (12, 3), (12, 4), (11, 3), (11, 10), (13, 2), (13, 11), (14, 5), (15, 7), (15, 5), (16, 12), (16, 5), (17, 3), (17, 4), (18, 2), (18, 5), (19, 4), (19, 7), (20, 4), (20, 6), (21, 3),
