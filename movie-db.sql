@@ -225,7 +225,7 @@ INSERT INTO USER(admin_tag, first_name, middle_name, last_name, dob, gender, use
 INSERT INTO TAGS(tag) VALUES('funny'), ('scary'), ('suspenseful'), ('silly'), ('romantic'), ('hardcore'), ('superhero'), ('marvel'), ('gory'), ('adult'), ('action'), ('hero'), ('antihero'), ('competition'), ('corruption'), ('conspiracy'), ('criminal'), ('futuristic'), ('murder'), ('kidnapping'), ('parenthood'), ('supernatural'), ('fantasy'), ('fictional'),
 ('musical'), ('satire'), ('spoof'), ('slasher'), ('intense'), ('parody');
 
-INSERT INTO CREW(name) VALUES ('Deadpool-crew'), ('Thor-crew'), ('Grudge-crew'), ('Avengers-crew'), ('Neighbors-crew'), ('Expendables-crew'), ('Ring-crew'), ('Notebook-crew'), ('Psycho-crew'), ('crew10');
+INSERT INTO CREW(name) VALUES ('Deadpool-crew'), ('Thor-crew'), ('Grudge-crew'), ('Avengers-crew'), ('Neighbors-crew'), ('Expendables-crew'), ('Ring-crew'), ('Notebook-crew'), ('Psycho-crew'), ('Star Wars-crew');
 
 INSERT INTO MEMBER(first_name, middle_name, last_name, dob, gender) VALUES
 ('Ryan', 'Rodney', 'Reynolds', '1976-10-23', 'Male'),
@@ -237,7 +237,7 @@ INSERT INTO MEMBER(first_name, middle_name, last_name, dob, gender) VALUES
 ('Daveigh', 'Elizabeth', 'Chase', '1990-07-24', 'Female'),
 ('Robert', NULL, 'Fraisse', '1940-05-05', 'Male'),
 ('Rachel', 'Anne', 'McAdams', '1978-11-17', 'Female'),
-('Christian', 'Charles', 'Bale', '1974-01-30', 'Male');
+('Christian', 'Charles', 'Bale', '1974-01-30', 'Male'),
 ('Seth', 'Aaron', 'Rogen', '1982-04-15', 'Male'),
 ('Jim', 'Eugene', 'Carrey', '1962-01-17', 'Male'),
 ('Mary', 'Rose', 'Byrne', '1979-07-24', 'Female'),
