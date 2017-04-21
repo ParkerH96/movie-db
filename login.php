@@ -53,7 +53,7 @@
         //escape the strings
         $username = $mysqli->escape_string($_POST['username']);
         $password = $mysqli->escape_string($_POST['password']);
-
+        $username = strtolower($username);
 		    $password = hash ( "sha256", $password . $username );
 
         //Gather the query for finding the particular username
