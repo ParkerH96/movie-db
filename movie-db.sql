@@ -220,7 +220,29 @@ INSERT INTO USER(admin_tag, first_name, middle_name, last_name, dob, gender, use
 (0, 'Ashley', 'Anna', 'Householder', '1992-09-17', 'Female', 'aaho230', 'f600076ea2edeb7487c6f4d622c5f018bac4bd7b6caa6781b8f1d9db8da296d2'),
 (0, 'James', 'Bryan', 'Householder', '1963-09-17', 'Male', 'jbho231', '2f88f54f1ba682f86c86a81a1430cc0f0bedea61cec04af71ec2cd32eea941e2'),
 (0, 'Monica', 'Ott', 'Householder', '1967-03-14', 'Female', 'moho232', '4dfdad8afbcf7135eba27c9145aa62d0d0890dacdac1f459c19f9169f11745b6'),
-(0, 'Donald', 'John', 'Trump', '1946-05-14', 'Male', 'djtr233', '0cbf32966ac2ad6e21e5da39cf80e7203a04218b44edcca347afe435dd05bf3b');
+(0, 'Donald', 'John', 'Trump', '1946-05-14', 'Male', 'djtr233', '0cbf32966ac2ad6e21e5da39cf80e7203a04218b44edcca347afe435dd05bf3b'),
+(0, 'Caleb', 'Daniel', 'Settle', '1997-1-16', 'Male', 'cdse123', '2eaf32312fdr4323fy42315123dbb34345534132d1234as23d05afeca23421sz'),
+(0, 'Barack', 'Hussein', 'Obama', '1961-8-4', 'Male', 'bhob234', '54ab31feu263h7l78hagsb4mn6la71sh47126153h5kdas12938475as123412'),
+(0, 'Michelle', 'Lavaughn Robinson', 'Obama', '1964-1-17', 'Female', 'mlob234', 'w123412kahdyh27102da1231c3845mh1as2361slkru471w234231'),
+(0, 'Ben', 'Geza', 'Affleck', '1972-8-15', 'Male', 'bena123', 'w123412kahdyh27102da1231c3845mh1as2361slkru471w234231'),
+(0, 'Serena', 'Jameka', 'Williams', '1981-9-26', 'Female', 'sjwi232','0cbf32966ac2ad6e21e5da39cf80e7203a04218b44edcca347afe435dd05bf3b'),
+(0, 'Abraham', '', 'Lincoln', '1808-2-12', 'Male', 'abli243','0cfa231fe231f5e2abce31291283acef123abf13a98361bae3671b31b23'),
+(0, 'Christian', 'Charles', 'Bale', '1974-01-30', 'Male','crba231', '4de148bcfe23a59e1984bvee312a83712456867bae23e2434efc12ac'),
+(0, 'Thomas', 'Jeffrey', 'Hanks', '1956-07-09', 'Male', 'tjha254', '5dae321bcfe8574ae32ce345371aefcdc32d34d5612ab29681beca'),
+(0, 'John', 'William', 'Ferrell', '1967-07-16', 'Male', 'jwfe261', '31af31da2b3578ae3312e34aa3411b234bb3567a31aabe341fe3125'),
+(0, 'Rachel', 'Anne', 'McAdams', '1978-11-17', 'Female', 'rama324', '3bafe318267ad31ab361bbaef38162f293aabc317ef9371adf472'),
+(0, 'Christopher', 'Michael', 'Pratt', '1979-05-21', 'Male', 'cmpr321', '46821abf4fe35891abc948102a4371bbba3d31dbd21a3f3492a'),
+(0,'Liam', 'John', 'Neeson', '1952-05-07', 'Male', 'ljne352', '278abedaf15ab31bc42af43716afbae21ab3e16ba1937b2af41a3173ba'),
+(0, 'Scarlett', '', 'Johansson', '1984-11-22', 'Female', 'sjoh192', '564781a37b1a7fe716ab371fd231aic30182dab31a9173a31df451ff217'),
+(0, 'Edward', 'Harrison', 'Norton', '1969-08-18', 'Male', 'ehno353', 'a3fa33111la737102ab381fca2371daef1933b3e301abeff10381aa1127'),
+(0, 'Joaquin', 'Rafael', 'Phoenix', '1974-10-28', 'Male', 'jrph234', '746ab1253baf49ac471a431bb842f71973abed10baaa7361b3017362454'),
+(0, 'Leonardo', 'Wilhelm', 'DiCaprio', '1974-11-11', 'Male', 'lwdi432', '31abf3131d31adb31314566bbb345a4434ab213b456614bb4313aefca'),
+(0, 'Christian', 'Charles', 'Bale', '1974-01-30', 'Male', 'ccba102', 'ab3619ad8ef34f41316984b17aabe1837dde18a3aa103984f1417a0281d'),
+(0, 'Maggie', '', 'Grace', '1983-09-21', 'Female', 'mgra432', '723baf816abfe6451bacffff1324bd301afbabbe3039194f16ad5619471'),
+(0, 'Michael', 'Sylvester', 'Stallone', '1946-07-06', 'Male', 'msst241', '514b17b8173a8345b197ba301f165af4ab0389adb10d734123afbce61'),
+(0,'Jim', 'Eugene', 'Carrey', '1962-01-17', 'Male', 'jeca453', 'baef3165ad03816babdfcea39178f13f8d198a1039573fffec541a17f4130451');
+
+
 
 INSERT INTO TAGS(tag) VALUES('funny'), ('scary'), ('suspenseful'), ('silly'), ('romantic'), ('hardcore'), ('superhero'), ('marvel'), ('gory'), ('adult'), ('action'), ('hero'), ('antihero'), ('competition'), ('corruption'), ('conspiracy'), ('criminal'), ('futuristic'), ('murder'), ('kidnapping'), ('parenthood'), ('supernatural'), ('fantasy'), ('fictional'),
 ('musical'), ('satire'), ('spoof'), ('slasher'), ('intense'), ('parody');
