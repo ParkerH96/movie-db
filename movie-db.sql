@@ -221,7 +221,7 @@ INSERT INTO USER(admin_tag, first_name, middle_name, last_name, dob, gender, use
 (0, 'James', 'Bryan', 'Householder', '1963-09-17', 'Male', 'jbho231', '2f88f54f1ba682f86c86a81a1430cc0f0bedea61cec04af71ec2cd32eea941e2'),
 (0, 'Monica', 'Ott', 'Householder', '1967-03-14', 'Female', 'moho232', '4dfdad8afbcf7135eba27c9145aa62d0d0890dacdac1f459c19f9169f11745b6'),
 (0, 'Donald', 'John', 'Trump', '1946-05-14', 'Male', 'djtr233', '0cbf32966ac2ad6e21e5da39cf80e7203a04218b44edcca347afe435dd05bf3b'),
-(0, 'Caleb', 'Daniel', 'Settle' '1997-1-16', 'Male', 'cdse123', '2eaf32312fdr4323fy42315123dbb34345534132d1234as23d05afeca23421sz'),
+(0, 'Caleb', 'Daniel', 'Settle', '1997-1-16', 'Male', 'cdse123', '2eaf32312fdr4323fy42315123dbb34345534132d1234as23d05afeca23421sz'),
 (0, 'Barack', 'Hussein', 'Obama', '1961-8-4', 'Male', 'bhob234', '54ab31feu263h7l78hagsb4mn6la71sh47126153h5kdas12938475as123412'),
 (0, 'Michelle', 'Lavaughn Robinson', 'Obama', '1964-1-17', 'Female', 'mlob234', 'w123412kahdyh27102da1231c3845mh1as2361slkru471w234231'),
 (0, 'Ben', 'Geza', 'Affleck', '1972-8-15', 'Male', 'bena123', 'w123412kahdyh27102da1231c3845mh1as2361slkru471w234231'),
@@ -239,7 +239,7 @@ INSERT INTO USER(admin_tag, first_name, middle_name, last_name, dob, gender, use
 (0, 'Leonardo', 'Wilhelm', 'DiCaprio', '1974-11-11', 'Male', 'lwdi432', '31abf3131d31adb31314566bbb345a4434ab213b456614bb4313aefca'),
 (0, 'Christian', 'Charles', 'Bale', '1974-01-30', 'Male', 'ccba102', 'ab3619ad8ef34f41316984b17aabe1837dde18a3aa103984f1417a0281d'),
 (0, 'Maggie', '', 'Grace', '1983-09-21', 'Female', 'mgra432', '723baf816abfe6451bacffff1324bd301afbabbe3039194f16ad5619471'),
-(0 'Michael', 'Sylvester', 'Stallone', '1946-07-06', 'Male', 'msst241', '514b17b8173a8345b197ba301f165af4ab0389adb10d734123afbce61'),
+(0, 'Michael', 'Sylvester', 'Stallone', '1946-07-06', 'Male', 'msst241', '514b17b8173a8345b197ba301f165af4ab0389adb10d734123afbce61'),
 (0,'Jim', 'Eugene', 'Carrey', '1962-01-17', 'Male', 'jeca453', 'baef3165ad03816babdfcea39178f13f8d198a1039573fffec541a17f4130451');
 
 
