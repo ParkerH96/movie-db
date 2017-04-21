@@ -238,6 +238,26 @@ INSERT INTO MEMBER(first_name, middle_name, last_name, dob, gender) VALUES
 ('Robert', NULL, 'Fraisse', '1940-05-05', 'Male'),
 ('Rachel', 'Anne', 'McAdams', '1978-11-17', 'Female'),
 ('Christian', 'Charles', 'Bale', '1974-01-30', 'Male');
+('Seth', 'Aaron', 'Rogen', '1982-04-15', 'Male'),
+('Jim', 'Eugene', 'Carrey', '1962-01-17', 'Male'),
+('Mary', 'Rose', 'Byrne', '1979-07-24', 'Female'),
+('Thomas', 'Jeffrey', 'Hanks', '1956-07-09', 'Male'),
+('Christopher', 'Michael', 'Pratt', '1979-05-21', 'Male'),
+('Liam', 'John', 'Neeson', '1952-05-07', 'Male'),
+('Leonardo', 'Wilhelm', 'DiCaprio', '1974-11-11', 'Male'),
+('John', 'William', 'Ferrell', '1967-07-16', 'Male'),
+('Brent', NULL, 'White', '1950-03-04', 'Male'),
+('Edward', 'Harrison', 'Norton', '1969-08-18', 'Male'),
+('Shailene', 'Diann', 'Woodley', '1991-11-15', 'Female'),
+('Jeffrey', 'Lynn', 'Goldblum', '1952-10-22', 'Male'),
+('Steven', 'John', 'Carell', '1962-08-16', 'Male'),
+('Sarah', 'Michelle', 'Gellar', '1977-04-14', 'Female'),
+('Maggie', NULL, 'Grace', '1983-09-21', 'Female'),
+('Daisy', 'Isobel', 'Ridley', '1992-04-10', 'Female'),
+('Harrison', NULL, 'Ford', '1942-07-13', 'Male'),
+('Carrie', 'Frances', 'Fisher', '1956-10-21', 'Female'),
+('Scarlett', NULL, 'Johansson', '1984-11-22', 'Female'),
+('Joaquin', 'Rafael', 'Phoenix', '1974-10-28', 'Male');
 
 INSERT INTO ROLE(role) VALUES ('Director'), ('Producer'), ('Screenwriter'), ('Actor'), ('Editor'), ('Production Designer'), ('Art Director'), ('Extra'), ('Cinematographer'), ('Tech');
 
